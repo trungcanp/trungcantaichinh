@@ -1,54 +1,389 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tư Vấn Tài Chính - Trung Cần</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trung Cẩn Tài Chính - Giải pháp tài chính & So sánh gói vay uy tín</title>
+    <meta name="description" content="Cập nhật thông tin tài chính minh bạch, so sánh lãi suất khoản vay từ các ngân hàng và tổ chức tài chính hàng đầu Việt Nam.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --bg-light: #f8fafc;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            color: var(--text-main);
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-nav {
+            background-color: var(--accent-color);
+            color: white !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 5rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid #475569;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            border-color: white;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Callout Banner */
+        .banner {
+            background-color: #eff6ff;
+            border-top: 1px solid #dbeafe;
+            border-bottom: 1px solid #dbeafe;
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .banner-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .banner h2 {
+            font-size: 1.75rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .banner p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #94a3b8;
+            padding: 3rem 1.5rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col p, .footer-col ul li {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            list-style: none;
+        }
+
+        .footer-col ul li a {
+            color: #94a3b8;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; } /* Đơn giản hóa menu cho mobile */
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans pb-16">
-  <div class="max-w-md mx-auto p-4">
-    <!-- Profile Header -->
-    <div class="text-center py-6">
-      <div class="w-20 h-20 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3 shadow-lg">TC</div>
-      <h1 class="text-2xl font-bold text-gray-900">Trung Cần</h1>
-      <p class="text-sm text-blue-600 font-semibold mt-1">Chuyên Viên Tư Vấn Tài Chính</p>
-      <p class="text-xs text-gray-500 mt-1">Hỗ trợ Vay kinh doanh • Mở thẻ tín dụng • Bảo hiểm sức khỏe</p>
-    </div>
+<body>
 
-    <!-- Danh sách dịch vụ nổi bật -->
-    <div class="space-y-3">
-      <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
-        <div>
-          <h3 class="font-bold text-gray-900 text-sm">Vay Vốn & Tiêu Dùng</h3>
-          <p class="text-xs text-gray-500">Hạn mức cao, thủ tục nhanh</p>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <i class="fa-solid fa-shield-halved"></i> Trung Cẩn <span>Tài Chính</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Trang chủ</a>
+                <a href="/goivaynhanh">So sánh gói vay</a>
+                <a href="/goivaynhanh" class="btn-nav">Đăng ký vay ngay</a>
+            </div>
         </div>
-        <a href="https://zalo.me/0903101248" target="_blank" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-semibold rounded-lg shadow">Đăng ký</a>
-      </div>
+    </header>
 
-      <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
-        <div>
-          <h3 class="font-bold text-gray-900 text-sm">Mở Thẻ Tín Dụng</h3>
-          <p class="text-xs text-gray-500">Miễn lãi tối đa, hoàn tiền chi tiêu</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Giải Pháp Tài Chính Minh Bạch & Tối Ưu</h1>
+            <p>Cập nhật thông tin, so sánh lãi suất và kết nối trực tiếp với các tổ chức tín dụng hàng đầu một cách nhanh chóng, an toàn.</p>
+            <div class="hero-buttons">
+                <a href="/goivaynhanh" class="btn btn-primary">
+                    <i class="fa-solid fa-scale-balanced"></i> Xem bảng so sánh gói vay
+                </a>
+                <a href="https://zalo.me" target="_blank" class="btn btn-outline">
+                    <i class="fa-brands fa-zalo"></i> Tư vấn qua Zalo OA
+                </a>
+            </div>
         </div>
-        <a href="https://zalo.me/0903101248" target="_blank" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-semibold rounded-lg shadow">Mở thẻ</a>
-      </div>
+    </section>
 
-      <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
-        <div>
-          <h3 class="font-bold text-gray-900 text-sm">Bảo Hiểm Sức Khỏe</h3>
-          <p class="text-xs text-gray-500">Bảo lãnh viện phí toàn diện</p>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-title">
+            <h2>Tại sao nên chọn Trung Cẩn Tài Chính?</h2>
+            <p>Chúng tôi cung cấp công cụ so sánh khách quan giúp bạn tìm được gói vay phù hợp nhất.</p>
         </div>
-        <a href="https://zalo.me/0903101248" target="_blank" class="px-3 py-1.5 bg-blue-600 text-white text-xs font-semibold rounded-lg shadow">Tư vấn</a>
-      </div>
-    </div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                <h3>So sánh nhanh chóng</h3>
+                <p>Tổng hợp đầy đủ hạn mức, lãi suất và điều kiện từ nhiều ngân hàng & công ty tài chính chỉ trong 1 giao diện.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-lock"></i></div>
+                <h3>Bảo mật thông tin</h3>
+                <p>Cam kết bảo mật tuyệt đối dữ liệu cá nhân theo tiêu chuẩn an toàn thông tin, không làm phiền người dùng.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                <h3>Minh bạch & Khách quan</h3>
+                <p>Cung cấp thông tin rõ ràng về biểu phí, điều kiện vay giúp bạn chủ động hoàn toàn về kế hoạch tài chính.</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- Nút liên hệ cố định -->
-    <div class="mt-6 space-y-2">
-      <a href="https://zalo.me/0903101248" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md text-sm">
-        💬 Nhắn tin Zalo: 0903 101 248
-      </a>
-    </div>
-  </div>
+    <!-- Banner Callout -->
+    <section class="banner">
+        <div class="banner-container">
+            <h2>Bạn đang cần tìm gói vay phù hợp?</h2>
+            <p>Khám phá ngay danh sách các đối tác uy tín, xét duyệt nhanh và tỷ lệ giải ngân cao được cập nhật liên tục.</p>
+            <a href="/goivaynhanh" class="btn btn-primary">Truy cập công cụ so sánh ngay</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Trung Cẩn Tài Chính</h4>
+                <p>Nền tảng kết nối và so sánh giải pháp tài chính cá nhân uy tín, minh bạch hàng đầu.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Danh mục nhanh</h4>
+                <ul>
+                    <li><a href="/">Trang chủ</a></li>
+                    <li><a href="/goivaynhanh">So sánh gói vay</a></li>
+                    <li><a href="/goivaynhanh">Đăng ký khoản vay</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Pháp lý & Miễn trừ</h4>
+                <p>Chúng tôi là đơn vị trung gian so sánh thông tin tài chính, không trực tiếp giải ngân khoản vay. Mọi điều kiện phụ thuộc vào chính sách của đối tác cung cấp.</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 trungcantaichinh.com. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
