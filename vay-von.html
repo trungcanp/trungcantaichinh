@@ -634,7 +634,7 @@
     }
     .btn-submit-zalo {
       width: 100%;
-      background: #059669;
+      background: var(--primary-blue);
       color: #ffffff;
       border: none;
       padding: 13px;
@@ -642,10 +642,10 @@
       font-size: 13.5px;
       font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+      box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3);
       margin-top: 4px;
     }
-    .btn-submit-zalo:hover { background: #047857; }
+    .btn-submit-zalo:hover { background: var(--dark-blue); }
     .modal-note { font-size: 11px; color: var(--text-gray); text-align: center; margin-top: 10px; line-height: 1.4; }
 
     .accordion-btn {
@@ -693,7 +693,8 @@
 
     .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--bg-white); padding: 12px 16px; border-top: 1px solid var(--border-color); z-index: 999; box-shadow: 0 -4px 16px rgba(0,0,0,0.06); }
     .bottom-wrap { max-width: 600px; margin: 0 auto; }
-    .btn-zalo-fix { display: flex; align-items: center; justify-content: center; gap: 8px; background: #059669; color: #ffffff; text-decoration: none; padding: 12px; border-radius: 12px; font-size: 13.5px; font-weight: 800; }
+    .btn-zalo-fix { display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--primary-blue); color: #ffffff; text-decoration: none; padding: 12px; border-radius: 12px; font-size: 13.5px; font-weight: 800; box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3); }
+    .btn-zalo-fix:hover { background: var(--dark-blue); }
   </style>
 </head>
 <body>
@@ -711,7 +712,7 @@
       </div>
 
       <div class="header-inner">
-          <a href="/" class="brand-logo">
+          <a href="index.html" class="brand-logo">
               <img src="logo.png" alt="Logo Trung Cần"> Trung Cần Tài Chính
           </a>
 
@@ -722,7 +723,7 @@
           </div>
 
           <nav class="dropdown-menu" id="dropdownMenu">
-              <a href="/" class="menu-item">
+              <a href="index.html" class="menu-item">
                   <span><i class="fa-solid fa-house" style="width:22px; color:#1d4ed8;"></i> Trang chủ</span>
               </a>
               <div class="menu-item" id="productSubToggle">
@@ -734,10 +735,10 @@
                   <a href="#">• Thẻ tín dụng</a>
                   <a href="#">• Bảo hiểm</a>
               </div>
-              <a href="#" class="menu-item">
+              <a href="index.html" class="menu-item">
                   <span><i class="fa-solid fa-newspaper" style="width:22px; color:#1d4ed8;"></i> Blog</span>
               </a>
-              <a href="#ve-toi" class="menu-item">
+              <a href="index.html#ve-toi" class="menu-item">
                   <span><i class="fa-solid fa-user-check" style="width:22px; color:#1d4ed8;"></i> Về tôi</span>
               </a>
           </nav>
@@ -746,7 +747,7 @@
       <div class="laptop-nav-bar">
           <div class="laptop-nav-inner">
               <div class="laptop-menu-links">
-                  <a href="/">Trang Chủ</a>
+                  <a href="index.html">Trang Chủ</a>
                   <a href="vay-von.html" style="color: var(--primary-blue);">Vay Tiêu Dùng</a>
                   <a href="#">Thẻ Tín Dụng</a>
                   <a href="#">Kiến Thức CIC</a>
@@ -923,6 +924,7 @@
     const productsData = [
       {
         id: "tinvay-vietcredit",
+        status: "paused", // Tạm ngưng hiển thị
         categories: "vaynhanh",
         badges: ["Vay tiêu dùng", "Công Ty tài chính"],
         name: "Tin Vay (VietCredit)",
@@ -944,6 +946,7 @@
       },
       {
         id: "vpbank-tinchap",
+        status: "active",
         categories: "vaynhanh hancaovay",
         badges: ["Ngân hàng", "Vay tiêu dùng"],
         name: "VPBank Vay Tín Chấp",
@@ -966,6 +969,7 @@
       },
       {
         id: "fe-credit",
+        status: "active",
         categories: "vaynhanh hancaovay",
         badges: ["Công Ty tài chính", "Vay tiêu dùng"],
         name: "FE Credit",
@@ -989,6 +993,7 @@
       },
       {
         id: "home-credit",
+        status: "paused", // Tạm ngưng hiển thị
         categories: "vaynhanh hancaovay",
         badges: ["Công Ty tài chính", "Vay tiêu dùng"],
         name: "Home Credit",
@@ -1010,6 +1015,7 @@
       },
       {
         id: "tnex-msb",
+        status: "active",
         categories: "vaynhanh",
         badges: ["Ngân hàng", "Vay tiêu dùng"],
         name: "TNEX Vay nhanh",
@@ -1032,6 +1038,7 @@
       },
       {
         id: "mcredit",
+        status: "paused", // Tạm ngưng hiển thị
         categories: "vaynhanh",
         badges: ["Công Ty tài chính", "Vay tiêu dùng"],
         name: "MCredit Vay nhanh",
@@ -1053,6 +1060,7 @@
       },
       {
         id: "shb-finance",
+        status: "active",
         categories: "vaynhanh hancaovay luong",
         badges: ["Công Ty tài chính", "Vay tiêu dùng"],
         name: "SHB Finance",
@@ -1077,6 +1085,7 @@
       },
       {
         id: "vib-quick-cash",
+        status: "paused", // Tạm ngưng hiển thị
         categories: "vaynhanh",
         badges: ["Ngân hàng", "Vay tiêu dùng"],
         name: "VIB Quick Cash",
@@ -1102,6 +1111,7 @@
       },
       {
         id: "lotte-finance",
+        status: "active",
         categories: "hancaovay luong",
         badges: ["Công Ty tài chính", "Vay tiêu dùng"],
         name: "Lotte Finance",
@@ -1125,6 +1135,7 @@
       },
       {
         id: "cathay-bank",
+        status: "active",
         categories: "vaynhanh",
         badges: ["Ngân hàng", "Vay tiêu dùng"],
         name: "Cathay United Bank",
@@ -1147,6 +1158,7 @@
       },
       {
         id: "shinhan-finance",
+        status: "active",
         categories: "hancaovay luong",
         badges: ["Công Ty tài chính", "Vay tiêu dùng"],
         name: "Shinhan Finance",
@@ -1170,6 +1182,7 @@
       },
       {
         id: "vpbank-card",
+        status: "active",
         categories: "the",
         badges: ["Ngân hàng", "Thẻ tín dụng"],
         name: "VPBank Thẻ Tín Dụng",
@@ -1194,6 +1207,7 @@
       },
       {
         id: "tpbank-evo",
+        status: "active",
         categories: "the",
         badges: ["Ngân hàng", "Thẻ tín dụng"],
         name: "TPBank EVO Thẻ Tín Dụng",
@@ -1215,6 +1229,7 @@
       },
       {
         id: "tinvay-simviettel",
+        status: "active",
         categories: "vaynhanh",
         badges: ["Công Ty tài chính", "Vay tiêu dùng"],
         name: "Tinvay - Vay sim Viettel",
@@ -1236,6 +1251,7 @@
       },
       {
         id: "tpbank-vaynhanh",
+        status: "paused", // Tạm ngưng hiển thị
         categories: "vaynhanh",
         badges: ["Ngân hàng", "Vay tiêu dùng"],
         name: "TPBank Vay nhanh",
@@ -1257,6 +1273,7 @@
       },
       {
         id: "f88-cavet",
+        status: "active",
         categories: "vaynhanh hancaovay noxau",
         badges: ["Công Ty tài chính", "Vay tiêu dùng"],
         name: "F88 - Vay Cavet Xe",
@@ -1279,6 +1296,7 @@
       },
       {
         id: "cake-vpbank",
+        status: "paused", // Tạm ngưng hiển thị
         categories: "vaynhanh the",
         badges: ["Ngân hàng", "Vay tiêu dùng"],
         name: "Cake by VPBank",
@@ -1300,6 +1318,7 @@
       },
       {
         id: "hd-saison",
+        status: "paused", // Tạm ngưng hiển thị
         categories: "vaynhanh hancaovay",
         badges: ["Công Ty tài chính", "Vay tiêu dùng"],
         name: "HD SAISON Vay Tiêu Dùng",
@@ -1321,6 +1340,7 @@
       },
       {
         id: "mirae-asset",
+        status: "paused", // Tạm ngưng hiển thị
         categories: "vaynhanh hancaovay luong",
         badges: ["Công Ty tài chính", "Vay tiêu dùng"],
         name: "Mirae Asset Finance",
@@ -1343,6 +1363,7 @@
       },
       {
         id: "aeon-finance",
+        status: "paused", // Tạm ngưng hiển thị
         categories: "vaynhanh luong",
         badges: ["Công Ty tài chính", "Vay tiêu dùng"],
         name: "AEON Finance (AEONFS)",
@@ -1370,6 +1391,9 @@
       grid.innerHTML = '';
 
       productsData.forEach(item => {
+        // Kiểm tra nếu sản phẩm ở trạng thái tạm ngưng thì bỏ qua không hiển thị trên web
+        if (item.status === 'paused') return;
+
         let avatarContent = '';
         if (item.logo && item.logo !== "") {
           avatarContent = `<img src="${item.logo}" alt="${item.name}" onerror="this.outerHTML='<span style=\\'font-size: 24px;\\'>🏦</span>'">`;
