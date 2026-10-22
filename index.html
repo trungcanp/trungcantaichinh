@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trung Cẩn Tài Chính - Blog & Giải Pháp Vay Vốn Cá Nhân</title>
-    <meta name="description" content="Trang thông tin chính thức của Trung Cẩn - Chia sẻ kiến thức tài chính, so sánh giải pháp và kết nối khoản vay uy tín.">
+    <title>Trung Cần Tài Chính - Giải Pháp Vay Tiêu Dùng & Kiếm Tiền Affiliate</title>
+    <meta name="description" content="Chia sẻ kiến thức tài chính cá nhân, tổng hợp các gói vay uy tín và hướng dẫn kiếm tiền Affiliate thực chiến cùng Trung Cần.">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --bg-color: #fcfcfc;
-            --card-bg: #ffffff;
-            --text-main: #111827;
-            --text-muted: #4b5563;
+            --primary-blue: #1d4ed8;
+            --dark-blue: #1e3a8a;
+            --light-blue: #eff6ff;
+            --text-dark: #111827;
+            --text-gray: #4b5563;
+            --text-muted: #6b7280;
+            --bg-body: #f8fafc;
+            --bg-white: #ffffff;
             --border-color: #e5e7eb;
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
         }
 
         * {
@@ -28,261 +31,943 @@
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
             line-height: 1.6;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
         .container {
-            max-width: 640px;
+            max-width: 720px; /* Khung chuẩn giao diện đọc blog trên mobile & PC */
             margin: 0 auto;
-            padding: 3rem 1.25rem;
-            width: 100%;
+            padding: 0 1.25rem;
         }
 
-        /* Profile Section */
-        .profile {
-            text-align: center;
-            margin-bottom: 2.5rem;
+        /* =========================================
+           CSS KHỐI 1: HEADER, TÌM KIẾM & MENU SỔ XUỐNG
+           ========================================= */
+        header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
         }
 
-        .avatar-wrap {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 1.25rem;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #2563eb, #1e293b);
+        .header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .brand-logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-logo i {
+            color: var(--primary-blue);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-white);
+            color: var(--text-dark);
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .icon-btn:hover, .icon-btn.active {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        /* Thanh tìm kiếm ẩn/hiện */
+        .search-bar-wrap {
+            display: none;
+            background: var(--bg-white);
+            border-top: 1px solid var(--border-color);
+            padding: 0.75rem 1.25rem;
+        }
+
+        .search-bar-wrap.open {
+            display: block;
+        }
+
+        .search-input-box {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            gap: 8px;
+        }
+
+        .search-input-box input {
+            flex: 1;
+            padding: 0.65rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-input-box input:focus {
+            border-color: var(--primary-blue);
+        }
+
+        .search-input-box button {
+            background: var(--primary-blue);
             color: white;
-            font-size: 2.2rem;
-            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.25);
-            border: 3px solid white;
+            border: none;
+            padding: 0 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
         }
 
-        .profile h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 0.3rem;
+        /* Menu sổ xuống góc phải */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 1.25rem;
+            width: 260px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            padding: 0.5rem 0;
+            z-index: 1001;
+        }
+
+        .dropdown-menu.open {
+            display: block;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1.25rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .menu-item:hover {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+        }
+
+        .submenu {
+            display: none;
+            background: #f8fafc;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .submenu.open {
+            display: block;
+        }
+
+        .submenu a {
+            display: block;
+            padding: 0.65rem 1.25rem 0.65rem 2.25rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-gray);
+            transition: color 0.2s;
+        }
+
+        .submenu a:hover {
+            color: var(--primary-blue);
+            background: #f1f5f9;
+        }
+
+        /* =========================================
+           CSS KHỐI 2: PROFILE CHUYÊN GIA
+           ========================================= */
+        .profile-section {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .profile-card {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 6px;
+            gap: 1.25rem;
         }
 
-        .profile h1 i {
-            color: #2563eb;
+        .avatar-box {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 3px solid var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
+        }
+
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info h1 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 0.35rem;
+        }
+
+        .profile-info h1 i {
+            color: var(--primary-blue);
             font-size: 1.1rem;
         }
 
-        .profile p.bio {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            max-width: 480px;
-            margin: 0 auto;
+        .profile-info p {
+            font-size: 0.92rem;
+            color: var(--text-gray);
+            margin-bottom: 0.75rem;
         }
 
-        /* Link Buttons List (Phong cách Bio-link chuyên gia) */
-        .links-list {
+        .profile-socials {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 3rem;
+            gap: 0.6rem;
+            flex-wrap: wrap;
         }
 
-        .link-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 1rem 1.25rem;
+        .social-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            transition: all 0.2s;
+        }
+
+        .social-pill:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* =========================================
+           CSS KHỐI 3: SẢN PHẨM VAY HOT
+           ========================================= */
+        .section-heading {
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            margin-bottom: 1.25rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
-        .link-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.1);
+        .hot-loans-section {
+            margin-bottom: 3rem;
         }
 
-        .link-content {
+        .loans-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .loan-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .loan-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+            border-color: var(--primary-blue);
+        }
+
+        .badge-hot {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #ef4444;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .loan-brand {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 10px;
+            margin-bottom: 0.75rem;
         }
 
-        .link-icon {
+        .brand-avatar {
             width: 42px;
             height: 42px;
-            background: #eff6ff;
-            color: var(--accent);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: white;
             flex-shrink: 0;
         }
 
-        .link-text h3 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 0.1rem;
+        .loan-brand h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
         }
 
-        .link-text p {
+        .loan-details {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            list-style: none;
+        }
+
+        .loan-details li {
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .loan-details li i {
+            color: #16a34a;
             font-size: 0.8rem;
-            color: var(--text-muted);
         }
 
-        .link-arrow {
-            color: #9ca3af;
+        .btn-register {
+            display: block;
+            text-align: center;
+            background: var(--primary-blue);
+            color: white;
+            font-weight: 600;
             font-size: 0.9rem;
+            padding: 0.6rem;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .btn-register:hover {
+            background: var(--dark-blue);
+        }
+
+        .view-all-loans {
+            display: block;
+            text-align: center;
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.85rem;
+            border-radius: 10px;
+            border: 1px dashed var(--primary-blue);
+            transition: all 0.2s;
+        }
+
+        .view-all-loans:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* =========================================
+           CSS KHỐI 4: ĐỌC NHIỀU NHẤT (CHUẨN MẪU ẢNH)
+           ========================================= */
+        .blog-section {
+            margin-bottom: 3.5rem;
+        }
+
+        .post-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 2.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .post-thumb {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: #e2e8f0;
+        }
+
+        .post-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .post-card:hover .post-thumb img {
+            transform: scale(1.03);
+        }
+
+        .post-body {
+            padding: 1.5rem 1.25rem;
+        }
+
+        .post-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #1e40af; /* Màu xanh chuẩn như mẫu */
+            line-height: 1.35;
+            margin-bottom: 0.9rem;
+            display: block;
+        }
+
+        .post-title:hover {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .meta-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            flex-wrap: wrap;
+        }
+
+        .cat-badge {
+            background: #111827;
+            color: #ffffff;
+            padding: 3px 8px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            border-radius: 2px;
+        }
+
+        .post-author {
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .post-date {
+            color: #9ca3af;
+        }
+
+        /* Ô số bình luận màu đen có đuôi nhọn giống ảnh mẫu */
+        .comment-count {
+            background: #111827;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .comment-count::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 5px;
+            border-width: 4px 4px 0 0;
+            border-style: solid;
+            border-color: #111827 transparent transparent transparent;
+        }
+
+        .post-excerpt {
+            font-size: 0.95rem;
+            color: #6b7280;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .btn-readmore {
+            display: inline-block;
+            background: #1e40af;
+            color: #ffffff;
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 0.55rem 1.2rem;
+            border-radius: 2px;
+            transition: background 0.2s;
+        }
+
+        .btn-readmore:hover {
+            background: var(--primary-blue);
+        }
+
+        /* =========================================
+           CSS KHỐI 5: FOOTER & NÚT ZALO NỔI
+           ========================================= */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 2.5rem 0 2rem;
+            font-size: 0.88rem;
+        }
+
+        .footer-box {
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-box h4 {
+            color: #ffffff;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-box p {
+            margin-bottom: 0.4rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        /* Nút Zalo nổi góc phải dưới */
+        .floating-zalo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0068ff;
+            color: white;
+            padding: 0.7rem 1.1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 20px rgba(0, 104, 255, 0.35);
+            z-index: 999;
             transition: transform 0.2s;
         }
 
-        .link-card:hover .link-arrow {
-            color: var(--accent);
-            transform: translateX(3px);
+        .floating-zalo:hover {
+            transform: scale(1.05);
         }
 
-        /* Highlight Featured Link (Nút chính nổi bật) */
-        .link-card.featured {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            border: none;
-            color: white;
-            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
-        }
-
-        .link-card.featured .link-icon {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-
-        .link-card.featured .link-text h3,
-        .link-card.featured .link-text p {
-            color: white;
-        }
-
-        .link-card.featured .link-text p {
-            opacity: 0.85;
-        }
-
-        .link-card.featured .link-arrow {
-            color: white;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 1.5rem 0;
-            font-size: 0.8rem;
-            color: #9ca3af;
-            border-top: 1px solid var(--border-color);
-        }
-
-        footer p {
-            margin-bottom: 0.3rem;
+        @media (max-width: 576px) {
+            .loans-grid {
+                grid-template-columns: 1fr; /* Chuyển thành 1 cột to rõ trên màn hình nhỏ */
+            }
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-info h1, .profile-socials {
+                justify-content: center;
+            }
+            .post-thumb {
+                height: 190px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Profile Header -->
-        <div class="profile">
-            <div class="avatar-wrap">
-                <i class="fa-solid fa-user-tie"></i>
+    <!-- =================================================================
+         KHỐI 1: HEADER, NÚT TÌM KIẾM & MENU SỔ XUỐNG (GÓC TRÊN BÊN PHẢI)
+         ================================================================= -->
+    <header>
+        <div class="header-inner">
+            <!-- Logo thương hiệu -->
+            <a href="/" class="brand-logo">
+                <i class="fa-solid fa-chart-line"></i> Trung Cần Tài Chính
+            </a>
+
+            <!-- Cụm nút Kính lúp & Menu góc phải -->
+            <div class="header-actions">
+                <button class="icon-btn" id="searchToggle" title="Tìm kiếm">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button class="icon-btn" id="menuToggle" title="Danh mục">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
-            <h1>Trung Cẩn Tài Chính <i class="fa-solid fa-circle-check" title="Chuyên gia uy tín"></i></h1>
-            <p class="bio">Kênh thông tin tài chính minh bạch. Cung cấp công cụ so sánh giải pháp vay vốn an toàn, nhanh chóng từ các tổ chức uy tín hàng đầu.</p>
+
+            <!-- Menu sổ xuống -->
+            <nav class="dropdown-menu" id="dropdownMenu">
+                <!-- Mục Sản phẩm có menu con -->
+                <div class="menu-item" id="productSubToggle">
+                    <span><i class="fa-solid fa-box-open" style="width:22px; color:#1d4ed8;"></i> Sản phẩm</span>
+                    <i class="fa-solid fa-chevron-down" style="font-size:0.8rem;"></i>
+                </div>
+                <div class="submenu open" id="productSubmenu">
+                    <a href="/goivaynhanh">• Vay tiêu dùng</a>
+                    <a href="#">• Thẻ tín dụng</a>
+                    <a href="#">• Bảo hiểm</a>
+                </div>
+
+                <!-- Các mục khác (Để sẵn dấu # để bạn bổ sung link sau) -->
+                <a href="#" class="menu-item">
+                    <span><i class="fa-solid fa-newspaper" style="width:22px; color:#1d4ed8;"></i> Blog</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <span><i class="fa-solid fa-sack-dollar" style="width:22px; color:#1d4ed8;"></i> Kiếm tiền (Affiliate)</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <span><i class="fa-solid fa-user-check" style="width:22px; color:#1d4ed8;"></i> Về tôi</span>
+                </a>
+            </nav>
         </div>
 
-        <!-- Links Navigation -->
-        <div class="links-list">
+        <!-- Thanh nhập từ khóa tìm kiếm (Hiện ra khi bấm kính lúp) -->
+        <div class="search-bar-wrap" id="searchBar">
+            <div class="search-input-box">
+                <input type="text" id="searchInput" placeholder="Nhập gói vay hoặc chủ đề bạn muốn tìm...">
+                <button type="button" onclick="filterContent()">Tìm</button>
+            </div>
+        </div>
+    </header>
+    <!-- ================= KẾT THÚC KHỐI 1 ================= -->
+
+
+    <!-- =================================================================
+         KHỐI 2: THÔNG TIN CÁ NHÂN & LIÊN HỆ (PROFILE)
+         ================================================================= -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-card">
+                <div class="avatar-box">
+                    <!-- THAY LINK ẢNH ĐẠI DIỆN CỦA BẠN VÀO THUỘC TÍNH src="..." BÊN DƯỚI -->
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="Trung Cần">
+                </div>
+                <div class="profile-info">
+                    <h1>Trung Cần <i class="fa-solid fa-circle-check" title="Đã xác minh"></i></h1>
+                    <p>Chia sẻ kiến thức tài chính cá nhân, Tổng hợp các gói vay uy tín và hướng dẫn kiếm tiền Affiliate thực chiến.</p>
+                    <div class="profile-socials">
+                        <a href="https://zalo.me/0903101248" target="_blank" class="social-pill">
+                            <i class="fa-solid fa-comment-dots"></i> Zalo: 0903.101.248
+                        </a>
+                        <a href="/goivaynhanh" class="social-pill">
+                            <i class="fa-solid fa-bolt"></i> So sánh gói vay
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================= KẾT THÚC KHỐI 2 ================= -->
+
+
+    <main class="container">
+
+        <!-- =================================================================
+             KHỐI 3: CÁC SẢN PHẨM VAY HOT (VPBank, FE Credit, TNEX, SFinance)
+             ================================================================= -->
+        <section class="hot-loans-section">
+            <h2 class="section-heading">Sản Phẩm Vay Hot</h2>
             
-            <!-- Nút chính: So sánh gói vay (Dẫn thẳng sang repo gói vay) -->
-            <a href="/goivaynhanh" class="link-card featured">
-                <div class="link-content">
-                    <div class="link-icon">
-                        <i class="fa-solid fa-scale-balanced"></i>
+            <div class="loans-grid">
+                <!-- Sản phẩm 1: VPBank -->
+                <div class="loan-card searchable-item">
+                    <span class="badge-hot">Duyệt Tốt</span>
+                    <div>
+                        <div class="loan-brand">
+                            <div class="brand-avatar" style="background: #15803d;">VPB</div>
+                            <h3>VPBank</h3>
+                        </div>
+                        <ul class="loan-details">
+                            <li><i class="fa-solid fa-check"></i> Hạn mức lên đến 100 triệu</li>
+                            <li><i class="fa-solid fa-check"></i> Lãi suất ngân hàng ưu đãi</li>
+                            <li><i class="fa-solid fa-check"></i> Thủ tục online nhanh gọn</li>
+                        </ul>
                     </div>
-                    <div class="link-text">
-                        <h3>Mở Bảng So Sánh Gói Vay Nhanh</h3>
-                        <p>Tra cứu hạn mức, lãi suất và đăng ký khoản vay trực tuyến</p>
-                    </div>
+                    <!-- Đổi link href="/goivaynhanh" thành link Affiliate riêng nếu muốn -->
+                    <a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
                 </div>
-                <div class="link-arrow">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-            </a>
 
-            <!-- Nút liên hệ Zalo OA -->
-            <a href="https://zalo.me" target="_blank" class="link-card">
-                <div class="link-content">
-                    <div class="link-icon" style="color: #0068ff; background: #e0f2fe;">
-                        <i class="fa-brands fa-zalo"></i>
+                <!-- Sản phẩm 2: FE Credit -->
+                <div class="loan-card searchable-item">
+                    <span class="badge-hot">Dễ Duyệt</span>
+                    <div>
+                        <div class="loan-brand">
+                            <div class="brand-avatar" style="background: #16a34a;">FE</div>
+                            <h3>FE Credit</h3>
+                        </div>
+                        <ul class="loan-details">
+                            <li><i class="fa-solid fa-check"></i> Chỉ cần CCCD gắn chip</li>
+                            <li><i class="fa-solid fa-check"></i> Hỗ trợ tới 70 triệu đồng</li>
+                            <li><i class="fa-solid fa-check"></i> Giải ngân nhanh trong ngày</li>
+                        </ul>
                     </div>
-                    <div class="link-text">
-                        <h3>Tư Vấn Trực Tiếp Qua Zalo OA</h3>
-                        <p>Hỗ trợ giải đáp thắc mắc thủ tục hồ sơ 24/7</p>
-                    </div>
+                    <a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
                 </div>
-                <div class="link-arrow">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </div>
-            </a>
 
-            <!-- Nút tra cứu điều kiện / hướng dẫn -->
-            <a href="/goivaynhanh" class="link-card">
-                <div class="link-content">
-                    <div class="link-icon" style="color: #16a34a; background: #dcfce7;">
-                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                <!-- Sản phẩm 3: TNEX -->
+                <div class="loan-card searchable-item">
+                    <span class="badge-hot">100% Online</span>
+                    <div>
+                        <div class="loan-brand">
+                            <div class="brand-avatar" style="background: #2563eb;">TNEX</div>
+                            <h3>TNEX Finance</h3>
+                        </div>
+                        <ul class="loan-details">
+                            <li><i class="fa-solid fa-check"></i> Duyệt tự động trên App</li>
+                            <li><i class="fa-solid fa-check"></i> Không cần gặp mặt thẩm định</li>
+                            <li><i class="fa-solid fa-check"></i> Tiền về tài khoản tức thì</li>
+                        </ul>
                     </div>
-                    <div class="link-text">
-                        <h3>Điều Kiện & Thủ Tục Vay Vốn</h3>
-                        <p>Cẩm nang chuẩn bị hồ sơ vay theo lương, CCCD, cavet xe</p>
-                    </div>
+                    <a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
                 </div>
-                <div class="link-arrow">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </div>
-            </a>
 
-            <!-- Nút nhóm cộng đồng hoặc mạng xã hội phụ -->
-            <a href="#" target="_blank" class="link-card">
-                <div class="link-content">
-                    <div class="link-icon" style="color: #9333ea; background: #f3e8ff;">
-                        <i class="fa-solid fa-book-open-reader"></i>
+                <!-- Sản phẩm 4: SFinance -->
+                <div class="loan-card searchable-item">
+                    <span class="badge-hot">Hỗ Trợ Nhanh</span>
+                    <div>
+                        <div class="loan-brand">
+                            <div class="brand-avatar" style="background: #d97706;">SF</div>
+                            <h3>SFinance</h3>
+                        </div>
+                        <ul class="loan-details">
+                            <li><i class="fa-solid fa-check"></i> Gói vay tiêu dùng linh hoạt</li>
+                            <li><i class="fa-solid fa-check"></i> Điều kiện mở, tỷ lệ đậu cao</li>
+                            <li><i class="fa-solid fa-check"></i> Bảo mật thông tin khoản vay</li>
+                        </ul>
                     </div>
-                    <div class="link-text">
-                        <h3>Góc Kiến Thức & Mẹo Tài Chính</h3>
-                        <p>Chia sẻ kinh nghiệm quản lý tài chính và cải thiện điểm CIC</p>
-                    </div>
+                    <a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
                 </div>
-                <div class="link-arrow">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </div>
-            </a>
+            </div>
 
+            <a href="/goivaynhanh" class="view-all-loans">
+                Xem đầy đủ bảng so sánh tất cả gói vay <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </section>
+        <!-- ================= KẾT THÚC KHỐI 3 ================= -->
+
+
+        <!-- =================================================================
+             KHỐI 4: ĐỌC NHIỀU NHẤT (CHUẨN BỐ CỤC ẢNH MẪU)
+             ================================================================= -->
+        <section class="blog-section">
+            <h2 class="section-heading">Đọc Nhiều Nhất</h2>
+
+            <!-- BÀI VIẾT SỐ 1 -->
+            <article class="post-card searchable-item">
+                <div class="post-thumb">
+                    <a href="/goivaynhanh">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Kinh nghiệm vay tiêu dùng online">
+                    </a>
+                </div>
+                <div class="post-body">
+                    <a href="/goivaynhanh" class="post-title">
+                        5 Kinh Nghiệm Đăng Ký Vay Tiêu Dùng Online Tỷ Lệ Duyệt Cao Nhất 2026 (CHIA SẺ CHI TIẾT)
+                    </a>
+                    <div class="post-meta">
+                        <div class="meta-left">
+                            <span class="cat-badge">Kinh Nghiệm Vay</span>
+                            <span class="post-author">Trung Cần</span>
+                            <span class="post-date">- 15/10/2026</span>
+                        </div>
+                        <span class="comment-count">5</span>
+                    </div>
+                    <p class="post-excerpt">
+                        Rất nhiều bạn khi cần vốn gấp thường bấm đăng ký cùng lúc 5-7 tổ chức tài chính khác nhau mà không biết rằng điều này làm giảm điểm tín dụng nghiêm trọng...
+                    </p>
+                    <a href="/goivaynhanh" class="btn-readmore">Read more</a>
+                </div>
+            </article>
+
+            <!-- BÀI VIẾT SỐ 2 -->
+            <article class="post-card searchable-item">
+                <div class="post-thumb">
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80" alt="Hướng dẫn kiểm tra nợ xấu CIC">
+                    </a>
+                </div>
+                <div class="post-body">
+                    <a href="#" class="post-title">
+                        Hướng dẫn tự kiểm tra điểm tín dụng và nợ xấu CIC miễn phí trên điện thoại chỉ trong 3 phút
+                    </a>
+                    <div class="post-meta">
+                        <div class="meta-left">
+                            <span class="cat-badge">Kiến Thức Tài Chính</span>
+                            <span class="post-author">Trung Cần</span>
+                            <span class="post-date">- 10/10/2026</span>
+                        </div>
+                        <span class="comment-count">3</span>
+                    </div>
+                    <p class="post-excerpt">
+                        Trước khi nộp hồ sơ vay ngân hàng hoặc mở thẻ tín dụng, việc nắm rõ lịch sử tín dụng cá nhân trên hệ thống CIC sẽ giúp bạn chủ động chọn đúng gói vay dễ đậu nhất...
+                    </p>
+                    <a href="#" class="btn-readmore">Read more</a>
+                </div>
+            </article>
+
+            <!-- BÀI VIẾT SỐ 3 -->
+            <article class="post-card searchable-item">
+                <div class="post-thumb">
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Kiếm tiền Affiliate tài chính">
+                    </a>
+                </div>
+                <div class="post-body">
+                    <a href="#" class="post-title">
+                        Lộ trình xây dựng nguồn thu nhập thụ động từ Affiliate Tài Chính cho người mới bắt đầu
+                    </a>
+                    <div class="post-meta">
+                        <div class="meta-left">
+                            <span class="cat-badge">Kiếm Tiền Affiliate</span>
+                            <span class="post-author">Trung Cần</span>
+                            <span class="post-date">- 02/10/2026</span>
+                        </div>
+                        <span class="comment-count">8</span>
+                    </div>
+                    <p class="post-excerpt">
+                        Ngách tài chính (cài đặt App ngân hàng, mở thẻ tín dụng, giới thiệu gói vay) luôn nằm trong nhóm có mức hoa hồng cao và bền vững nhất nếu bạn biết cách xây dựng kênh...
+                    </p>
+                    <a href="#" class="btn-readmore">Read more</a>
+                </div>
+            </article>
+        </section>
+        <!-- ================= KẾT THÚC KHỐI 4 ================= -->
+
+    </main>
+
+
+    <!-- =================================================================
+         KHỐI 5: CHÂN TRANG (FOOTER) & NÚT ZALO HỖ TRỢ
+         ================================================================= -->
+    <footer>
+        <div class="container">
+            <div class="footer-box">
+                <h4>Trung Cần Tài Chính</h4>
+                <p>Kênh chia sẻ kiến thức tài chính cá nhân, đánh giá các gói vay uy tín và hướng dẫn kiếm tiền Affiliate thực chiến.</p>
+                <p><i class="fa-solid fa-phone" style="color:#60a5fa; margin-right:6px;"></i> Hotline / Zalo hỗ trợ: <strong>0903.101.248</strong></p>
+            </div>
+            <div class="footer-bottom">
+                <p>Miễn trừ trách nhiệm: Website cung cấp thông tin so sánh và đánh giá độc lập, không trực tiếp cho vay hay giải ngân.</p>
+                <p style="margin-top:0.4rem;">&copy; 2026 trungcantaichinh.com - Phát triển bởi Trung Cần.</p>
+            </div>
         </div>
+    </footer>
 
-        <!-- Footer -->
-        <footer>
-            <p><strong>Trung Cẩn Tài Chính</strong> &bull; Nền tảng kết nối thông tin trung gian.</p>
-            <p>&copy; 2026 trungcantaichinh.com. All rights reserved.</p>
-        </footer>
-    </div>
+    <!-- Nút Zalo nổi góc dưới màn hình -->
+    <a href="https://zalo.me/0903101248" target="_blank" class="floating-zalo">
+        <i class="fa-solid fa-comment-dots"></i> Chat Zalo Tư Vấn
+    </a>
+    <!-- ================= KẾT THÚC KHỐI 5 ================= -->
 
+
+    <!-- =================================================================
+         JAVASCRIPT XỬ LÝ MENU SỔ XUỐNG & TÌM KIẾM
+         ================================================================= -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const productSubToggle = document.getElementById('productSubToggle');
+        const productSubmenu = document.getElementById('productSubmenu');
+        const searchToggle = document.getElementById('searchToggle');
+        const searchBar = document.getElementById('searchBar');
+        const searchInput = document.getElementById('searchInput');
+
+        // Bật/tắt Menu góc phải
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('open');
+            menuToggle.classList.toggle('active');
+            searchBar.classList.remove('open');
+        });
+
+        // Bật/tắt mục con "Sản phẩm" trong Menu
+        productSubToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            productSubmenu.classList.toggle('open');
+        });
+
+        // Bật/tắt Thanh tìm kiếm
+        searchToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            searchBar.classList.toggle('open');
+            searchToggle.classList.toggle('active');
+            dropdownMenu.classList.remove('open');
+            if (searchBar.classList.contains('open')) {
+                searchInput.focus();
+            }
+        });
+
+        // Đóng menu khi bấm ra ngoài
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && e.target !== menuToggle) {
+                dropdownMenu.classList.remove('open');
+                menuToggle.classList.remove('active');
+            }
+        });
+
+        // Chức năng lọc nhanh bài viết & gói vay khi gõ tìm kiếm
+        function filterContent() {
+            const keyword = searchInput.value.toLowerCase().trim();
+            const items = document.querySelectorAll('.searchable-item');
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                item.style.display = text.includes(keyword) ? '' : 'none';
+            });
+        }
+
+        searchInput.addEventListener('keyup', filterContent);
+    </script>
 </body>
 </html>
