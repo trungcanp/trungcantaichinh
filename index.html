@@ -21,6 +21,1141 @@
             --bg-body: #f8fafc;
             --bg-white: #ffffff;
             --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 720px; /* Khung chuẩn giao diện đọc blog trên mobile & PC */
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        /* =========================================
+           CSS KHỐI 1: HEADER, TÌM KIẾM & MENU SỔ XUỐNG
+           ========================================= */
+        header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .brand-logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-logo i {
+            color: var(--primary-blue);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-white);
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .icon-btn:hover, .icon-btn.active {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        /* Thanh tìm kiếm ẩn/hiện */
+        .search-bar-wrap {
+            display: none;
+            background: var(--bg-white);
+            border-top: 1px solid var(--border-color);
+            padding: 0.75rem 1.25rem;
+        }
+
+        .search-bar-wrap.open {
+            display: block;
+        }
+
+        .search-input-box {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            gap: 8px;
+        }
+
+        .search-input-box input {
+            flex: 1;
+            padding: 0.65rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-input-box input:focus {
+            border-color: var(--primary-blue);
+        }
+
+        .search-input-box button {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Menu sổ xuống góc phải */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 1.25rem;
+            width: 260px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            padding: 0.5rem 0;
+            z-index: 1001;
+        }
+
+        .dropdown-menu.open {
+            display: block;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1.25rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .menu-item:hover {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+        }
+
+        .submenu {
+            display: none;
+            background: #f8fafc;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .submenu.open {
+            display: block;
+        }
+
+        .submenu a {
+            display: block;
+            padding: 0.65rem 1.25rem 0.65rem 2.25rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-gray);
+            transition: color 0.2s;
+        }
+
+        .submenu a:hover {
+            color: var(--primary-blue);
+            background: #f1f5f9;
+        }
+
+        /* =========================================
+           CSS KHỐI 2: PROFILE CHUYÊN GIA
+           ========================================= */
+        .profile-section {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .profile-card {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .avatar-box {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 3px solid var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
+        }
+
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info h1 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 0.35rem;
+        }
+
+        .profile-info h1 i {
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+        }
+
+        .profile-info p {
+            font-size: 0.92rem;
+            color: var(--text-gray);
+            margin-bottom: 0.75rem;
+        }
+
+        .profile-socials {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .social-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            transition: all 0.2s;
+        }
+
+        .social-pill:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* =========================================
+           CSS KHỐI 3: SẢN PHẨM VAY HOT
+           ========================================= */
+        .section-heading {
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hot-loans-section {
+            margin-bottom: 3rem;
+        }
+
+        .loans-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .loan-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .loan-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+            border-color: var(--primary-blue);
+        }
+
+        .badge-hot {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #ef4444;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .loan-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.75rem;
+        }
+
+        .brand-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .loan-brand h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .loan-details {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            list-style: none;
+        }
+
+        .loan-details li {
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .loan-details li i {
+            color: #16a34a;
+            font-size: 0.8rem;
+        }
+
+        .btn-register {
+            display: block;
+            text-align: center;
+            background: var(--primary-blue);
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.6rem;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .btn-register:hover {
+            background: var(--dark-blue);
+        }
+
+        .view-all-loans {
+            display: block;
+            text-align: center;
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.85rem;
+            border-radius: 10px;
+            border: 1px dashed var(--primary-blue);
+            transition: all 0.2s;
+        }
+
+        .view-all-loans:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* =========================================
+           CSS KHỐI 4: ĐỌC NHIỀU NHẤT (CHUẨN MẪU ẢNH)
+           ========================================= */
+        .blog-section {
+            margin-bottom: 3.5rem;
+        }
+
+        .post-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 2.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .post-thumb {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: #e2e8f0;
+        }
+
+        .post-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .post-card:hover .post-thumb img {
+            transform: scale(1.03);
+        }
+
+        .post-body {
+            padding: 1.5rem 1.25rem;
+        }
+
+        .post-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #1e40af; /* Màu xanh chuẩn như mẫu */
+            line-height: 1.35;
+            margin-bottom: 0.9rem;
+            display: block;
+        }
+
+        .post-title:hover {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .meta-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            flex-wrap: wrap;
+        }
+
+        .cat-badge {
+            background: #111827;
+            color: #ffffff;
+            padding: 3px 8px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            border-radius: 2px;
+        }
+
+        .post-author {
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .post-date {
+            color: #9ca3af;
+        }
+
+        /* Ô số bình luận màu đen có đuôi nhọn giống ảnh mẫu */
+        .comment-count {
+            background: #111827;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .comment-count::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 5px;
+            border-width: 4px 4px 0 0;
+            border-style: solid;
+            border-color: #111827 transparent transparent transparent;
+        }
+
+        .post-excerpt {
+            font-size: 0.95rem;
+            color: #6b7280;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .btn-readmore {
+            display: inline-block;
+            background: #1e40af;
+            color: #ffffff;
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 0.55rem 1.2rem;
+            border-radius: 2px;
+            transition: background 0.2s;
+        }
+
+        .btn-readmore:hover {
+            background: var(--primary-blue);
+        }
+
+        /* =========================================
+           CSS KHỐI 5: FOOTER & NÚT ZALO NỔI
+           ========================================= */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 2.5rem 0 2rem;
+            font-size: 0.88rem;
+        }
+
+        .footer-box {
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-box h4 {
+            color: #ffffff;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-box p {
+            margin-bottom: 0.4rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        /* Nút Zalo nổi góc phải dưới */
+        .floating-zalo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0068ff;
+            color: white;
+            padding: 0.7rem 1.1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 20px rgba(0, 104, 255, 0.35);
+            z-index: 999;
+            transition: transform 0.2s;
+        }
+
+        .floating-zalo:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 576px) {
+            .loans-grid {
+                grid-template-columns: 1fr; /* Chuyển thành 1 cột to rõ trên màn hình nhỏ */
+            }
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-info h1, .profile-socials {
+                justify-content: center;
+            }
+            .post-thumb {
+                height: 190px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =================================================================
+         KHỐI 1: HEADER, NÚT TÌM KIẾM & MENU SỔ XUỐNG (GÓC TRÊN BÊN PHẢI)
+         ================================================================= -->
+    <header>
+        <div class="header-inner">
+            <!-- Logo thương hiệu -->
+            <a href="/" class="brand-logo">
+                <i class="fa-solid fa-chart-line"></i> Trung Cần Tài Chính
+            </a>
+
+            <!-- Cụm nút Kính lúp & Menu góc phải -->
+            <div class="header-actions">
+                <button class="icon-btn" id="searchToggle" title="Tìm kiếm">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button class="icon-btn" id="menuToggle" title="Danh mục">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Menu sổ xuống -->
+            <nav class="dropdown-menu" id="dropdownMenu">
+                <!-- Mục Sản phẩm có menu con -->
+                <div class="menu-item" id="productSubToggle">
+                    <span><i class="fa-solid fa-box-open" style="width:22px; color:#1d4ed8;"></i> Sản phẩm</span>
+                    <i class="fa-solid fa-chevron-down" style="font-size:0.8rem;"></i>
+                </div>
+                <div class="submenu open" id="productSubmenu">
+                    <a href="/goivaynhanh">• Vay tiêu dùng</a>
+                    <a href="#">• Thẻ tín dụng</a>
+                    <a href="#">• Bảo hiểm</a>
+                </div>
+
+                <!-- Các mục khác (Để sẵn dấu # để bạn bổ sung link sau) -->
+                <a href="#" class="menu-item">
+                    <span><i class="fa-solid fa-newspaper" style="width:22px; color:#1d4ed8;"></i> Blog</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <span><i class="fa-solid fa-sack-dollar" style="width:22px; color:#1d4ed8;"></i> Kiếm tiền (Affiliate)</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <span><i class="fa-solid fa-user-check" style="width:22px; color:#1d4ed8;"></i> Về tôi</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Thanh nhập từ khóa tìm kiếm (Hiện ra khi bấm kính lúp) -->
+        <div class="search-bar-wrap" id="searchBar">
+            <div class="search-input-box">
+                <input type="text" id="searchInput" placeholder="Nhập gói vay hoặc chủ đề bạn muốn tìm...">
+                <button type="button" onclick="filterContent()">Tìm</button>
+            </div>
+        </div>
+    </header>
+    <!-- ================= KẾT THÚC KHỐI 1 ================= -->
+
+
+    <!-- =================================================================
+         KHỐI 2: THÔNG TIN CÁ NHÂN & LIÊN HỆ (PROFILE)
+         ================================================================= -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-card">
+                <div class="avatar-box">
+                    <!-- THAY LINK ẢNH ĐẠI DIỆN CỦA BẠN VÀO THUỘC TÍNH src="..." BÊN DƯỚI -->
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="Trung Cần">
+                </div>
+                <div class="profile-info">
+                    <h1>Trung Cần <i class="fa-solid fa-circle-check" title="Đã xác minh"></i></h1>
+                    <p>Chia sẻ kiến thức tài chính cá nhân, Tổng hợp các gói vay uy tín và hướng dẫn kiếm tiền Affiliate thực chiến.</p>
+                    <div class="profile-socials">
+                        <a href="https://zalo.me/0903101248" target="_blank" class="social-pill">
+                            <i class="fa-solid fa-comment-dots"></i> Zalo: 0903.101.248
+                        </a>
+                        <a href="/goivaynhanh" class="social-pill">
+                            <i class="fa-solid fa-bolt"></i> So sánh gói vay
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================= KẾT THÚC KHỐI 2 ================= -->
+
+
+    <main class="container">
+
+        <!-- =================================================================
+             KHỐI 3: CÁC SẢN PHẨM VAY HOT (VPBank, FE Credit, TNEX, SFinance)
+             ================================================================= -->
+        <section class="hot-loans-section">
+            <h2 class="section-heading">Sản Phẩm Vay Hot</h2>
+            
+            <div class="loans-grid">
+                <!-- Sản phẩm 1: VPBank -->
+                <div class="loan-card searchable-item">
+                    <span class="badge-hot">Duyệt Tốt</span>
+                    <div>
+                        <div class="loan-brand">
+                            <div class="brand-avatar" style="background: #15803d;">VPB</div>
+                            <h3>VPBank</h3>
+                        </div>
+                        <ul class="loan-details">
+                            <li><i class="fa-solid fa-check"></i> Hạn mức lên đến 100 triệu</li>
+                            <li><i class="fa-solid fa-check"></i> Lãi suất ngân hàng ưu đãi</li>
+                            <li><i class="fa-solid fa-check"></i> Thủ tục online nhanh gọn</li>
+                        </ul>
+                    </div>
+                    <!-- Đổi link href="/goivaynhanh" thành link Affiliate riêng nếu muốn -->
+                    <a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
+                </div>
+
+                <!-- Sản phẩm 2: FE Credit -->
+                <div class="loan-card searchable-item">
+                    <span class="badge-hot">Dễ Duyệt</span>
+                    <div>
+                        <div class="loan-brand">
+                            <div class="brand-avatar" style="background: #16a34a;">FE</div>
+                            <h3>FE Credit</h3>
+                        </div>
+                        <ul class="loan-details">
+                            <li><i class="fa-solid fa-check"></i> Chỉ cần CCCD gắn chip</li>
+                            <li><i class="fa-solid fa-check"></i> Hỗ trợ tới 70 triệu đồng</li>
+                            <li><i class="fa-solid fa-check"></i> Giải ngân nhanh trong ngày</li>
+                        </ul>
+                    </div>
+                    <a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
+                </div>
+
+                <!-- Sản phẩm 3: TNEX -->
+                <div class="loan-card searchable-item">
+                    <span class="badge-hot">100% Online</span>
+                    <div>
+                        <div class="loan-brand">
+                            <div class="brand-avatar" style="background: #2563eb;">TNEX</div>
+                            <h3>TNEX Finance</h3>
+                        </div>
+                        <ul class="loan-details">
+                            <li><i class="fa-solid fa-check"></i> Duyệt tự động trên App</li>
+                            <li><i class="fa-solid fa-check"></i> Không cần gặp mặt thẩm định</li>
+                            <li><i class="fa-solid fa-check"></i> Tiền về tài khoản tức thì</li>
+                        </ul>
+                    </div>
+                    <a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
+                </div>
+
+                <!-- Sản phẩm 4: SFinance -->
+                <div class="loan-card searchable-item">
+                    <span class="badge-hot">Hỗ Trợ Nhanh</span>
+                    <div>
+                        <div class="loan-brand">
+                            <div class="brand-avatar" style="background: #d97706;">SF</div>
+                            <h3>SFinance</h3>
+                        </div>
+                        <ul class="loan-details">
+                            <li><i class="fa-solid fa-check"></i> Gói vay tiêu dùng linh hoạt</li>
+                            <li><i class="fa-solid fa-check"></i> Điều kiện mở, tỷ lệ đậu cao</li>
+                            <li><i class="fa-solid fa-check"></i> Bảo mật thông tin khoản vay</li>
+                        </ul>
+                    </div>
+                    <a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
+                </div>
+            </div>
+
+            <a href="/goivaynhanh" class="view-all-loans">
+                Xem đầy đủ bảng so sánh tất cả gói vay <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </section>
+        <!-- ================= KẾT THÚC KHỐI 3 ================= -->
+
+
+        <!-- =================================================================
+             KHỐI 4: ĐỌC NHIỀU NHẤT (CHUẨN BỐ CỤC ẢNH MẪU)
+             ================================================================= -->
+        <section class="blog-section">
+            <h2 class="section-heading">Đọc Nhiều Nhất</h2>
+
+            <!-- BÀI VIẾT SỐ 1 -->
+            <article class="post-card searchable-item">
+                <div class="post-thumb">
+                    <a href="/goivaynhanh">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Kinh nghiệm vay tiêu dùng online">
+                    </a>
+                </div>
+                <div class="post-body">
+                    <a href="/goivaynhanh" class="post-title">
+                        5 Kinh Nghiệm Đăng Ký Vay Tiêu Dùng Online Tỷ Lệ Duyệt Cao Nhất 2026 (CHIA SẺ CHI TIẾT)
+                    </a>
+                    <div class="post-meta">
+                        <div class="meta-left">
+                            <span class="cat-badge">Kinh Nghiệm Vay</span>
+                            <span class="post-author">Trung Cần</span>
+                            <span class="post-date">- 15/10/2026</span>
+                        </div>
+                        <span class="comment-count">5</span>
+                    </div>
+                    <p class="post-excerpt">
+                        Rất nhiều bạn khi cần vốn gấp thường bấm đăng ký cùng lúc 5-7 tổ chức tài chính khác nhau mà không biết rằng điều này làm giảm điểm tín dụng nghiêm trọng...
+                    </p>
+                    <a href="/goivaynhanh" class="btn-readmore">Read more</a>
+                </div>
+            </article>
+
+            <!-- BÀI VIẾT SỐ 2 -->
+            <article class="post-card searchable-item">
+                <div class="post-thumb">
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80" alt="Hướng dẫn kiểm tra nợ xấu CIC">
+                    </a>
+                </div>
+                <div class="post-body">
+                    <a href="#" class="post-title">
+                        Hướng dẫn tự kiểm tra điểm tín dụng và nợ xấu CIC miễn phí trên điện thoại chỉ trong 3 phút
+                    </a>
+                    <div class="post-meta">
+                        <div class="meta-left">
+                            <span class="cat-badge">Kiến Thức Tài Chính</span>
+                            <span class="post-author">Trung Cần</span>
+                            <span class="post-date">- 10/10/2026</span>
+                        </div>
+                        <span class="comment-count">3</span>
+                    </div>
+                    <p class="post-excerpt">
+                        Trước khi nộp hồ sơ vay ngân hàng hoặc mở thẻ tín dụng, việc nắm rõ lịch sử tín dụng cá nhân trên hệ thống CIC sẽ giúp bạn chủ động chọn đúng gói vay dễ đậu nhất...
+                    </p>
+                    <a href="#" class="btn-readmore">Read more</a>
+                </div>
+            </article>
+
+            <!-- BÀI VIẾT SỐ 3 -->
+            <article class="post-card searchable-item">
+                <div class="post-thumb">
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Kiếm tiền Affiliate tài chính">
+                    </a>
+                </div>
+                <div class="post-body">
+                    <a href="#" class="post-title">
+                        Lộ trình xây dựng nguồn thu nhập thụ động từ Affiliate Tài Chính cho người mới bắt đầu
+                    </a>
+                    <div class="post-meta">
+                        <div class="meta-left">
+                            <span class="cat-badge">Kiếm Tiền Affiliate</span>
+                            <span class="post-author">Trung Cần</span>
+                            <span class="post-date">- 02/10/2026</span>
+                        </div>
+                        <span class="comment-count">8</span>
+                    </div>
+                    <p class="post-excerpt">
+                        Ngách tài chính (cài đặt App ngân hàng, mở thẻ tín dụng, giới thiệu gói vay) luôn nằm trong nhóm có mức hoa hồng cao và bền vững nhất nếu bạn biết cách xây dựng kênh...
+                    </p>
+                    <a href="#" class="btn-readmore">Read more</a>
+                </div>
+            </article>
+        </section>
+        <!-- ================= KẾT THÚC KHỐI 4 ================= -->
+
+    </main>
+
+
+    <!-- =================================================================
+         KHỐI 5: CHÂN TRANG (FOOTER) & NÚT ZALO HỖ TRỢ
+         ================================================================= -->
+    <footer>
+        <div class="container">
+            <div class="footer-box">
+                <h4>Trung Cần Tài Chính</h4>
+                <p>Kênh chia sẻ kiến thức tài chính cá nhân, đánh giá các gói vay uy tín và hướng dẫn kiếm tiền Affiliate thực chiến.</p>
+                <p><i class="fa-solid fa-phone" style="color:#60a5fa; margin-right:6px;"></i> Hotline / Zalo hỗ trợ: <strong>0903.101.248</strong></p>
+            </div>
+            <div class="footer-bottom">
+                <p>Miễn trừ trách nhiệm: Website cung cấp thông tin so sánh và đánh giá độc lập, không trực tiếp cho vay hay giải ngân.</p>
+                <p style="margin-top:0.4rem;">&copy; 2026 trungcantaichinh.com - Phát triển bởi Trung Cần.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nút Zalo nổi góc dưới màn hình -->
+    <a href="https://zalo.me/0903101248" target="_blank" class="floating-zalo">
+        <i class="fa-solid fa-comment-dots"></i> Chat Zalo Tư Vấn
+    </a>
+    <!-- ================= KẾT THÚC KHỐI 5 ================= -->
+
+
+    <!-- =================================================================
+         JAVASCRIPT XỬ LÝ MENU SỔ XUỐNG & TÌM KIẾM
+         ================================================================= -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const productSubToggle = document.getElementById('productSubToggle');
+        const productSubmenu = document.getElementById('productSubmenu');
+        const searchToggle = document.getElementById('searchToggle');
+        const searchBar = document.getElementById('searchBar');
+        const searchInput = document.getElementById('searchInput');
+
+        // Bật/tắt Menu góc phải
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('open');
+            menuToggle.classList.toggle('active');
+            searchBar.classList.remove('open');
+        });
+
+        // Bật/tắt mục con "Sản phẩm" trong Menu
+        productSubToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            productSubmenu.classList.toggle('open');
+        });
+
+        // Bật/tắt Thanh tìm kiếm
+        searchToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            searchBar.classList.toggle('open');
+            searchToggle.classList.toggle('active');
+            dropdownMenu.classList.remove('open');
+            if (searchBar.classList.contains('open')) {
+                searchInput.focus();
+            }
+        });
+
+        // Đóng menu khi bấm ra ngoài
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && e.target !== menuToggle) {
+                dropdownMenu.classList.remove('open');
+                menuToggle.classList.remove('active');
+            }
+        });
+
+        // Chức năng lọc nhanh bài viết & gói vay khi gõ tìm kiếm
+        function filterContent() {
+            const keyword = searchInput.value.toLowerCase().trim();
+            const items = document.querySelectorAll('.searchable-item');
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                item.style.display = text.includes(keyword) ? '' : 'none';
+            });
+        }
+
+        searchInput.addEventListener('keyup', filterContent);
+    </script>
+</body>
+</html>
+💡 Hướng dẫn chỉnh sửa nhanh cho bạn sau này:
+Đổi ảnh đại diện cá nhân: Bạn tìm dòng <!-- KHỐI 2: THÔNG TIN CÁ NHÂN & LIÊN HỆ -->, thay đường dẫn trong src="..." của thẻ <img> bằng link ảnh thật của bạn.
+
+Đổi link các mục trên Menu sổ xuống: Tìm <!-- KHỐI 1... -->, thay dấu # ở các mục Thẻ tín dụng, Bảo hiểm, Blog, Kiếm tiền, Về tôi khi bạn tạo xong các trang con trên GitHub.
+
+Đổi link nút "Đăng ký ngay" ở 4 gói vay Hot: Tìm <!-- KHỐI 3... -->, hiện tại cả 4 nút đang dẫn về /goivaynhanh, bạn có thể giữ nguyên hoặc dán trực tiếp link Affiliate của từng chiến dịch vào thuộc tính href="...".
+
+Bạn hãy copy đoạn code trên dán đè vào file index.html trên kho trungcanp.github.io, đợi khoảng 1 phút rồi vào lại trungcantaichinh.com xem giao diện mới nhé! Nếu muốn tinh chỉnh thêm màu sắc hay kích thước phần nào, bạn cứ báo mình.
+
+Bắt đầu điều chỉnh nhé. khoan code đến khi tôi yêu cầu
+
+Đã rõ! Mình sẽ không viết code cho đến khi bạn yêu cầu.
+
+Chúng ta sẽ thảo luận chi tiết từng phần trước. Bạn muốn bắt đầu điều chỉnh từ khối nào trước: thanh Header, phần Profile, khối Sản phẩm Hot hay phần Bài viết?
+
+Bạn có thể tự đưa hình ảnh tôi gửi lên đây vào code dc à
+
+Hình ảnh bạn gửi trực tiếp vào khung chat này chỉ lưu nội bộ trong cuộc trò chuyện nên không tự sinh ra đường link công khai để website trên GitHub tự hiển thị được. Tuy nhiên, có 2 cách cực kỳ đơn giản để đưa hình ảnh của bạn vào code mà vẫn giữ cho file code gọn gàng, dễ chỉnh sửa:
+
+Cách 1: Tải ảnh lên kho GitHub của bạn (Chuẩn và bền vững nhất)
+Trong code index.html, mình sẽ đặt sẵn các tên file ngắn gọn, dễ nhớ cho bạn (ví dụ: avatar.jpg cho ảnh đại diện, anh-bai-1.jpg cho bài viết).
+
+Khi lưu code xong, bạn chỉ cần vào kho trungcanp.github.io trên GitHub 
+→ bấm Add file 
+→ Upload files 
+→ chọn ảnh từ điện thoại của bạn tải lên và đặt đúng tên avatar.jpg.
+
+Ngay lập tức trang web sẽ tự động nhận và hiển thị bức ảnh đó, không bao giờ sợ bị lỗi hay mất ảnh.
+
+Cách 2: Bạn gửi ảnh lên đây để mình xử lý giúp
+Với ảnh cá nhân / ảnh bài viết: Nếu ảnh của bạn kích thước chưa chuẩn hoặc quá nặng, bạn cứ gửi lên khung chat này. Mình có thể tự động cắt chỉnh về đúng khung hình tròn/chữ nhật đẹp mắt, nén nhẹ lại và xuất ra sẵn file tên chuẩn (như avatar.jpg) để bạn chỉ việc bấm tải về điện thoại rồi up lên GitHub.
+
+Với logo ngân hàng / tổ chức tài chính (VPBank, FE Credit, TNEX...): Bạn chỉ cần nói tên hoặc gửi ảnh mẫu lên đây để mình xem kiểu dáng bạn thích, mình sẽ lấy đường link logo sắc nét có sẵn trên mạng gắn thẳng vào code cho bạn mà bạn không cần phải tải ảnh lên.
+
+Bạn thấy dùng Cách 1 (đặt tên file sẵn rồi tải ảnh lên GitHub) hay bạn muốn gửi thử các hình ảnh bạn định dùng lên đây trước để mình xem và sắp xếp bố cục cho khớp?
+
+À tại mình thấy bạn có add sẵn các hình ảnh trên code là lấy từ đâu
+
+Các hình ảnh có sẵn trong đoạn code đó được mình lấy trực tiếp từ Unsplash (images.unsplash.com) – kho ảnh chất lượng cao miễn phí bản quyền lớn nhất thế giới dành cho các nhà phát triển web.
+
+Sở dĩ các bức ảnh đó hiển thị được ngay lập tức trên trang web của bạn là vì:
+
+Đã có sẵn đường link công khai trên Internet: Mỗi bức ảnh trên Unsplash đều có một địa chỉ liên kết riêng (bắt đầu bằng [https://images.unsplash.com/](https://images.unsplash.com/)...). Mình đã chọn sẵn các bức ảnh có chủ đề phù hợp (chân dung doanh nhân, sổ sách tài chính, thẻ tín dụng, biểu đồ tăng trưởng) và gắn đường link của chúng vào thuộc tính src="..." trong code.
+
+Không cần tải file lên GitHub: Trình duyệt khi mở trang trungcantaichinh.com sẽ tự động tải ảnh trực tiếp từ máy chủ của Unsplash về hiển thị, giúp bạn hình dung ngay được giao diện hoàn chỉnh mà chưa cần phải tự tay tải từng tấm ảnh lên.
+
+Cách áp dụng cho trang của bạn:
+
+Với ảnh minh họa bài viết (Blog): Bạn hoàn toàn có thể tiếp tục dùng kho ảnh miễn phí này. Bạn muốn đổi sang hình ảnh chủ đề gì (ví dụ: hình tiền mặt Việt Nam, hình điện thoại mở app ngân hàng, hình bàn làm việc...), chỉ cần nói ý tưởng là mình sẽ tìm và gắn sẵn link ảnh đẹp vào code cho bạn.
+
+Với ảnh cá nhân của riêng bạn (Avatar Trung Cần, ảnh chụp màn hình thực tế): Vì ảnh trong máy điện thoại của bạn chưa có link trên mạng, bạn chỉ cần tải file ảnh đó lên kho GitHub trungcanp.github.io (hoặc gửi lên đây để mình cắt chỉnh chuẩn kích thước giúp bạn trước khi tải lên).
+
+Bây giờ bạn muốn bắt đầu điều chỉnh chi tiết ở phần nào trên trang chủ trước?
+
+Phần chân trang tôi muốn xây dựng tương tự.
+
+Bố cục chân trang (Footer) trong ảnh mẫu có tông màu đen xám sang trọng, phân tầng rất rõ ràng và chuẩn phong cách blog chuyên gia. Chúng ta sẽ thiết kế Khối 5 (Chân trang) của trungcantaichinh.com giống hệt cấu trúc 4 tầng này:   
+PNG
++ 1
+
+1. Tầng trên cùng: Danh sách Chuyên mục & Số lượng bài/sản phẩm
+Nằm ở phần đầu chân trang, chữ căn trái và con số thống kê nằm sát lề phải, ngăn cách với phần dưới bằng một đường kẻ mảnh.   
+PNG
+
+Dự kiến các mục cho trang của bạn:
+
+Vay Tiêu Dùng Nhanh (12)
+
+Thẻ Tín Dụng Ưu Đãi (8)
+
+Kiến Thức Tài Chính & CIC (15)
+
+Kiếm Tiền Affiliate (10)
+
+Case Study Thực Chiến (6)
+
+Bảo Hiểm Cá Nhân (4)
+
+2. Tầng giữa 1: Khối ABOUT US (Căn giữa)
+Tiêu đề: ABOUT US (chữ in hoa màu trắng, in đậm).   
+PNG
+
+Lời giới thiệu: "Xin chào, mình là Trung Cần. Nơi chia sẻ kiến thức tài chính cá nhân, tổng hợp các gói vay uy tín và hướng dẫn kiếm tiền Affiliate thực chiến."
+
+Dòng liên hệ (Contact us): Hiển thị nổi bật màu xanh dương giống mẫu:   
+PNG
+
+Contact us: Zalo 0903.101.248 (Bạn có muốn để thêm địa chỉ Email cá nhân vào đây giống mẫu không?)
+
+3. Tầng giữa 2: Khối FOLLOW US (Mạng xã hội)
+Tiêu đề: FOLLOW US.   
+PNG
+
+Hàng nút biểu tượng: Các ô vuông nền xám đen xếp ngang ở giữa, chứa các icon: Zalo, Facebook, TikTok, YouTube/Website.   
+PNG
+
+4. Tầng dưới cùng: Dải Bản quyền & Chính sách (Nền đen đậm nhất)
+Hàng liên kết ngang: About  |  Disclaimer  |  Privacy Policy  |  Contact
+
+   
+PNG
+
+Dòng bản quyền: © Copyright 2026 - TRUNGCANTAICHINH.COM
+
+Bạn xem cách chuyển đổi nội dung 4 tầng ở chân trang như trên đã ưng ý chưa? Bạn có muốn thêm địa chỉ Email vào dòng Contact us hay đổi tên chuyên mục nào ở tầng 1 không, sau đó chúng ta sẽ tiếp tục rà soát tới phần tiếp theo nhé!
+
+Tôi muốn 1 tí khác biệt chứ ko hẳn copy 100%
+
+Rất chuẩn! Mang tinh thần gọn gàng, chuyên nghiệp của mẫu tham khảo nhưng có chất riêng của Trung Cần Tài Chính sẽ giúp trang web nhìn hiện đại, có gu hơn chứ không bị giống một bản sao đại trà.   
+PNG
+
+Dựa trên khung sườn của ảnh mẫu, mình đề xuất 4 điểm chấm phá khác biệt để bạn chọn lựa:   
+PNG
+
+1. Đổi tông màu: Từ "Đen tuyền cổ điển" sang "Xanh Đen Tài Chính (Deep Navy)"
+Ảnh mẫu: Dùng màu đen xám thuần túy của giao diện blog cũ.   
+PNG
+
+Điểm khác biệt của bạn: Dùng tông Xanh đen đậm (Midnight Blue - #0b1120) kết hợp chữ trắng và điểm nhấn xanh dương sáng. Nhìn vẫn tối giản, sang trọng như mẫu nhưng mang đúng hơi thở của ngành Ngân hàng - Tài chính hiện đại.
+
+2. Phần Danh mục (Tầng trên cùng): Thêm Icon & Nhãn "Hot"
+Ảnh mẫu: Chỉ có chữ đơn điệu bên trái và con số trơn bên phải.   
+PNG
+
+Điểm khác biệt của bạn:
+
+Thêm biểu tượng nhỏ (Icon) đứng trước mỗi chuyên mục cho sinh động.
+
+Con số bên phải được bọc trong viên thuốc bo tròn (Badge) màu xám xanh nhẹ, riêng mục Vay Tiêu Dùng có thể gắn thêm nhãn HOT màu đỏ/xanh nhỏ xíu để hút mắt người dùng bấm vào hơn.
+
+3. Phần Giới thiệu ("ABOUT US") 
+→ Cá nhân hóa & Trực quan hơn
+Ảnh mẫu: Để tiêu đề tiếng Anh ABOUT US và dòng Contact us: email hơi khô khan.   
+PNG
+
+Điểm khác biệt của bạn:
+
+Đổi tiêu đề thành VỀ TRUNG CẦN (hoặc TRUNG CẦN TÀI CHÍNH) kèm một ảnh đại diện (Avatar) thu nhỏ hình tròn ngay phía trên dòng giới thiệu.
+
+Thay vì chỉ để dòng chữ liên hệ tĩnh, mình thiết kế một Thẻ liên hệ nhanh (Quick Contact Box) gọn đẹp có chấm tròn xanh lá báo hiệu trạng thái: ● Hỗ trợ tư vấn trực tiếp: 0903.101.248 (Zalo). Khách nhìn vào thấy có người thật hỗ trợ ngay lập tức.   
+PNG
+
+4. Cụm nút Mạng xã hội & Thanh bản quyền dưới cùng
+Ảnh mẫu: Các ô vuông góc cạnh màu xám tối và dòng menu tiếng Anh (About, Disclaimer, Privacy Policy, Contact).   
+PNG
+
+Điểm khác biệt của bạn:
+
+Các ô nút Zalo, Facebook, TikTok, Điện thoại được bo góc mềm mại (Rounded Square), có viền mảnh phát sáng nhẹ khi chạm vào.
+
+Dải dưới cùng Việt hóa hoàn toàn cho thân thiện với khách Việt: Giới thiệu | Miễn trừ trách nhiệm | Chính sách bảo mật | Liên hệ, kèm câu khẳng định ngắn gọn về tính minh bạch thông tin trước dòng © Copyright 2026 - TRUNGCANTAICHINH.COM.
+
+Bạn thấy 4 điểm biến tấu này thế nào? Bạn thích giữ nguyên mục nào hay muốn điều chỉnh thêm ở phần chân trang này trước khi chúng ta chuyển sang bàn phần khác?
+
+Ok code lại nhé.
+
+Dưới đây là toàn bộ mã nguồn index.html hoàn chỉnh mới nhất cho trang chủ trungcantaichinh.com.
+
+Trong bản code này, Khối 5 (Chân trang) đã được nâng cấp toàn diện theo đúng phong cách Xanh Đen Tài Chính (Deep Navy) sang trọng, có danh mục kèm icon + nhãn HOT, khung liên hệ Zalo có chấm xanh hoạt động trực tuyến và dải menu tiếng Việt chuẩn chỉnh. Các khối từ 1 đến 5 vẫn được tách biệt rõ ràng bằng ghi chú để bạn dễ dàng chỉnh sửa bất cứ lúc nào.
+
+Mã nguồn index.html hoàn chỉnh:
+HTML
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trung Cần Tài Chính - Giải Pháp Vay Tiêu Dùng & Kiếm Tiền Affiliate</title>
+    <meta name="description" content="Chia sẻ kiến thức tài chính cá nhân, tổng hợp các gói vay uy tín và hướng dẫn kiếm tiền Affiliate thực chiến cùng Trung Cần.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #1d4ed8;
+            --dark-blue: #1e3a8a;
+            --light-blue: #eff6ff;
+            --text-dark: #111827;
+            --text-gray: #4b5563;
+            --text-muted: #6b7280;
+            --bg-body: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
             --footer-navy: #0b1120;
             --footer-darker: #060a14;
         }
@@ -1247,6 +2382,1709 @@
             if (!dropdownMenu.contains(e.target) && e.target !== menuToggle) {
                 dropdownMenu.classList.remove('open');
                 menuToggle.classList.remove('active');
+            }
+        });
+
+        // Chức năng lọc nhanh bài viết & gói vay khi gõ tìm kiếm
+        function filterContent() {
+            const keyword = searchInput.value.toLowerCase().trim();
+            const items = document.querySelectorAll('.searchable-item');
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                item.style.display = text.includes(keyword) ? '' : 'none';
+            });
+        }
+
+        searchInput.addEventListener('keyup', filterContent);
+    </script>
+</body>
+</html>
+Bạn hãy copy đoạn code này dán đè vào file index.html trên kho trungcanp.github.io và tải lại trang trungcantaichinh.com để xem phần chân trang mới nhé. Sau khi xem xong, chúng ta lại tiếp tục thảo luận điều chỉnh phần tiếp theo!
+
+ghi nhớ bản code sau cùng, cùng tôi thảo luận cho các thay đổi của trang chủ được chỉnh chu, thống nhất hơn trước khi tôi yêu cầu code nhé
+
+Đã ghi nhớ toàn bộ bản code hoàn chỉnh vừa rồi (bao gồm 5 khối từ Header, Profile, Sản phẩm Vay Hot, Đọc Nhiều Nhất cho đến Footer tông Xanh Đen mới). Mình sẽ tuyệt đối không xuất code mới cho đến khi chúng ta thảo luận xong và bạn trực tiếp yêu cầu.
+
+Để việc rà soát và tinh chỉnh diễn ra mạch lạc, hiện tại trang chủ đang gồm 4 khu vực còn lại phía trên chân trang:
+
+Khối 1 (Header): Logo thương hiệu, nút Kính lúp tìm kiếm và Menu sổ xuống góc phải.
+
+Khối 2 (Profile): Ảnh đại diện, tên Trung Cần, câu giới thiệu và 2 nút Zalo / So sánh gói vay.
+
+Khối 3 (Sản Phẩm Vay Hot): 4 thẻ sản phẩm (VPBank, FE Credit, TNEX, SFinance) và nút xem tất cả.
+
+Khối 4 (Đọc Nhiều Nhất): 3 bài viết chia sẻ kiến thức theo bố cục mẫu.
+
+Bạn muốn chúng ta bắt đầu chỉnh sửa chi tiết từ khối nào trước?
+
+thay đổi đầu tiên giao diện hiển thị co giãn phù hợp trên điện thoại và laptop, phần header đính kèm logo tôi sẽ tạo ngay trước tên trung cần tài chính, giao diện trên laptop khi bung rộng màn hình ra sẽ có thông tin liên hệ các nền tảng như facebook, zalo, tiktok, còn kính lup và các mục lớn ở menu sẽ hiển thị bên dưới còn nếu giao diện nhỏ thì chỉ kính lup và menu thôi. Phần Khối 2 (Profile): Ảnh đại diện, tên Trung Cần, câu giới thiệu và 2 nút Zalo / So sánh gói vay. => BỎ, nó đã có ở cuối trang rồi. Thêm vào Khối Bài Viết mới nhất. Phần chân trang thêm tiêu đề CATEGORY trên các menu. mục VỀ TRUNG CẦN => đổi Thành VỀ TÔI
+
+Tôi muốn để phần về tôi một cách chân chất, thật thà ko tự cao, dựa trên kinh nghiệm tài chính 10 năm. Bạn gợi ý thêm nên để gì nhé
+
+Tuyệt vời! Những thay đổi bạn vừa định hướng cực kỳ sắc sảo, giúp trang web tối ưu không gian hiển thị, loại bỏ thông tin trùng lặp và làm nổi bật chất riêng, sự chân thành của bạn.
+
+Chúng ta cùng thảo luận kỹ từng điểm theo yêu cầu của bạn trước khi đi đến phần viết code nhé:
+
+1. Phân tích chi tiết các thay đổi đã thống nhất:
+Phần Header & Giao diện Responsive (Điện thoại vs Laptop):
+
+Trên Laptop (Màn hình lớn bung rộng): Hiển thị ngay các icon kết nối mạng xã hội (Facebook, Zalo, TikTok) trực tiếp lên thanh Header cho người dùng dễ nhìn thấy. Biểu tượng kính lúp tìm kiếm và các mục lớn ở menu sẽ chuyển xuống hiển thị thành một thanh điều hướng ngay bên dưới logo/tên thương hiệu, giúp bố cục thoáng đãng như một trang báo chí/blog tài chính chuyên nghiệp.
+
+Trên Điện thoại (Màn hình nhỏ): Tự động thu gọn lại theo dạng tối ưu tối đa (chỉ hiển thị Logo + Kính lúp + Nút Menu ☰ gọn gàng ở góc phải như bản code trước).
+
+Logo & Tên thương hiệu: Đính kèm một biểu tượng/logo nhỏ ngay trước dòng chữ Trung Cần Tài Chính.
+
+Khối 2 (Profile ở đầu trang):
+
+ĐÃ BỎ hoàn toàn theo đúng ý bạn (vì phần thông tin này đã được tổng hợp rất trực quan ở chân trang qua phần Về Tôi, tránh bị lặp nội dung gây nhàm chán).
+
+Không gian ngay sau Header sẽ chuyển thẳng vào Khối Sản Phẩm Vay Hot hoặc Khối Bài Viết Mới Nhất, giúp người dùng truy cập ngay vào nội dung cốt lõi của website.
+
+Phần Chân Trang (Footer):
+
+Thêm tiêu đề lớn CATEGORY phía trên danh mục các chuyên mục.
+
+Đổi tên mục VỀ TRUNG CẦN thành VỀ TÔI.
+
+2. Gợi ý nội dung cho phần "VỀ TÔI" (Chân chất, thật thà, kinh nghiệm 10 năm)
+Trong lĩnh vực tài chính, sự chân thật và thực tế ăn đứt những lời quảng cáo hoa mỹ. Khách hàng rất cần một người đồng hành có tâm và từng trải qua nhiều "sóng gió" thực tế. Dưới đây là 3 phương án gợi ý để bạn đưa vào phần giới thiệu ở chân trang (bạn chọn phương án thích hợp hoặc chỉnh sửa lại theo ý mình nhé):
+
+Phương án 1 (Gần gũi, tâm tình như một người đi trước):
+
+"Xin chào, mình là Trung Cần. Làm tài chính ngót nghét 10 năm nay, chứng kiến không ít người phải xoay xở mệt mỏi chỉ vì thiếu thông tin hoặc chọn nhầm chỗ vay không minh bạch. Mình không nhận là chuyên gia cao siêu gì cả, chỉ có chút kinh nghiệm thực tế chắt chiu qua bao năm lăn lộn trong ngành để lọc ra những gói vay sạch, lãi suất rõ ràng và chia sẻ lại cho ai đang cần. Cần hỏi gì cứ nhắn mình, biết gì mình hỗ trợ hết lòng!"
+
+Phương án 2 (Ngắn gọn, trọng tâm, thẳng thắn):
+
+"Chào bạn, mình là Trung Cần - người đã có 10 năm gắn bó với thị trường tài chính cá nhân. Mình lập ra trang web này không phải để chèo kéo hay vẽ vời, mà để làm một chiếc cầu nối thật thà, minh bạch giữa bạn và các tổ chức tài chính uy tín. Hy vọng những con số, bài viết và công cụ so sánh ở đây sẽ giúp bạn tìm được lối đi tài chính nhẹ nhàng và an toàn nhất."
+
+Phương án 3 (Mang âm hưởng chia sẻ kinh nghiệm thực chiến):
+
+"Hơn 10 năm làm tài chính đủ để mình hiểu cảm giác hoang mang khi đứng trước đống thủ tục, giấy tờ hay những khoản lãi suất mập mờ. Mình là Trung Cần – không có văn phong hoa mỹ, chỉ có những trải nghiệm thực tế và sự tư vấn chân thành. Mong rằng nơi đây sẽ là một góc nhỏ tin cậy giúp bạn tháo gỡ khó khăn tài chính một cách an tâm nhất."
+
+Bạn thấy các định hướng điều chỉnh trên và 3 phương án gợi ý nội dung Về Tôi thế nào? Bạn ưng ý phương án nào hoặc muốn góp ý thêm chi tiết gì trước khi chúng ta chuyển sang bước hoàn thiện mã nguồn?
+
+áp dụng mục này nhé "Hơn 10 năm làm tài chính đủ để mình hiểu cảm giác hoang mang khi đứng trước đống thủ tục, giấy tờ hay những khoản lãi suất mập mờ. Mình là Trung Cần – không có văn phong hoa mỹ, chỉ có những trải nghiệm thực tế và sự tư vấn chân thành. Mong rằng nơi đây sẽ là một góc nhỏ tin cậy giúp bạn tháo gỡ khó khăn tài chính một cách an tâm nhất."
+
+Rất tuyệt vời! Phương án bạn chọn mang phong cách chân chất, thật thà và cực kỳ thấu hiểu tâm lý khách hàng – đây chính là "vũ khí" tạo nên uy tín vững chắc nhất trong lĩnh vực tài chính.
+
+Mình đã ghi nhớ toàn bộ các thay đổi bạn yêu cầu:
+
+Header responsive thông minh:
+
+Trên Laptop: Hiển thị thanh mạng xã hội (Facebook, Zalo, TikTok) ở trên, phần kính lúp tìm kiếm và các mục menu lớn nằm ở thanh điều hướng bên dưới logo/tên thương hiệu.
+
+Trên Điện thoại: Tự động thu gọn chỉ còn Logo + Kính lúp + Nút Menu ☰ ở góc phải.
+
+Đính kèm icon/logo nhận diện ngay trước tên Trung Cần Tài Chính.
+
+Loại bỏ hoàn toàn Khối 2 (Profile ở đầu trang): Tránh bị lặp nội dung với chân trang, giúp trang web đi thẳng vào trọng tâm sản phẩm và bài viết ngay từ đầu.
+
+Phần Chân Trang (Footer):
+
+Thêm tiêu đề lớn CATEGORY phía trên danh mục chuyên mục.
+
+Đổi tên mục VỀ TRUNG CẦN thành VỀ TÔI và lồng ghép đoạn giới thiệu chân chất, từng trải 10 năm kinh nghiệm vừa chốt.
+
+Mọi thứ đã được thống nhất hoàn toàn. Bạn có muốn mình tiến hành xuất bản bản mã nguồn hoàn chỉnh để bạn đưa lên GitHub ngay lúc này không?
+
+không code đến khi tôi yêu cầu, ghi nhớ các thay đổi để tổng hơp 1 lần. Các khối tuần tự là sản phẩm hot, Đọc nhiều, và bài viết mới nhất
+
+Tôi đã ghi nhớ toàn bộ các thay đổi và thống nhất trình tự các khối trên trang chủ như sau:
+
+Header (Responsive thông minh):
+
+Trên Laptop: Hiển thị thanh mạng xã hội (Facebook, Zalo, TikTok) ở trên cùng. Phần kính lúp tìm kiếm và các mục menu lớn được sắp xếp thành thanh điều hướng nằm ngay bên dưới logo và tên thương hiệu.
+
+Trên Điện thoại: Tự động thu gọn tối ưu (chỉ hiển thị Logo đính kèm icon nhận diện + Kính lúp + Nút Menu ☰ ở góc phải).
+
+Tên thương hiệu: Đính kèm icon nhận diện ngay trước dòng Trung Cần Tài Chính.
+
+Loại bỏ hoàn toàn Khối 2 (Profile ở đầu trang): Tránh bị lặp thông tin với chân trang.
+
+Thứ tự tuần tự các khối chính:
+
+Khối 1: Sản Phẩm Vay Hot (VPBank, FE Credit, TNEX, SFinance).
+
+Khối 2: Đọc Nhiều Nhất (3 bài viết tiêu biểu theo bố cục chuẩn).
+
+Khối 3: Bài Viết Mới Nhất (Nội dung cập nhật liên tục).
+
+Chân trang (Footer):
+
+Bổ sung tiêu đề lớn CATEGORY phía trên danh mục chuyên mục.
+
+Đổi tên mục VỀ TRUNG CẦN thành VỀ TÔI kèm đoạn giới thiệu chân chất, thật thà về 10 năm kinh nghiệm tài chính: "Hơn 10 năm làm tài chính đủ để mình hiểu cảm giác hoang mang khi đứng trước đống thủ tục, giấy tờ hay những khoản lãi suất mập mờ. Mình là Trung Cần – không có văn phong hoa mỹ, chỉ có những trải nghiệm thực tế và sự tư vấn chân thành. Mong rằng nơi đây sẽ là một góc nhỏ tin cậy giúp bạn tháo gỡ khó khăn tài chính một cách an tâm nhất."
+
+Tôi đang ở chế độ ghi nhớ và thảo luận, tuyệt đối không xuất code mới cho đến khi nhận được lệnh "code" trực tiếp từ bạn. Chúng ta đã hoàn tất việc rà soát cấu trúc. Bạn có muốn bổ sung hay điều chỉnh thêm chi tiết nào nữa không?
+
+đây là các file logo hay liên quan tôi đã tải lên rồi, còn thiếu gì nữa
+
+Nhìn vào danh sách các file bạn đã tải lên GitHub trong ảnh, các logo của đối tác tài chính đã rất đầy đủ (như vpbank.PNG, fe.JPG, homecredit.JPG, mcredit.PNG, tpbank.PNG, tnex.WEBP, vib.WEBP, f88.PNG, lotte.WEBP, shbfinance.WEBP, cathay.PNG, cakevpbank.WEBP...).
+
+Tuy nhiên, để trang chủ hoàn thiện tuyệt đối và không bị lỗi hiển thị hình ảnh (ảnh bị vỡ hoặc thiếu), chúng ta còn thiếu 2 file hình ảnh quan trọng sau:
+
+Ảnh đại diện cá nhân (Avatar):
+
+Mô tả: Ảnh chân dung của bạn (Trung Cần) để hiển thị ở mục VỀ TÔI ở chân trang.
+
+Tên gợi ý tải lên: avatar.jpg (hoặc trungcan.jpg).
+
+Ảnh minh họa cho các bài viết Blog / Đọc nhiều nhất:
+
+Mô tả: Các ảnh bìa thumbnail minh họa cho 3 bài viết ở Khối 4.
+
+Tên gợi ý tải lên: bai-viet-1.jpg, bai-viet-2.jpg, bai-viet-3.jpg (hoặc bạn có thể dùng tạm hình ảnh từ kho Unsplash như các bản code trước).
+
+Ngoài các file hình ảnh trên, toàn bộ cấu trúc mã nguồn đã được ghi nhớ và sẵn sàng.
+
+Bạn đã chuẩn bị xong các file ảnh này trên máy chưa? Khi nào bạn sẵn sàng chỉ cần ra lệnh "code", mình sẽ tổng hợp toàn bộ các thay đổi và xuất bản bản mã nguồn hoàn chỉnh nhất cho bạn ngay!
+
+logo trước chữ TRUNG CẦN TÀI CHÍNH nữa phải ko
+
+Đúng rồi bạn! Theo đúng như những gì chúng ta đã thống nhất:
+
+Ở phần Header (đầu trang), ngay trước dòng chữ Trung Cần Tài Chính, chúng ta sẽ đính kèm một biểu tượng/logo nhận diện thương hiệu nhỏ gọn để tạo điểm nhấn chuyên nghiệp.
+
+Biểu tượng này sẽ nằm gọn gàng trên cả giao diện điện thoại lẫn máy tính.
+
+Tất cả các thay đổi từ trước đến nay (Header responsive, bỏ khối Profile thừa, sắp xếp lại tuần tự các khối Sản Phẩm Hot -> Đọc Nhiều Nhất -> Bài Viết Mới Nhất, chân trang có CATEGORY, mục VỀ TÔI với lời giới thiệu chân chất 10 năm kinh nghiệm) đã được ghi nhớ đầy đủ và đồng bộ.
+
+Khi nào bạn cần xuất bản mã nguồn, cứ hô "code" là mình sẽ tổng hợp toàn bộ thành một file index.html hoàn chỉnh để bạn đưa lên GitHub nhé!
+
+gợi ý thiết kế logo cho trung cần tài chính, tiêu chí đơn giản, dễ nhớ lâu dài
+
+Dưới đây là các gợi ý thiết kế logo cho Trung Cẩn Tài Chính dựa trên tiêu chí đơn giản, tinh tế, hiện đại và dễ ghi nhớ lâu dài (phù hợp với phong cách của một chuyên gia tài chính cá nhân uy tín).
+
+1. Ý tưởng biểu tượng (Icon Concept)
+Thay vì dùng những hình ảnh phức tạp, logo tài chính cá nhân nên chọn các biểu tượng mang tính biểu đạt cao, kết hợp thông minh giữa tên viết tắt và giá trị cốt lõi:
+
+Ý tưởng 1: Chữ "TC" lồng ghép tối giản (Monogram)
+
+Cách thể hiện: Cách điệu hai chữ cái T và C (Trung Cẩn) quyện vào nhau tạo thành hình một chiếc khiên bảo vệ (biểu tượng của sự an toàn, bảo mật) hoặc hình mũi tên hướng lên (biểu tượng của sự tăng trưởng, tài chính phát triển).
+
+Ưu điểm: Cực kỳ gọn gàng, dễ làm biểu tượng đại diện (Favicon) trên tab trình duyệt web hoặc Avatar Facebook/Zalo.
+
+Ý tưởng 2: Biểu tượng Dòng tiền & Điểm tựa (Growth & Stability)
+
+Cách thể hiện: Hai đường nét uốn lượn mềm mại hoặc các khối hình học xếp chồng vững chắc tạo thành hình bậc thang đi lên (thể hiện sự tích lũy tài sản), hoặc hình tượng mầm cây vươn lên từ nền tảng vững chắc.
+
+Ưu điểm: Mang thông điệp thịnh vượng, bền vững và rất gần gũi với khách hàng đi vay hoặc đầu tư.
+
+Ý tưởng 3: Hình tượng Chìa khóa / Chiếc cầu nối (The Solution)
+
+Cách thể hiện: Kết hợp chữ C thành hình một chiếc chìa khóa mở ra các giải pháp tài chính, hoặc hình ảnh hai đường thẳng kết nối vào một điểm chung (cầu nối giữa khách hàng và các tổ chức tài chính).
+
+2. Định hướng Font chữ (Typography)
+Vì tiêu chí là đơn giản và dễ nhớ, font chữ cần có độ dày vừa phải (Semi-bold hoặc Bold ở phần tên thương hiệu), nét chữ khỏe khoắn nhưng không quá cứng nhắc:
+
+Tên chính: TRUNG CẦN TÀI CHÍNH (Sử dụng các font chữ hiện đại, không chân (Sans-serif) như Inter, Montserrat, Plus Jakarta Sans hoặc Roboto để hiển thị sắc nét trên cả màn hình điện thoại lẫn máy tính).
+
+Quy tắc bố cục chữ: Tên thương hiệu nên đặt cạnh biểu tượng (dạng ngang) hoặc đặt phía dưới biểu tượng (dạng dọc vuông) để linh hoạt sử dụng trên website trungcantaichinh.com.
+
+3. Phối màu chuyên nghiệp (Color Palette)
+Lĩnh vực tài chính cần tạo được cảm giác tin cậy, minh bạch và an tâm tuyệt đối. Bạn nên chọn tối đa 2 màu chủ đạo:
+
+Xanh Dương Đậm (Deep Navy / Royal Blue): Tượng trưng cho sự uy tín, chuyên nghiệp, an toàn và chuẩn mực ngân hàng.
+
+Xanh Lá Cây Trầm (Forest Green) hoặc Vàng Gold nhẹ: Thể hiện sự thịnh vượng, phát tài, tài lộc (có thể dùng làm điểm nhấn ở một chi tiết nhỏ trên logo).
+
+Nền tảng hiển thị: Luôn ưu tiên thiết kế logo ở dạng 2 phiên bản: Bản màu đầy đủ (trên nền trắng/sáng) và bản đơn sắc (trắng hoàn toàn hoặc đen hoàn toàn) để dễ dàng in ấn hoặc đồng bộ trên giao diện Dark Mode của website.
+
+💡 Gợi ý thực hiện nhanh:
+Nếu bạn muốn tự tay phác thảo hoặc làm nhanh một logo dạng chữ ký/chuyên gia (giống các blog tài chính cá nhân quốc tế):
+
+Dùng font chữ dạng hình khối hiện đại cho dòng chữ TRUNG CẦN.
+
+Thêm một đường gạch chân nhỏ hoặc điểm nhấn màu xanh dương ở chữ C để tạo điểm nhấn nhận diện riêng.
+
+Bạn có muốn chúng ta bàn sâu hơn về việc chọn màu sắc cụ thể hay phác thảo chi tiết cách kết hợp chữ T - C cho logo này không?
+
+triển khai ý tưởng 1
+
+Ý tưởng 1 (Monogram tối giản kết hợp chữ T và C) là một lựa chọn cực kỳ thông minh, hiện đại và mang tính nhận diện dài hạn cao cho thương hiệu Trung Cần Tài Chính.
+
+Để chuẩn bị sẵn sàng cho việc đưa vào bộ nhận diện và tích hợp lên website khi bạn có yêu cầu viết code, chúng ta sẽ định hình chi tiết cách triển khai Ý tưởng 1 này qua các yếu tố sau:
+
+1. Bố cục và Hình khối (Icon Concept)
+Khối biểu tượng (Monogram T & C):
+
+Chữ T (Trung) được cách điệu vững chãi ở trung tâm, làm trụ cột chính (tượng trưng cho sự uy tín, chắc chắn và chuẩn mực).
+
+Chữ C (Cần) được uốn lượn ôm trọn lấy chữ T theo dạng vòng cung hướng lên hoặc hình chiếc khiên bảo vệ, đồng thời tạo hình tượng của một mũi tên tăng trưởng tài chính hướng về phía trước.
+
+Sự kết hợp: Biểu tượng này khi thu nhỏ lại thành hình vuông sẽ cực kỳ gọn gàng, hoàn hảo để làm Favicon (biểu tượng nhỏ trên tab trình duyệt web) hoặc Avatar trang cá nhân, Fanpage, Zalo OA.
+
+2. Định hướng Font chữ (Typography) đi kèm
+Dòng tên chính: TRUNG CẦN TÀI CHÍNH
+
+Sử dụng font chữ không chân hiện đại, nét dày dặn (Sans-serif, định dạng Semi-bold hoặc Bold), các góc chữ vuông vắn hoặc bo nhẹ tạo cảm giác thân thiện nhưng vẫn rất chuyên nghiệp.
+
+Sắp xếp bố cục:
+
+Dạng ngang: Icon đặt bên trái, dòng chữ thương hiệu xếp bên phải (phù hợp gắn lên Header website ở thanh laptop).
+
+Dạng dọc: Icon đặt phía trên, dòng chữ đặt ở dưới (phù hợp làm ảnh đại diện, avatar trên mạng xã hội).
+
+3. Tông màu chủ đạo (Color Palette)
+Màu chính: Xanh dương đậm (Deep Navy / Royal Blue - #1d4ed8) mang lại cảm giác an tâm, minh bạch, chuẩn mực của ngành tài chính ngân hàng.
+
+Màu điểm nhấn (Accent): Một chút sắc xanh lá trầm (#16a34a) hoặc ánh vàng kim nhẹ ở một góc của biểu tượng (tượng trưng cho sự thịnh vượng, tài lộc bền vững).
+
+Bạn thấy định hình thiết kế cho Ý tưởng 1 này đã đúng với mong muốn đơn giản, dễ nhớ và chuyên nghiệp của mình chưa? Hãy trao đổi thêm nếu bạn muốn tinh chỉnh chi tiết nào nhé!
+
+cho tôi promt tạo ảnh trên canva
+
+Để tạo ảnh trên Canva (sử dụng tính năng Magic Media / Text to Image hoặc các ứng dụng AI tạo ảnh tích hợp), việc viết prompt (câu lệnh) bằng tiếng Anh sẽ cho ra kết quả sắc nét, chuẩn xác và đúng ý nhất.
+
+Dưới đây là công thức chuẩn và bộ câu lệnh mẫu phù hợp với phong cách chuyên nghiệp, hiện đại của website Trung Cần Tài Chính:
+
+1. Công thức viết Prompt chuẩn trên Canva
+[Chủ thể chính] + [Phong cách hình ảnh] + [Bối cảnh / Chi tiết phụ] + [Ánh sáng & Màu sắc] + [Tỷ lệ / Góc chụp]
+
+2. Bộ Prompt mẫu theo từng chủ đề website của bạn
+📌 Chủ đề 1: Ảnh đại diện chuyên gia / Tài chính cá nhân (Dùng cho banner, bài viết)
+Prompt 1 (Chuyên gia tài chính uy tín, hiện đại):
+
+A professional Vietnamese male financial expert in his 30s, wearing a smart casual navy blue blazer, smiling warmly and confidently, sitting at a modern desk with a laptop showing upward financial charts, bright office background with soft natural window light, photorealistic, 8k resolution --ar 16:9
+
+Prompt 2 (Tư vấn tài chính 1-1, tin cậy):
+
+A friendly Vietnamese male advisor explaining financial plans to a client using a tablet, modern minimalist office interior, warm lighting, trustworthy and professional atmosphere, cinematic composition, high quality
+
+📌 Chủ đề 2: Minh họa kiến thức vay vốn, tiết kiệm, dòng tiền (Dùng cho Blog / Bài viết)
+Prompt 1 (Quản lý tài chính & Tiết kiệm thông minh):
+
+A neat stack of Vietnamese Dong currency notes next to a modern smartphone displaying a banking application, piggy bank, calculator, minimalist financial planning concept, soft blue and white tone, top-down flat lay view, professional stock photo
+
+Prompt 2 (Vay vốn mua nhà / Mua xe an toàn):
+
+A miniature modern house model and a car key resting on a financial contract document, calculator and pen, soft corporate lighting, concept of personal loans and asset management, clean and sharp details
+
+📌 Chủ đề 3: Kiếm tiền Affiliate / Thu nhập thụ động (Dùng cho bài viết MMO, Affiliate)
+Prompt 1 (Thu nhập thụ động / Biểu đồ tăng trưởng):
+
+A glowing digital growth chart moving upward on a laptop screen, golden coins and digital icons floating lightly around, modern tech-finance background, deep navy and electric blue color palette, futuristic and professional
+
+3. Bí kíp bổ sung để ảnh đẹp hơn trên Canva:
+Thêm từ khóa phong cách: Dùng các từ như photorealistic (như ảnh chụp thật), minimalist style (phong cách tối giản), corporate clean (phong cách doanh nghiệp sạch sẽ).
+
+Chỉnh tỷ lệ khung hình:
+
+Ảnh ngang viết bài blog/banner: Thêm --ar 16:9 vào cuối câu lệnh.
+
+Ảnh vuông đăng mạng xã hội: Thêm --ar 1:1.
+
+Ảnh dọc (story/điện thoại): Thêm --ar 9:16.
+
+Tránh từ ngữ phức tạp: AI tạo ảnh của Canva hiểu tốt nhất các câu mệnh ngắn gọn, rõ nghĩa bằng tiếng Anh.
+
+Bạn đang cần tìm prompt để tạo loại hình ảnh cụ thể nào (ảnh bài viết, banner, hay hình minh họa gói vay), hãy chia sẻ thêm để mình thiết kế riêng câu lệnh chuẩn xác nhất cho bạn nhé!
+
+promt tạo logo ý tưởng 1 trên canva mà
+
+Để tạo logo theo Ý tưởng 1 (Monogram tối giản kết hợp chữ T và C mang thông điệp bảo vệ và tăng trưởng tài chính) trực tiếp trên tính năng tạo ảnh của Canva, bạn hãy dùng các câu lệnh (prompt) bằng tiếng Anh dưới đây để AI hiểu và cho ra kết quả sắc nét, chuyên nghiệp nhất nhé:
+
+💡 Các tùy chọn Prompt trên Canva (Copy và dán vào ô tạo ảnh):
+Tối ưu 1 (Phong cách tối giản, hiện đại, thích hợp làm biểu tượng App/Website):
+
+A minimalist and modern vector logo design combining the letters T and C in a clever monogram, sleek corporate financial branding, geometric shapes forming an upward growth arrow and a protective shield, professional deep navy blue and subtle gold accent, clean solid white background, flat design --ar 1:1
+
+Tối ưu 2 (Phong cách sang trọng, cao cấp, chuẩn doanh nghiệp tài chính):
+
+A luxury corporate logo featuring a sophisticated interlocking monogram of the letters T and C, minimalist finance and investment branding style, clean lines, professional royal blue and silver color palette, crisp solid background, high-end vector graphic art
+
+Tối ưu 3 (Phong cách trẻ trung, năng động nhưng cực kỳ tinh tế):
+
+A modern flat vector logo icon featuring letters T and C merged seamlessly, financial tech and advisory identity, elegant and simple, deep navy blue color theme, clean white background, graphic design asset
+
+🎨 Mẹo nhỏ khi dùng trên Canva:
+Khi AI tạo ra các mẫu logo, bạn nên chọn mẫu có nền trắng sạch sẽ (solid white background) để sau này dễ dàng tách nền hoặc lồng ghép lên Header của website trungcantaichinh.com.
+
+Nếu muốn chèn thêm tên TRUNG CẦN TÀI CHÍNH bên cạnh logo, bạn chỉ cần chọn thêm một khung chữ (Text) với font chữ không chân hiện đại (ví dụ: Inter hoặc Montserrat) đặt bên phải biểu tượng là hoàn tất bộ nhận diện!
+
+Tuyệt vời quá! Mẫu logo chữ T và C lồng ghép kèm biểu tượng biểu đồ tăng trưởng màu xanh Navy trên nền trắng từ Canva nhìn rất hiện đại, sắc sảo và mang đậm dấu ấn chuyên gia tài chính.
+
+Bây giờ toàn bộ các yêu cầu, thay đổi và bố cục trang chủ đã được thống nhất hoàn toàn:
+
+Header Responsive thông minh:
+
+Trên Laptop: Hiển thị thanh mạng xã hội (Facebook, Zalo, TikTok) ở trên cùng. Phần kính lúp tìm kiếm và các mục menu lớn nằm ở thanh điều hướng bên dưới.
+
+Trên Điện thoại: Tự động thu gọn (Logo đính kèm icon nhận diện + Kính lúp + Nút Menu ☰).
+
+Loại bỏ hoàn toàn Khối 2 (Profile ở đầu trang): Tránh lặp thông tin với chân trang.
+
+Thứ tự tuần tự các khối chính:
+
+Khối 1: Sản Phẩm Vay Hot (VPBank, FE Credit, TNEX, SFinance).
+
+Khối 2: Đọc Nhiều Nhất (3 bài viết tiêu biểu).
+
+Khối 3: Bài Viết Mới Nhất (Cập nhật liên tục).
+
+Chân trang (Footer):
+
+Có tiêu đề CATEGORY phía trên danh mục.
+
+Mục VỀ TÔI với lời giới thiệu chân chất: "Hơn 10 năm làm tài chính đủ để mình hiểu cảm giác hoang mang khi đứng trước đống thủ tục, giấy tờ hay những khoản lãi suất mập mờ..."
+
+Bạn đã sẵn sàng chưa? Hãy gửi lệnh "code" để mình xuất bản toàn bộ mã nguồn chuẩn chỉnh đưa lên kho GitHub nhé!
+
+để không bị copy tôi muốn thêm gì đó liên quan đến tôi vào logo
+
+Đó là một ý nghĩ rất hay và thực tế! Để logo mang dấu ấn độc quyền của riêng bạn Trung Cần và không sợ bị sao chép đại trà, chúng ta có thể lồng ghép khéo léo một số chi tiết cá nhân hóa rất tinh tế vào biểu tượng chữ T - C (Ý tưởng 1):
+
+4 Gợi ý chi tiết để cá nhân hóa logo:
+Cách điệu chữ ký cá nhân (Signature Monogram):
+
+Cách làm: Phần đuôi của chữ C hoặc nét ngang của chữ T được vuốt cong cách điệu theo nét uốn của chữ ký tay thật của bạn. Khi ai nhìn vào sẽ thấy đây là một "con dấu" hoặc chữ ký bảo chứng độc quyền từ Trung Cần.
+
+Dấu ấn con số "10" tượng trưng cho 10 năm kinh nghiệm:
+
+Cách làm: Nhúng ẩn một cách kín đáo con số 10 vào không gian âm (negative space) bên trong vòng cung của chữ C, hoặc tạo 10 đường gạch sọc nhỏ tinh tế trên biểu đồ tăng trưởng. Đây là tuyên ngôn ngầm về bề dày kinh nghiệm mà các bên khác không thể copy được.
+
+Màu sắc nhận diện độc quyền:
+
+Cách làm: Phối màu đặc trưng kết hợp giữa Xanh Navy chủ đạo và một vệt điểm nhấn nhỏ màu cam đất hoặc vàng ánh kim tại điểm giao nhau của chữ T và C.
+
+Slogan/Chữ ký đi kèm (Wordmark badge):
+
+Cách làm: Khi đặt logo kèm tên trên website, thay vì chỉ để "Trung Cần Tài Chính", bạn có thể dùng dòng chữ nhỏ dưới chân logo: "By Trung Cần - 10 Năm Tài Chính Thực Chiến".
+
+💡 Prompt tạo ảnh trên Canva áp dụng chi tiết cá nhân (Ví dụ: Chữ ký / Con dấu cá nhân):
+Nếu bạn muốn tạo lại logo trên Canva có lồng nét chữ ký hoặc dấu ấn riêng, hãy thử copy câu lệnh tiếng Anh này:
+
+A minimalist and modern vector logo design featuring an interlocking monogram of letters T and C, subtly integrated with a sleek professional signature flourish stroke, corporate financial branding, sleek lines, deep navy blue color theme, clean solid white background, high-end vector art --ar 1:1
+
+Bạn có muốn thử đưa chi tiết chữ ký hoặc con số 10 năm kinh nghiệm vào logo của mình không? Hãy trao đổi thêm để chúng ta hoàn thiện ý tưởng trước khi bạn bấm lệnh "code" nhé!
+
+không đổi được tên file đã tải lên github à
+
+Trên giao diện web của GitHub, không có nút bấm trực tiếp để đổi tên (rename) một file ảnh đã upload lên kho lưu trữ.
+
+Tuy nhiên, bạn hoàn toàn có thể xử lý việc này cực kỳ nhanh chóng bằng 1 trong 2 cách sau:
+
+Cách 1: Đổi tên ngay trên máy tính rồi tải lên lại (Nhanh và chuẩn nhất)
+Bạn vào lại thư mục chứa ảnh trên điện thoại hoặc máy tính của bạn.
+
+Đổi tên file ảnh đó thành: logo.png (tên viết liền, không dấu, không có khoảng trắng để code gọi cho dễ).
+
+Quay lại trang GitHub, xóa file có tên dài cũ đi (bấm vào file 
+→ bấm biểu tượng thùng rác Delete file), sau đó bấm Add file 
+→ Upload files và tải file logo.png mới lên.
+
+Cách 2: Sửa trực tiếp tên file trong code index.html của bạn
+Nếu bạn đã lỡ đặt tên file trên GitHub là Logo Trung Cần Tài Chính.png (có dấu cách và chữ hoa), trong đoạn code index.html sắp tới, mình chỉ cần trỏ chính xác đường dẫn có chứa dấu cách như sau:src="Logo Trung Cần Tài Chính.png" hoặc đổi thành src="logo.png" tùy theo tên bạn muốn đặt.
+
+Tuy nhiên, trong lập trình web, các tệp tin hình ảnh nên đặt tên không dấu, viết thường, viết liền hoặc nối bằng dấu gạch ngang (ví dụ: logo.png hoặc logo-trung-can.png) để trình duyệt luôn hiển thị mượt mà trên mọi thiết bị và không bao giờ bị lỗi đường dẫn.
+
+Bạn cứ đổi tên file trên máy tính thành logo.png rồi tải lên GitHub nhé. Khi nào xong, bạn chỉ cần báo "code", mình sẽ xuất bản toàn bộ mã nguồn hoàn chỉnh bám sát theo tên file logo.png đó cho bạn!
+
+mình đã đổi tên rồi nhé
+
+Tuyệt vời! Hai file logo.png và avarta.jpeg đã được đặt tên chuẩn xác, gọn gàng và nằm sẵn sàng trên kho GitHub của bạn.
+
+Bây giờ mọi thứ đã chuẩn bị xong xuôi:
+
+Header Responsive thông minh: Có đính kèm icon/logo (logo.png) ngay trước tên Trung Cần Tài Chính. Trên laptop có thanh mạng xã hội phía trên, menu lớn và kính lúp ở thanh điều hướng bên dưới; trên mobile tự động thu gọn tiện lợi.
+
+Loại bỏ Khối 2 (Profile ở đầu trang): Giao diện đi thẳng vào nội dung trọng tâm.
+
+Thứ tự các khối tuần tự:
+
+Sản Phẩm Vay Hot (VPBank, FE Credit, TNEX, SFinance...)
+
+Đọc Nhiều Nhất
+
+Bài Viết Mới Nhất
+
+Chân trang (Footer): Có tiêu đề CATEGORY, mục VỀ TÔI sử dụng ảnh avarta.jpeg cùng lời giới thiệu chân chất, thật thà về 10 năm kinh nghiệm tài chính của bạn.
+
+Bạn hãy ra lệnh "code" ngay bây giờ để mình xuất bản toàn bộ mã nguồn index.html hoàn chỉnh nhất cho bạn nhé!
+
+các sp vay bạn cập nhật logo từng sp trong hình trước đó mình có gửi nhé
+
+Trang web của bạn đã được cập nhật toàn bộ theo đúng các yêu cầu và hình ảnh thực tế bạn đã tải lên GitHub (logo.png, avarta.jpeg, vpbank.PNG, fe.JPG, tnex.WEBP, homecredit.JPG).
+
+File mã nguồn index.html hoàn chỉnh đã sẵn sàng để bạn tải xuống và đưa lên kho GitHub:
+
+Biểu tượng HTML
+index
+ HTML 
+📋 Tóm tắt các điểm đã hoàn thiện trong phiên bản này:
+Header Responsive thông minh:
+
+Trên Laptop: Hiển thị thanh thông tin & mạng xã hội ở trên cùng, logo đính kèm biểu tượng (logo.png) cạnh tên Trung Cần Tài Chính, phần menu lớn và kính lúp tìm kiếm nằm gọn gàng ở thanh điều hướng phía dưới.
+
+Trên Điện thoại: Tự động thu gọn, chỉ hiển thị Logo + Kính lúp + Nút Menu ☰ ở góc phải.
+
+Loại bỏ khối Profile thừa ở đầu trang: Giúp trang web đi thẳng vào trọng tâm nội dung ngay khi truy cập.
+
+Thứ tự tuần tự các khối chính:
+
+Khối Sản Phẩm Vay Hot: Đã tích hợp trực tiếp các logo thực tế (vpbank.PNG, fe.JPG, tnex.WEBP, homecredit.JPG).
+
+Khối Đọc Nhiều Nhất: 3 bài viết chia sẻ kinh nghiệm tiêu biểu.
+
+Chân trang (Footer):
+
+Có tiêu đề CATEGORY phía trên danh mục chuyên mục.
+
+Chuyển mục VỀ TÔI sử dụng ảnh đại diện avarta.jpeg cùng lời giới thiệu chân chất, thật thà về 10 năm kinh nghiệm tài chính thực chiến của bạn.
+
+
+
+
+Gemini là một AI và có thể mắc sai sót.
+
+Đang phân tích
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trung Cần Tài Chính - Giải Pháp Vay Tiêu Dùng & Kiếm Tiền Affiliate</title>
+    <meta name="description" content="Chia sẻ kiến thức tài chính cá nhân, tổng hợp các gói vay uy tín và hướng dẫn kiếm tiền Affiliate thực chiến cùng Trung Cần.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #1d4ed8;
+            --dark-blue: #1e3a8a;
+            --light-blue: #eff6ff;
+            --text-dark: #111827;
+            --text-gray: #4b5563;
+            --text-muted: #6b7280;
+            --bg-body: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --footer-navy: #0b1120;
+            --footer-darker: #060a14;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        /* =========================================
+           CSS KHỐI 1: HEADER & RESPONSIVE THÔNG MINH
+           ========================================= */
+        header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Thanh mạng xã hội trên cùng dành riêng cho Laptop */
+        .desktop-top-bar {
+            display: none;
+            background: var(--footer-navy);
+            color: #cbd5e1;
+            font-size: 0.82rem;
+            padding: 0.4rem 1.25rem;
+        }
+
+        .desktop-top-bar-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-socials {
+            display: flex;
+            gap: 12px;
+        }
+
+        .top-socials a {
+            color: #cbd5e1;
+            transition: color 0.2s;
+        }
+
+        .top-socials a:hover {
+            color: #60a5fa;
+        }
+
+        .header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .brand-logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-logo img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-white);
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .icon-btn:hover, .icon-btn.active {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        /* Thanh điều hướng phụ cho Laptop (Menu lớn + Kính lúp) */
+        .laptop-nav-bar {
+            display: none;
+            background: var(--bg-white);
+            border-top: 1px solid var(--border-color);
+            padding: 0.5rem 1.25rem;
+        }
+
+        .laptop-nav-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .laptop-menu-links {
+            display: flex;
+            gap: 1.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .laptop-menu-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Thanh tìm kiếm ẩn/hiện */
+        .search-bar-wrap {
+            display: none;
+            background: var(--bg-white);
+            border-top: 1px solid var(--border-color);
+            padding: 0.75rem 1.25rem;
+        }
+
+        .search-bar-wrap.open {
+            display: block;
+        }
+
+        .search-input-box {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            gap: 8px;
+        }
+
+        .search-input-box input {
+            flex: 1;
+            padding: 0.65rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-input-box input:focus {
+            border-color: var(--primary-blue);
+        }
+
+        .search-input-box button {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Menu sổ xuống trên mobile */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 1.25rem;
+            width: 260px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            padding: 0.5rem 0;
+            z-index: 1001;
+        }
+
+        .dropdown-menu.open {
+            display: block;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1.25rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .menu-item:hover {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+        }
+
+        .submenu {
+            display: none;
+            background: #f8fafc;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .submenu.open {
+            display: block;
+        }
+
+        .submenu a {
+            display: block;
+            padding: 0.65rem 1.25rem 0.65rem 2.25rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-gray);
+            transition: color 0.2s;
+        }
+
+        .submenu a:hover {
+            color: var(--primary-blue);
+            background: #f1f5f9;
+        }
+
+        /* Responsive Media Query cho Laptop (từ 768px trở lên) */
+        @media (min-width: 768px) {
+            .desktop-top-bar {
+                display: block;
+            }
+            .laptop-nav-bar {
+                display: block;
+            }
+            /* Trên laptop ẩn nút menu hamburger 3 gạch, thay bằng menu ngang */
+            #menuToggle {
+                display: none;
+            }
+            .dropdown-menu {
+                display: none !important;
+            }
+        }
+
+        /* =========================================
+           CSS KHỐI 2: SẢN PHẨM VAY HOT
+           ========================================= */
+        .section-heading {
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            margin: 2.5rem 0 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hot-loans-section {
+            margin-bottom: 3rem;
+        }
+
+        .loans-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .loan-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .loan-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+            border-color: var(--primary-blue);
+        }
+
+        .badge-hot {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #ef4444;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .loan-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.75rem;
+        }
+
+        .brand-logo-img {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            background: #f1f5f9;
+            flex-shrink: 0;
+        }
+
+        .loan-brand h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .loan-details {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            list-style: none;
+        }
+
+        .loan-details li {
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .loan-details li i {
+            color: #16a34a;
+            font-size: 0.8rem;
+        }
+
+        .btn-register {
+            display: block;
+            text-align: center;
+            background: var(--primary-blue);
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.6rem;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .btn-register:hover {
+            background: var(--dark-blue);
+        }
+
+        .view-all-loans {
+            display: block;
+            text-align: center;
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.85rem;
+            border-radius: 10px;
+            border: 1px dashed var(--primary-blue);
+            transition: all 0.2s;
+        }
+
+        .view-all-loans:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* =========================================
+           CSS KHỐI 3: ĐỌC NHIỀU NHẤT
+           ========================================= */
+        .blog-section {
+            margin-bottom: 3.5rem;
+        }
+
+        .post-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 2.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .post-thumb {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: #e2e8f0;
+        }
+
+        .post-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .post-card:hover .post-thumb img {
+            transform: scale(1.03);
+        }
+
+        .post-body {
+            padding: 1.5rem 1.25rem;
+        }
+
+        .post-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #1e40af;
+            line-height: 1.35;
+            margin-bottom: 0.9rem;
+            display: block;
+        }
+
+        .post-title:hover {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .meta-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            flex-wrap: wrap;
+        }
+
+        .cat-badge {
+            background: #111827;
+            color: #ffffff;
+            padding: 3px 8px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            border-radius: 2px;
+        }
+
+        .post-author {
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .post-date {
+            color: #9ca3af;
+        }
+
+        .comment-count {
+            background: #111827;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .comment-count::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 5px;
+            border-width: 4px 4px 0 0;
+            border-style: solid;
+            border-color: #111827 transparent transparent transparent;
+        }
+
+        .post-excerpt {
+            font-size: 0.95rem;
+            color: #6b7280;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .btn-readmore {
+            display: inline-block;
+            background: #1e40af;
+            color: #ffffff;
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 0.55rem 1.2rem;
+            border-radius: 2px;
+            transition: background 0.2s;
+        }
+
+        .btn-readmore:hover {
+            background: var(--primary-blue);
+        }
+
+        /* =========================================
+           CSS KHỐI 5: CHÂN TRANG (FOOTER)
+           ========================================= */
+        .site-footer {
+            background-color: var(--footer-navy);
+            color: #cbd5e1;
+            padding-top: 2.75rem;
+            font-size: 0.92rem;
+            border-top: 3px solid var(--primary-blue);
+        }
+
+        .footer-category-title {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .footer-categories {
+            list-style: none;
+            padding-bottom: 2.25rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-categories li {
+            margin-bottom: 0.85rem;
+        }
+
+        .footer-categories li:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer-cat-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #e2e8f0;
+            font-weight: 500;
+            padding: 0.35rem 0;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .footer-cat-link:hover {
+            color: #60a5fa;
+            transform: translateX(4px);
+        }
+
+        .cat-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cat-left i {
+            color: #3b82f6;
+            width: 18px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .tag-hot-mini {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: #ffffff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 1px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cat-count-pill {
+            background: rgba(255, 255, 255, 0.07);
+            color: #94a3b8;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* Về Tôi */
+        .footer-about {
+            text-align: center;
+            max-width: 560px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .footer-mini-avatar {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            margin: 0 auto 0.85rem;
+            overflow: hidden;
+            border: 2px solid #3b82f6;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);
+        }
+
+        .footer-mini-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-heading {
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.85rem;
+        }
+
+        .footer-bio-text {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+        }
+
+        .quick-contact-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(30, 58, 138, 0.35);
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            padding: 0.55rem 1.15rem;
+            border-radius: 50px;
+            color: #e2e8f0;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .quick-contact-box:hover {
+            background: rgba(37, 99, 235, 0.5);
+            border-color: #60a5fa;
+            color: #ffffff;
+        }
+
+        .status-dot {
+            width: 9px;
+            height: 9px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #22c55e;
+            flex-shrink: 0;
+        }
+
+        .quick-contact-box strong {
+            color: #60a5fa;
+            font-weight: 700;
+        }
+
+        /* Follow Us */
+        .footer-follow {
+            text-align: center;
+            margin-bottom: 2.75rem;
+        }
+
+        .social-squares {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .social-sq-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+        }
+
+        .social-sq-btn:hover {
+            background: var(--primary-blue);
+            border-color: #60a5fa;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
+        }
+
+        /* Dải dưới cùng */
+        .footer-bottom-bar {
+            background-color: var(--footer-darker);
+            padding: 1.5rem 0 1.75rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .footer-nav-links a {
+            color: #cbd5e1;
+            transition: color 0.2s;
+        }
+
+        .footer-nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.78rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto 0.6rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* Nút Zalo nổi */
+        .floating-zalo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0068ff;
+            color: white;
+            padding: 0.7rem 1.1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 20px rgba(0, 104, 255, 0.35);
+            z-index: 999;
+            transition: transform 0.2s;
+        }
+
+        .floating-zalo:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 576px) {
+            .loans-grid {
+                grid-template-columns: 1fr;
+            }
+            .post-thumb {
+                height: 190px;
+            }
+            .footer-nav-links {
+                gap: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =================================================================
+         KHỐI 1: HEADER & RESPONSIVE THÔNG MINH
+         ================================================================= -->
+    <header>
+        <!-- Thanh mạng xã hội trên cùng (Chỉ hiện trên Laptop) -->
+        <div class="desktop-top-bar">
+            <div class="desktop-top-bar-inner">
+                <span>Hỗ trợ tài chính & Affiliate thực chiến cùng Trung Cần</span>
+                <div class="top-socials">
+                    <a href="https://zalo.me/0903101248" target="_blank" title="Zalo"><i class="fa-solid fa-comment-dots"></i> Zalo: 0903.101.248</a>
+                    <a href="#" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-inner">
+            <!-- Logo & Tên thương hiệu -->
+            <a href="/" class="brand-logo">
+                <img src="logo.png" alt="Logo Trung Cần"> Trung Cần Tài Chính
+            </a>
+
+            <!-- Cụm nút tìm kiếm & menu (Trên mobile hiện đủ, trên laptop ẩn menu 3 gạch) -->
+            <div class="header-actions">
+                <button class="icon-btn" id="searchToggle" title="Tìm kiếm">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <button class="icon-btn" id="menuToggle" title="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Menu sổ xuống trên mobile -->
+            <nav class="dropdown-menu" id="dropdownMenu">
+                <div class="menu-item" id="productSubToggle">
+                    <span><i class="fa-solid fa-box-open" style="width:22px; color:#1d4ed8;"></i> Sản phẩm</span>
+                    <i class="fa-solid fa-chevron-down" style="font-size:0.8rem;"></i>
+                </div>
+                <div class="submenu open" id="productSubmenu">
+                    <a href="/goivaynhanh">• Vay tiêu dùng</a>
+                    <a href="#">• Thẻ tín dụng</a>
+                    <a href="#">• Bảo hiểm</a>
+                </div>
+                <a href="#" class="menu-item">
+                    <span><i class="fa-solid fa-newspaper" style="width:22px; color:#1d4ed8;"></i> Blog</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <span><i class="fa-solid fa-sack-dollar" style="width:22px; color:#1d4ed8;"></i> Kiếm tiền (Affiliate)</span>
+                </a>
+                <a href="#ve-toi" class="menu-item">
+                    <span><i class="fa-solid fa-user-check" style="width:22px; color:#1d4ed8;"></i> Về tôi</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Thanh điều hướng phụ cho Laptop (Menu lớn hiển thị ngang bên dưới) -->
+        <div class="laptop-nav-bar">
+            <div class="laptop-nav-inner">
+                <div class="laptop-menu-links">
+                    <a href="/goivaynhanh">Vay Tiêu Dùng</a>
+                    <a href="#">Thẻ Tín Dụng</a>
+                    <a href="#">Kiến Thức CIC</a>
+                    <a href="#">Kiếm Tiền Affiliate</a>
+                    <a href="#ve-toi">Về Tôi</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thanh tìm kiếm ẩn/hiện -->
+        <div class="search-bar-wrap" id="searchBar">
+            <div class="search-input-box">
+                <input type="text" id="searchInput" placeholder="Nhập gói vay hoặc chủ đề bạn muốn tìm...">
+                <button type="button" onclick="filterContent()">Tìm</button>
+            </div>
+        </div>
+    </header>
+    <!-- ================= KẾT THÚC KHỐI 1 ================= -->
+
+
+    <main class="container">
+
+        <!-- =================================================================
+             KHỐI 2: SẢN PHẨM VAY HOT (Cập nhật đúng logo từ repo GitHub)
+             ================================================================= -->
+        <section class="hot-loans-section">
+            <h2 class="section-heading">Sản Phẩm Vay Hot</h2>
+            
+            <div class="loans-grid">
+                <!-- Sản phẩm 1: VPBank -->
+                <div class="loan-card searchable-item">
+                    <span class="badge-hot">Duyệt Tốt</span>
+                    <div>
+                        <div class="loan-brand">
+                            <img src="vpbank.PNG" alt="VPBank Logo" class="brand-logo-img">
+                            <h3>VPBank</h3>
+                        </div>
+                        <ul class="loan-details">
+                            <li><i class="fa-solid fa-check"></i> Hạn mức lên đến 100 triệu</li>
+                            <li><i class="fa-solid fa-check"></i> Lãi suất ngân hàng ưu đãi</li>
+                            <li><i class="fa-solid fa-check"></i> Thủ tục online nhanh gọn</li>
+                        </ul>
+                    </div>
+                    <a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
+                </div>
+
+                <!-- Sản phẩm 2: FE Credit -->
+                <div class="loan-card searchable-item">
+                    <span class="badge-hot">Dễ Duyệt</span>
+                    <div>
+                        <div class="loan-brand">
+                            <img src="fe.JPG" alt="FE Credit Logo" class="brand-logo-img">
+                            <h3>FE Credit</h3>
+                        </div>
+                        <ul class="loan-details">
+                            <li><i class="fa-solid fa-check"></i> Chỉ cần CCCD gắn chip</li>
+                            <li><i class="fa-solid fa-check"></i> Hỗ trợ tới 70 triệu đồng</li>
+                            <li><i class="fa-solid fa-check"></i> Giải ngân nhanh trong ngày</li>
+                        </ul>
+                    </div>
+                    <a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
+                </div>
+
+                <!-- Sản phẩm 3: TNEX Finance -->
+                <div class="loan-card searchable-item">
+                    <span class="badge-hot">100% Online</span>
+                    <div>
+                        <div class="loan-brand">
+                            <img src="tnex.WEBP" alt="TNEX Logo" class="brand-logo-img">
+                            <h3>TNEX Finance</h3>
+                        </div>
+                        <ul class="loan-details">
+                            <li><i class="fa-solid fa-check"></i> Duyệt tự động trên App</li>
+                            <li><i class="fa-solid fa-check"></i> Không cần gặp mặt thẩm định</li>
+                            <li><i class="fa-solid fa-check"></i> Tiền về tài khoản tức thì</li>
+                        </ul>
+                    </div>
+                    <a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
+                </div>
+
+                <!-- Sản phẩm 4: Home Credit -->
+                <div class="loan-card searchable-item">
+                    <span class="badge-hot">Hỗ Trợ Nhanh</span>
+                    <div>
+                        <div class="loan-brand">
+                            <img src="homecredit.JPG" alt="Home Credit Logo" class="brand-logo-img">
+                            <h3>Home Credit</h3>
+                        </div>
+                        <ul class="loan-details">
+                            <li><i class="fa-solid fa-check"></i> Gói vay tiêu dùng linh hoạt</li>
+                            <li><i class="fa-solid fa-check"></i> Điều kiện mở, tỷ lệ đậu cao</li>
+                            <li><i class="fa-solid fa-check"></i> Bảo mật thông tin khoản vay</li>
+                        </ul>
+                    </div>
+                    <a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
+                </div>
+            </div>
+
+            <a href="/goivaynhanh" class="view-all-loans">
+                Xem đầy đủ bảng so sánh tất cả gói vay <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </section>
+        <!-- ================= KẾT THÚC KHỐI 2 ================= -->
+
+
+        <!-- =================================================================
+             KHỐI 3: ĐỌC NHIỀU NHẤT
+             ================================================================= -->
+        <section class="blog-section">
+            <h2 class="section-heading">Đọc Nhiều Nhất</h2>
+
+            <!-- BÀI VIẾT SỐ 1 -->
+            <article class="post-card searchable-item">
+                <div class="post-thumb">
+                    <a href="/goivaynhanh">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Kinh nghiệm vay tiêu dùng online">
+                    </a>
+                </div>
+                <div class="post-body">
+                    <a href="/goivaynhanh" class="post-title">
+                        5 Kinh Nghiệm Đăng Ký Vay Tiêu Dùng Online Tỷ Lệ Duyệt Cao Nhất 2026 (CHIA SẺ CHI TIẾT)
+                    </a>
+                    <div class="post-meta">
+                        <div class="meta-left">
+                            <span class="cat-badge">Kinh Nghiệm Vay</span>
+                            <span class="post-author">Trung Cần</span>
+                            <span class="post-date">- 15/10/2026</span>
+                        </div>
+                        <span class="comment-count">5</span>
+                    </div>
+                    <p class="post-excerpt">
+                        Rất nhiều bạn khi cần vốn gấp thường bấm đăng ký cùng lúc 5-7 tổ chức tài chính khác nhau mà không biết rằng điều này làm giảm điểm tín dụng nghiêm trọng...
+                    </p>
+                    <a href="/goivaynhanh" class="btn-readmore">Read more</a>
+                </div>
+            </article>
+
+            <!-- BÀI VIẾT SỐ 2 -->
+            <article class="post-card searchable-item">
+                <div class="post-thumb">
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80" alt="Hướng dẫn kiểm tra nợ xấu CIC">
+                    </a>
+                </div>
+                <div class="post-body">
+                    <a href="#" class="post-title">
+                        Hướng dẫn tự kiểm tra điểm tín dụng và nợ xấu CIC miễn phí trên điện thoại chỉ trong 3 phút
+                    </a>
+                    <div class="post-meta">
+                        <div class="meta-left">
+                            <span class="cat-badge">Kiến Thức Tài Chính</span>
+                            <span class="post-author">Trung Cần</span>
+                            <span class="post-date">- 10/10/2026</span>
+                        </div>
+                        <span class="comment-count">3</span>
+                    </div>
+                    <p class="post-excerpt">
+                        Trước khi nộp hồ sơ vay ngân hàng hoặc mở thẻ tín dụng, việc nắm rõ lịch sử tín dụng cá nhân trên hệ thống CIC sẽ giúp bạn chủ động chọn đúng gói vay dễ đậu nhất...
+                    </p>
+                    <a href="#" class="btn-readmore">Read more</a>
+                </div>
+            </article>
+
+            <!-- BÀI VIẾT SỐ 3 -->
+            <article class="post-card searchable-item">
+                <div class="post-thumb">
+                    <a href="#">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Kiếm tiền Affiliate tài chính">
+                    </a>
+                </div>
+                <div class="post-body">
+                    <a href="#" class="post-title">
+                        Lộ trình xây dựng nguồn thu nhập thụ động từ Affiliate Tài Chính cho người mới bắt đầu
+                    </a>
+                    <div class="post-meta">
+                        <div class="meta-left">
+                            <span class="cat-badge">Kiếm Tiền Affiliate</span>
+                            <span class="post-author">Trung Cần</span>
+                            <span class="post-date">- 02/10/2026</span>
+                        </div>
+                        <span class="comment-count">8</span>
+                    </div>
+                    <p class="post-excerpt">
+                        Ngách tài chính (cài đặt App ngân hàng, mở thẻ tín dụng, giới thiệu gói vay) luôn nằm trong nhóm có mức hoa hồng cao và bền vững nhất nếu bạn biết cách xây dựng kênh...
+                    </p>
+                    <a href="#" class="btn-readmore">Read more</a>
+                </div>
+            </article>
+        </section>
+        <!-- ================= KẾT THÚC KHỐI 3 ================= -->
+
+    </main>
+
+
+    <!-- =================================================================
+         KHỐI 4: CHÂN TRANG (FOOTER)
+         ================================================================= -->
+    <footer class="site-footer" id="ve-toi">
+        <div class="container">
+            
+            <!-- Tiêu đề CATEGORY & Danh sách chuyên mục -->
+            <h4 class="footer-category-title">CATEGORY</h4>
+            <ul class="footer-categories">
+                <li>
+                    <a href="/goivaynhanh" class="footer-cat-link">
+                        <span class="cat-left">
+                            <i class="fa-solid fa-bolt"></i> Vay Tiêu Dùng Nhanh
+                            <span class="tag-hot-mini">HOT</span>
+                        </span>
+                        <span class="cat-count-pill">12</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="footer-cat-link">
+                        <span class="cat-left">
+                            <i class="fa-solid fa-credit-card"></i> Thẻ Tín Dụng Ưu Đãi
+                        </span>
+                        <span class="cat-count-pill">8</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="footer-cat-link">
+                        <span class="cat-left">
+                            <i class="fa-solid fa-building-columns"></i> Kiến Thức Tài Chính & CIC
+                        </span>
+                        <span class="cat-count-pill">15</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="footer-cat-link">
+                        <span class="cat-left">
+                            <i class="fa-solid fa-sack-dollar"></i> Kiếm Tiền Affiliate
+                        </span>
+                        <span class="cat-count-pill">10</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="footer-cat-link">
+                        <span class="cat-left">
+                            <i class="fa-solid fa-chart-pie"></i> Case Study Thực Chiến
+                        </span>
+                        <span class="cat-count-pill">6</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="footer-cat-link">
+                        <span class="cat-left">
+                            <i class="fa-solid fa-shield-heart"></i> Bảo Hiểm Cá Nhân
+                        </span>
+                        <span class="cat-count-pill">4</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Mục VỀ TÔI (Cá nhân hóa chân chất 10 năm kinh nghiệm) -->
+            <div class="footer-about">
+                <div class="footer-mini-avatar">
+                    <img src="avarta.jpeg" alt="Trung Cần">
+                </div>
+                <h4 class="footer-heading">VỀ TÔI</h4>
+                <p class="footer-bio-text">
+                    Hơn 10 năm làm tài chính đủ để mình hiểu cảm giác hoang mang khi đứng trước đống thủ tục, giấy tờ hay những khoản lãi suất mập mờ. Mình là Trung Cần – không có văn phong hoa mỹ, chỉ có những trải nghiệm thực tế và sự tư vấn chân thành. Mong rằng nơi đây sẽ là một góc nhỏ tin cậy giúp bạn tháo gỡ khó khăn tài chính một cách an tâm nhất.
+                </p>
+                <a href="https://zalo.me/0903101248" target="_blank" class="quick-contact-box">
+                    <span class="status-dot"></span>
+                    <span>Hỗ trợ tư vấn trực tiếp: <strong>0903.101.248 (Zalo)</strong></span>
+                </a>
+            </div>
+
+            <!-- Follow Us / Kết nối mạng xã hội -->
+            <div class="footer-follow">
+                <h4 class="footer-heading">KẾT NỐI CÙNG MÌNH</h4>
+                <div class="social-squares">
+                    <a href="https://zalo.me/0903101248" target="_blank" class="social-sq-btn" title="Zalo">
+                        <i class="fa-solid fa-comment-dots"></i>
+                    </a>
+                    <a href="#" target="_blank" class="social-sq-btn" title="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" target="_blank" class="social-sq-btn" title="TikTok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="tel:0903101248" class="social-sq-btn" title="Gọi điện">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Dải bản quyền & Chính sách dưới cùng -->
+        <div class="footer-bottom-bar">
+            <div class="container">
+                <div class="footer-nav-links">
+                    <a href="#ve-toi">Giới thiệu</a>
+                    <a href="#">Miễn trừ trách nhiệm</a>
+                    <a href="#">Chính sách bảo mật</a>
+                    <a href="https://zalo.me/0903101248" target="_blank">Liên hệ</a>
+                </div>
+                <p class="footer-disclaimer">
+                    Website chia sẻ kiến thức và đánh giá thông tin tài chính độc lập, không trực tiếp cho vay hay giải ngân.
+                </p>
+                <p class="footer-copyright">
+                    &copy; Copyright 2026 - TRUNGCANTAICHINH.COM
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nút Zalo nổi góc dưới màn hình -->
+    <a href="https://zalo.me/0903101248" target="_blank" class="floating-zalo">
+        <i class="fa-solid fa-comment-dots"></i> Chat Zalo Tư Vấn
+    </a>
+    <!-- ================= KẾT THÚC KHỐI 4 ================= -->
+
+
+    <!-- =================================================================
+         JAVASCRIPT XỬ LÝ MENU SỔ XUỐNG & TÌM KIẾM
+         ================================================================= -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const productSubToggle = document.getElementById('productSubToggle');
+        const productSubmenu = document.getElementById('productSubmenu');
+        const searchToggle = document.getElementById('searchToggle');
+        const searchBar = document.getElementById('searchBar');
+        const searchInput = document.getElementById('searchInput');
+
+        // Bật/tắt Menu góc phải trên mobile
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('open');
+                menuToggle.classList.toggle('active');
+                searchBar.classList.remove('open');
+            });
+        }
+
+        // Bật/tắt mục con "Sản phẩm" trong Menu
+        if (productSubToggle) {
+            productSubToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                productSubmenu.classList.toggle('open');
+            });
+        }
+
+        // Bật/tắt Thanh tìm kiếm
+        searchToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            searchBar.classList.toggle('open');
+            searchToggle.classList.toggle('active');
+            if (dropdownMenu) dropdownMenu.classList.remove('open');
+            if (menuToggle) menuToggle.classList.remove('active');
+            if (searchBar.classList.contains('open')) {
+                searchInput.focus();
+            }
+        });
+
+        // Đóng menu khi bấm ra ngoài
+        document.addEventListener('click', function(e) {
+            if (dropdownMenu && !dropdownMenu.contains(e.target) && e.target !== menuToggle) {
+                dropdownMenu.classList.remove('open');
+                if (menuToggle) menuToggle.classList.remove('active');
             }
         });
 
