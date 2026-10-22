@@ -307,12 +307,13 @@ gap: 10px;
 margin-bottom: 0.75rem;
 }
 .brand-logo-img {
-width: 42px;
-height: 42px;
+width: 44px;
+height: 44px;
 border-radius: 10px;
-object-fit: cover;
+object-fit: contain;
+background: #ffffff;
 border: 1px solid var(--border-color);
-background: #f1f5f9;
+padding: 4px;
 flex-shrink: 0;
 }
 .loan-brand h3 {
@@ -367,7 +368,7 @@ background: var(--primary-blue);
 color: white;
 }
 /* =========================================
-ĐỌC NHIỀU NHẤT
+ĐỌC NHIỀU NHẤT & BÀI VIẾT MỚI NHẤT
 ========================================= */
 .blog-section {
 margin-bottom: 3.5rem;
@@ -432,6 +433,9 @@ padding: 3px 8px;
 font-weight: 600;
 font-size: 0.75rem;
 border-radius: 2px;
+}
+.cat-badge.new {
+background: #0284c7;
 }
 .post-author {
 font-weight: 700;
@@ -595,6 +599,7 @@ color: #e2e8f0;
 font-size: 0.88rem;
 font-weight: 500;
 transition: all 0.2s;
+margin-bottom: 0.75rem;
 }
 .quick-contact-box:hover {
 background: rgba(37, 99, 235, 0.5);
@@ -612,6 +617,18 @@ flex-shrink: 0;
 .quick-contact-box strong {
 color: #60a5fa;
 font-weight: 700;
+}
+.email-contact-box {
+display: block;
+color: #60a5fa;
+font-size: 0.9rem;
+font-weight: 600;
+margin-top: 0.5rem;
+transition: color 0.2s;
+}
+.email-contact-box:hover {
+color: #93c5fd;
+text-decoration: underline;
 }
 .footer-follow {
 text-align: center;
@@ -666,9 +683,10 @@ color: #60a5fa;
 }
 .footer-disclaimer {
 font-size: 0.78rem;
-color: #64748b;
-max-width: 600px;
-margin: 0 auto 0.6rem;
+color: #94a3b8;
+max-width: 650px;
+margin: 0 auto 0.75rem;
+line-height: 1.5;
 }
 .footer-copyright {
 font-size: 0.8rem;
@@ -679,7 +697,7 @@ font-weight: 500;
 position: fixed;
 bottom: 20px;
 right: 20px;
-background: #0068ff;
+background: #1d4ed8;
 color: white;
 padding: 0.7rem 1.1rem;
 border-radius: 50px;
@@ -688,7 +706,7 @@ font-size: 0.9rem;
 display: flex;
 align-items: center;
 gap: 8px;
-box-shadow: 0 8px 20px rgba(0, 104, 255, 0.35);
+box-shadow: 0 8px 20px rgba(29, 78, 216, 0.35);
 z-index: 999;
 transition: transform 0.2s;
 }
@@ -709,7 +727,7 @@ gap: 0.85rem;
 </style>
 </head>
 <body>
-<!-- HEADER & RESPONSIVE -->
+<!-- HEADER & RESPONSIVE THÔNG MINH -->
 <header>
 <div class="desktop-top-bar">
 <div class="desktop-top-bar-inner">
@@ -739,7 +757,7 @@ gap: 0.85rem;
 <i class="fa-solid fa-chevron-down" style="font-size:0.8rem;"></i>
 </div>
 <div class="submenu open" id="productSubmenu">
-<a href="/goivaynhanh">• Vay tiêu dùng</a>
+<a href="vay-von.html">• Vay tiêu dùng</a>
 <a href="#">• Thẻ tín dụng</a>
 <a href="#">• Bảo hiểm</a>
 </div>
@@ -757,7 +775,7 @@ gap: 0.85rem;
 <div class="laptop-nav-bar">
 <div class="laptop-nav-inner">
 <div class="laptop-menu-links">
-<a href="/goivaynhanh">Vay Tiêu Dùng</a>
+<a href="vay-von.html">Vay Tiêu Dùng</a>
 <a href="#">Thẻ Tín Dụng</a>
 <a href="#">Kiến Thức CIC</a>
 <a href="#">Kiếm Tiền Affiliate</a>
@@ -773,10 +791,11 @@ gap: 0.85rem;
 </div>
 </header>
 <main class="container">
-<!-- SẢN PHẨM VAY HOT -->
+<!-- 1. SẢN PHẨM VAY HOT -->
 <section class="hot-loans-section">
 <h2 class="section-heading">Sản Phẩm Vay Hot</h2>
 <div class="loans-grid">
+<!-- Vay Nhanh Online VPBank -->
 <div class="loan-card searchable-item">
 <span class="badge-hot">Duyệt Tốt</span>
 <div>
@@ -785,13 +804,14 @@ gap: 0.85rem;
 <h3>VPBank</h3>
 </div>
 <ul class="loan-details">
+<li><i class="fa-solid fa-check"></i> Vay nhanh online tiện lợi</li>
 <li><i class="fa-solid fa-check"></i> Hạn mức lên đến 100 triệu</li>
-<li><i class="fa-solid fa-check"></i> Lãi suất ngân hàng ưu đãi</li>
-<li><i class="fa-solid fa-check"></i> Thủ tục online nhanh gọn</li>
+<li><i class="fa-solid fa-check"></i> Lãi suất ưu đãi ngân hàng</li>
 </ul>
 </div>
-<a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
+<a href="vay-von.html" class="btn-register">Đăng ký ngay</a>
 </div>
+<!-- FE Credit -->
 <div class="loan-card searchable-item">
 <span class="badge-hot">Dễ Duyệt</span>
 <div>
@@ -805,8 +825,25 @@ gap: 0.85rem;
 <li><i class="fa-solid fa-check"></i> Giải ngân nhanh trong ngày</li>
 </ul>
 </div>
-<a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
+<a href="vay-von.html" class="btn-register">Đăng ký ngay</a>
 </div>
+<!-- SFinance (SHB cũ) -->
+<div class="loan-card searchable-item">
+<span class="badge-hot">Uy Tín</span>
+<div>
+<div class="loan-brand">
+<img src="shbfinance.WEBP" alt="SFinance Logo" class="brand-logo-img">
+<h3>SFinance (SHB)</h3>
+</div>
+<ul class="loan-details">
+<li><i class="fa-solid fa-check"></i> Tài chính SHB uy tín</li>
+<li><i class="fa-solid fa-check"></i> Thủ tục đơn giản, nhanh gọn</li>
+<li><i class="fa-solid fa-check"></i> Hạn mức linh hoạt theo nhu cầu</li>
+</ul>
+</div>
+<a href="vay-von.html" class="btn-register">Đăng ký ngay</a>
+</div>
+<!-- TNEX -->
 <div class="loan-card searchable-item">
 <span class="badge-hot">100% Online</span>
 <div>
@@ -820,39 +857,24 @@ gap: 0.85rem;
 <li><i class="fa-solid fa-check"></i> Tiền về tài khoản tức thì</li>
 </ul>
 </div>
-<a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
-</div>
-<div class="loan-card searchable-item">
-<span class="badge-hot">Hỗ Trợ Nhanh</span>
-<div>
-<div class="loan-brand">
-<img src="homecredit.JPG" alt="Home Credit Logo" class="brand-logo-img">
-<h3>Home Credit</h3>
-</div>
-<ul class="loan-details">
-<li><i class="fa-solid fa-check"></i> Gói vay tiêu dùng linh hoạt</li>
-<li><i class="fa-solid fa-check"></i> Điều kiện mở, tỷ lệ đậu cao</li>
-<li><i class="fa-solid fa-check"></i> Bảo mật thông tin khoản vay</li>
-</ul>
-</div>
-<a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
+<a href="vay-von.html" class="btn-register">Đăng ký ngay</a>
 </div>
 </div>
-<a href="/goivaynhanh" class="view-all-loans">
+<a href="vay-von.html" class="view-all-loans">
 Xem đầy đủ bảng so sánh tất cả gói vay <i class="fa-solid fa-arrow-right"></i>
 </a>
 </section>
-<!-- ĐỌC NHIỀU NHẤT -->
+<!-- 2. ĐỌC NHIỀU NHẤT -->
 <section class="blog-section">
 <h2 class="section-heading">Đọc Nhiều Nhất</h2>
 <article class="post-card searchable-item">
 <div class="post-thumb">
-<a href="/goivaynhanh">
+<a href="vay-von.html">
 <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Kinh nghiệm vay tiêu dùng online">
 </a>
 </div>
 <div class="post-body">
-<a href="/goivaynhanh" class="post-title">
+<a href="vay-von.html" class="post-title">
 5 Kinh Nghiệm Đăng Ký Vay Tiêu Dùng Online Tỷ Lệ Duyệt Cao Nhất 2026 (CHIA SẺ CHI TIẾT)
 </a>
 <div class="post-meta">
@@ -866,7 +888,7 @@ Xem đầy đủ bảng so sánh tất cả gói vay <i class="fa-solid fa-arrow
 <p class="post-excerpt">
 Rất nhiều bạn khi cần vốn gấp thường bấm đăng ký cùng lúc 5-7 tổ chức tài chính khác nhau mà không biết rằng điều này làm giảm điểm tín dụng nghiêm trọng...
 </p>
-<a href="/goivaynhanh" class="btn-readmore">Read more</a>
+<a href="vay-von.html" class="btn-readmore">Read more</a>
 </div>
 </article>
 <article class="post-card searchable-item">
@@ -918,6 +940,34 @@ Ngách tài chính (cài đặt App ngân hàng, mở thẻ tín dụng, giới 
 </div>
 </article>
 </section>
+<!-- 3. BÀI VIẾT MỚI NHẤT -->
+<section class="blog-section">
+<h2 class="section-heading">Bài Viết Mới Nhất</h2>
+<article class="post-card searchable-item">
+<div class="post-thumb">
+<a href="#">
+<img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=800&q=80" alt="Cảnh báo bẫy tín dụng đen">
+</a>
+</div>
+<div class="post-body">
+<a href="#" class="post-title">
+Cảnh Báo Mới Nhất 2026: Nhận Diện Các Bẫy "Tín Dụng Đen" Giả Mạo Ngân Hàng Tinh Vi
+</a>
+<div class="post-meta">
+<div class="meta-left">
+<span class="cat-badge new">Mới Cập Nhật</span>
+<span class="post-author">Trung Cần</span>
+<span class="post-date">- 20/10/2026</span>
+</div>
+<span class="comment-count">2</span>
+</div>
+<p class="post-excerpt">
+Hiện nay có rất nhiều đối tượng mạo danh nhân viên ngân hàng hoặc các tổ chức tài chính uy tín để lừa đảo thu phí hồ sơ trước. Hãy đọc ngay bài viết này để phòng tránh...
+</p>
+<a href="#" class="btn-readmore">Read more</a>
+</div>
+</article>
+</section>
 </main>
 <!-- CHÂN TRANG (FOOTER) -->
 <footer class="site-footer" id="ve-toi">
@@ -925,7 +975,7 @@ Ngách tài chính (cài đặt App ngân hàng, mở thẻ tín dụng, giới 
 <h4 class="footer-category-title">CATEGORY</h4>
 <ul class="footer-categories">
 <li>
-<a href="/goivaynhanh" class="footer-cat-link">
+<a href="vay-von.html" class="footer-cat-link">
 <span class="cat-left">
 <i class="fa-solid fa-bolt"></i> Vay Tiêu Dùng Nhanh
 <span class="tag-hot-mini">HOT</span>
@@ -960,20 +1010,13 @@ Ngách tài chính (cài đặt App ngân hàng, mở thẻ tín dụng, giới 
 <li>
 <a href="#" class="footer-cat-link">
 <span class="cat-left">
-<i class="fa-solid fa-chart-pie"></i> Case Study Thực Chiến
-</span>
-<span class="cat-count-pill">6</span>
-</a>
-</li>
-<li>
-<a href="#" class="footer-cat-link">
-<span class="cat-left">
 <i class="fa-solid fa-shield-heart"></i> Bảo Hiểm Cá Nhân
 </span>
 <span class="cat-count-pill">4</span>
 </a>
 </li>
 </ul>
+<!-- VỀ TÔI -->
 <div class="footer-about">
 <div class="footer-mini-avatar">
 <img src="avarta.jpeg" alt="Trung Cần">
@@ -986,6 +1029,11 @@ Hơn 10 năm làm tài chính đủ để mình hiểu cảm giác hoang mang kh
 <span class="status-dot"></span>
 <span>Hỗ trợ tư vấn trực tiếp: <strong>0903.101.248 (Zalo)</strong></span>
 </a>
+<div>
+<a href="mailto:trungcantaichinh.com@gmail.com" class="email-contact-box">
+<i class="fa-solid fa-envelope"></i> Email: trungcantaichinh.com
+</a>
+</div>
 </div>
 <div class="footer-follow">
 <h4 class="footer-heading">KẾT NỐI CÙNG MÌNH</h4>
@@ -1014,7 +1062,7 @@ Hơn 10 năm làm tài chính đủ để mình hiểu cảm giác hoang mang kh
 <a href="https://zalo.me/0903101248" target="_blank">Liên hệ</a>
 </div>
 <p class="footer-disclaimer">
-Website chia sẻ kiến thức và đánh giá thông tin tài chính độc lập, không trực tiếp cho vay hay giải ngân.
+Website là nơi chia sẻ trải nghiệm, kiến thức cá nhân, và tổng hợp thông tin các gói vay giúp bạn tham khảo, không phải là tổ chức tín dụng và không trực tiếp hỗ trợ giải ngân khoản vay. Mọi quyết định vay vốn thuộc về sự cân nhắc kỹ lưỡng của chính bạn.
 </p>
 <p class="footer-copyright">
 © Copyright 2026 - TRUNGCANTAICHINH.COM
