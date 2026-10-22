@@ -21,6 +21,8 @@
             --bg-body: #f8fafc;
             --bg-white: #ffffff;
             --border-color: #e5e7eb;
+            --footer-navy: #0b1120;
+            --footer-darker: #060a14;
         }
 
         * {
@@ -42,7 +44,7 @@
         }
 
         .container {
-            max-width: 720px; /* Khung chuẩn giao diện đọc blog trên mobile & PC */
+            max-width: 720px;
             margin: 0 auto;
             padding: 0 1.25rem;
         }
@@ -425,7 +427,7 @@
         }
 
         /* =========================================
-           CSS KHỐI 4: ĐỌC NHIỀU NHẤT (CHUẨN MẪU ẢNH)
+           CSS KHỐI 4: ĐỌC NHIỀU NHẤT
            ========================================= */
         .blog-section {
             margin-bottom: 3.5rem;
@@ -465,7 +467,7 @@
         .post-title {
             font-size: 1.35rem;
             font-weight: 600;
-            color: #1e40af; /* Màu xanh chuẩn như mẫu */
+            color: #1e40af;
             line-height: 1.35;
             margin-bottom: 0.9rem;
             display: block;
@@ -511,7 +513,6 @@
             color: #9ca3af;
         }
 
-        /* Ô số bình luận màu đen có đuôi nhọn giống ảnh mẫu */
         .comment-count {
             background: #111827;
             color: #ffffff;
@@ -555,35 +556,227 @@
         }
 
         /* =========================================
-           CSS KHỐI 5: FOOTER & NÚT ZALO NỔI
+           CSS KHỐI 5: CHÂN TRANG (FOOTER MỚI PHÁ CÁCH)
            ========================================= */
-        footer {
-            background: #0f172a;
+        .site-footer {
+            background-color: var(--footer-navy);
+            color: #cbd5e1;
+            padding-top: 2.75rem;
+            font-size: 0.92rem;
+            border-top: 3px solid var(--primary-blue);
+        }
+
+        /* Tầng 1: Danh sách chuyên mục & Số lượng */
+        .footer-categories {
+            list-style: none;
+            padding-bottom: 2.25rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-categories li {
+            margin-bottom: 0.85rem;
+        }
+
+        .footer-categories li:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer-cat-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #e2e8f0;
+            font-weight: 500;
+            padding: 0.35rem 0;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .footer-cat-link:hover {
+            color: #60a5fa;
+            transform: translateX(4px);
+        }
+
+        .cat-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cat-left i {
+            color: #3b82f6;
+            width: 18px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .tag-hot-mini {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: #ffffff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 1px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cat-count-pill {
+            background: rgba(255, 255, 255, 0.07);
             color: #94a3b8;
-            padding: 2.5rem 0 2rem;
-            font-size: 0.88rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        .footer-box {
-            border-bottom: 1px solid #1e293b;
-            padding-bottom: 1.5rem;
-            margin-bottom: 1.5rem;
+        /* Tầng 2: Về Trung Cần (Cá nhân hóa) */
+        .footer-about {
+            text-align: center;
+            max-width: 540px;
+            margin: 0 auto 2.5rem;
         }
 
-        .footer-box h4 {
+        .footer-mini-avatar {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            margin: 0 auto 0.85rem;
+            overflow: hidden;
+            border: 2px solid #3b82f6;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);
+        }
+
+        .footer-mini-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-heading {
             color: #ffffff;
             font-size: 1.05rem;
-            margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.85rem;
         }
 
-        .footer-box p {
-            margin-bottom: 0.4rem;
+        .footer-bio-text {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
         }
 
-        .footer-bottom {
+        /* Thẻ liên hệ nhanh có chấm xanh */
+        .quick-contact-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(30, 58, 138, 0.35);
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            padding: 0.55rem 1.15rem;
+            border-radius: 50px;
+            color: #e2e8f0;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .quick-contact-box:hover {
+            background: rgba(37, 99, 235, 0.5);
+            border-color: #60a5fa;
+            color: #ffffff;
+        }
+
+        .status-dot {
+            width: 9px;
+            height: 9px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #22c55e;
+            flex-shrink: 0;
+        }
+
+        .quick-contact-box strong {
+            color: #60a5fa;
+            font-weight: 700;
+        }
+
+        /* Tầng 3: Follow Us / Mạng xã hội */
+        .footer-follow {
             text-align: center;
-            font-size: 0.8rem;
+            margin-bottom: 2.75rem;
+        }
+
+        .social-squares {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .social-sq-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+        }
+
+        .social-sq-btn:hover {
+            background: var(--primary-blue);
+            border-color: #60a5fa;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
+        }
+
+        /* Tầng 4: Dải bản quyền & Chính sách dưới cùng */
+        .footer-bottom-bar {
+            background-color: var(--footer-darker);
+            padding: 1.5rem 0 1.75rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .footer-nav-links a {
+            color: #cbd5e1;
+            transition: color 0.2s;
+        }
+
+        .footer-nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.78rem;
             color: #64748b;
+            max-width: 600px;
+            margin: 0 auto 0.6rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            font-weight: 500;
         }
 
         /* Nút Zalo nổi góc phải dưới */
@@ -611,7 +804,7 @@
 
         @media (max-width: 576px) {
             .loans-grid {
-                grid-template-columns: 1fr; /* Chuyển thành 1 cột to rõ trên màn hình nhỏ */
+                grid-template-columns: 1fr;
             }
             .profile-card {
                 flex-direction: column;
@@ -622,6 +815,9 @@
             }
             .post-thumb {
                 height: 190px;
+            }
+            .footer-nav-links {
+                gap: 0.85rem;
             }
         }
     </style>
@@ -668,7 +864,7 @@
                 <a href="#" class="menu-item">
                     <span><i class="fa-solid fa-sack-dollar" style="width:22px; color:#1d4ed8;"></i> Kiếm tiền (Affiliate)</span>
                 </a>
-                <a href="#" class="menu-item">
+                <a href="#ve-trung-can" class="menu-item">
                     <span><i class="fa-solid fa-user-check" style="width:22px; color:#1d4ed8;"></i> Về tôi</span>
                 </a>
             </nav>
@@ -736,7 +932,6 @@
                             <li><i class="fa-solid fa-check"></i> Thủ tục online nhanh gọn</li>
                         </ul>
                     </div>
-                    <!-- Đổi link href="/goivaynhanh" thành link Affiliate riêng nếu muốn -->
                     <a href="/goivaynhanh" class="btn-register">Đăng ký ngay</a>
                 </div>
 
@@ -889,18 +1084,116 @@
 
 
     <!-- =================================================================
-         KHỐI 5: CHÂN TRANG (FOOTER) & NÚT ZALO HỖ TRỢ
+         KHỐI 5: CHÂN TRANG (FOOTER MỚI - TÔNG XANH ĐEN TÀI CHÍNH)
          ================================================================= -->
-    <footer>
+    <footer class="site-footer" id="ve-trung-can">
         <div class="container">
-            <div class="footer-box">
-                <h4>Trung Cần Tài Chính</h4>
-                <p>Kênh chia sẻ kiến thức tài chính cá nhân, đánh giá các gói vay uy tín và hướng dẫn kiếm tiền Affiliate thực chiến.</p>
-                <p><i class="fa-solid fa-phone" style="color:#60a5fa; margin-right:6px;"></i> Hotline / Zalo hỗ trợ: <strong>0903.101.248</strong></p>
+            
+            <!-- Tầng 1: Danh sách chuyên mục & Số lượng -->
+            <ul class="footer-categories">
+                <li>
+                    <a href="/goivaynhanh" class="footer-cat-link">
+                        <span class="cat-left">
+                            <i class="fa-solid fa-bolt"></i> Vay Tiêu Dùng Nhanh
+                            <span class="tag-hot-mini">HOT</span>
+                        </span>
+                        <span class="cat-count-pill">12</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="footer-cat-link">
+                        <span class="cat-left">
+                            <i class="fa-solid fa-credit-card"></i> Thẻ Tín Dụng Ưu Đãi
+                        </span>
+                        <span class="cat-count-pill">8</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="footer-cat-link">
+                        <span class="cat-left">
+                            <i class="fa-solid fa-building-columns"></i> Kiến Thức Tài Chính & CIC
+                        </span>
+                        <span class="cat-count-pill">15</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="footer-cat-link">
+                        <span class="cat-left">
+                            <i class="fa-solid fa-sack-dollar"></i> Kiếm Tiền Affiliate
+                        </span>
+                        <span class="cat-count-pill">10</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="footer-cat-link">
+                        <span class="cat-left">
+                            <i class="fa-solid fa-chart-pie"></i> Case Study Thực Chiến
+                        </span>
+                        <span class="cat-count-pill">6</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="footer-cat-link">
+                        <span class="cat-left">
+                            <i class="fa-solid fa-shield-heart"></i> Bảo Hiểm Cá Nhân
+                        </span>
+                        <span class="cat-count-pill">4</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Tầng 2: Về Trung Cần (Cá nhân hóa) -->
+            <div class="footer-about">
+                <div class="footer-mini-avatar">
+                    <!-- Ảnh đại diện thu nhỏ đồng bộ với Khối 2 -->
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="Trung Cần">
+                </div>
+                <h4 class="footer-heading">VỀ TRUNG CẦN</h4>
+                <p class="footer-bio-text">
+                    Xin chào, mình là <strong>Trung Cần</strong>. Nơi chia sẻ kiến thức tài chính cá nhân minh bạch, tổng hợp các gói vay uy tín và hướng dẫn kiếm tiền Affiliate thực chiến.
+                </p>
+                <a href="https://zalo.me/0903101248" target="_blank" class="quick-contact-box">
+                    <span class="status-dot"></span>
+                    <span>Hỗ trợ tư vấn trực tiếp: <strong>0903.101.248 (Zalo)</strong></span>
+                </a>
             </div>
-            <div class="footer-bottom">
-                <p>Miễn trừ trách nhiệm: Website cung cấp thông tin so sánh và đánh giá độc lập, không trực tiếp cho vay hay giải ngân.</p>
-                <p style="margin-top:0.4rem;">&copy; 2026 trungcantaichinh.com - Phát triển bởi Trung Cần.</p>
+
+            <!-- Tầng 3: Follow Us / Kết nối mạng xã hội -->
+            <div class="footer-follow">
+                <h4 class="footer-heading">KẾT NỐI CÙNG MÌNH</h4>
+                <div class="social-squares">
+                    <a href="https://zalo.me/0903101248" target="_blank" class="social-sq-btn" title="Zalo">
+                        <i class="fa-solid fa-comment-dots"></i>
+                    </a>
+                    <a href="#" target="_blank" class="social-sq-btn" title="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" target="_blank" class="social-sq-btn" title="TikTok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="tel:0903101248" class="social-sq-btn" title="Gọi điện">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tầng 4: Dải bản quyền & Chính sách dưới cùng -->
+        <div class="footer-bottom-bar">
+            <div class="container">
+                <div class="footer-nav-links">
+                    <a href="#ve-trung-can">Giới thiệu</a>
+                    <a href="#">Miễn trừ trách nhiệm</a>
+                    <a href="#">Chính sách bảo mật</a>
+                    <a href="https://zalo.me/0903101248" target="_blank">Liên hệ</a>
+                </div>
+                <p class="footer-disclaimer">
+                    Website chia sẻ kiến thức và đánh giá thông tin tài chính độc lập, không trực tiếp cho vay hay giải ngân.
+                </p>
+                <p class="footer-copyright">
+                    &copy; Copyright 2026 - TRUNGCANTAICHINH.COM
+                </p>
             </div>
         </div>
     </footer>
