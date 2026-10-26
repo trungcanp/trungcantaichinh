@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân Biệt Lãi Suất Phẳng Và Lãi Suất Dư Nợ Giảm Dần Khi Vay Trả Góp - Trung Cần Tài Chính</title>
+    <meta name="description" content="Hướng dẫn cách phân biệt và quy đổi giữa lãi suất phẳng (tính trên nợ gốc ban đầu) và lãi suất theo dư nợ giảm dần chuẩn ngân hàng.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary-blue: #1d4ed8; --dark-blue: #1e3a8a; --light-blue: #eff6ff; --text-dark: #111827; --text-gray: #4b5563; --text-muted: #6b7280; --bg-body: #f8fafc; --bg-white: #ffffff; --border-color: #e5e7eb; --footer-navy: #0b1120; --footer-darker: #060a14; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-body); color: var(--text-dark); line-height: 1.7; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.25rem; }
+        header { background: var(--bg-white); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .desktop-top-bar { display: none; background: var(--footer-navy); color: #cbd5e1; font-size: 0.82rem; padding: 0.4rem 1.25rem; }
+        .desktop-top-bar-inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner { max-width: 720px; margin: 0 auto; padding: 0.85rem 1.25rem; display: flex; justify-content: space-between; align-items: center; position: relative; }
+        .brand-logo { font-size: 1.2rem; font-weight: 800; color: var(--dark-blue); display: flex; align-items: center; gap: 8px; }
+        .brand-logo img { width: 32px; height: 32px; object-fit: contain; border-radius: 6px; }
+        .icon-btn { width: 40px; height: 40px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-white); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .laptop-nav-bar { display: none; background: var(--bg-white); border-top: 1px solid var(--border-color); padding: 0.5rem 1.25rem; }
+        .laptop-nav-inner { max-width: 720px; margin: 0 auto; }
+        .laptop-menu-links { display: flex; gap: 1.35rem; font-weight: 600; font-size: 0.92rem; }
+        .laptop-menu-links a:hover { color: var(--primary-blue); }
+        .dropdown-menu { display: none; position: absolute; top: 100%; right: 1.25rem; width: 260px; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.12); padding: 0.5rem 0; z-index: 1001; }
+        .dropdown-menu.open { display: block; }
+        .menu-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.25rem; font-weight: 600; font-size: 0.95rem; }
+        @media (min-width: 768px) { .desktop-top-bar, .laptop-nav-bar { display: block; } #menuToggle, .dropdown-menu { display: none !important; } }
+
+        .breadcrumb { margin: 1.5rem 0 1rem; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .breadcrumb a { color: var(--primary-blue); font-weight: 600; }
+        .article-card { background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 14px; padding: 2rem 1.65rem; margin-bottom: 2.5rem; }
+        .post-cat-tag { display: inline-block; background: var(--light-blue); color: var(--primary-blue); font-size: 0.78rem; font-weight: 700; padding: 4px 12px; border-radius: 50px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        .article-title { font-size: 1.6rem; font-weight: 800; color: var(--dark-blue); line-height: 1.35; margin-bottom: 0.85rem; }
+        .article-meta { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: var(--text-muted); padding-bottom: 1.25rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); }
+        .article-meta img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-blue); }
+        .article-hero-img { width: 100%; border-radius: 10px; margin-bottom: 1.5rem; max-height: 340px; object-fit: cover; }
+        .article-content h2 { font-size: 1.22rem; font-weight: 700; color: var(--dark-blue); margin: 1.75rem 0 0.75rem; }
+        .article-content p { font-size: 0.96rem; color: var(--text-gray); margin-bottom: 1rem; text-align: justify; }
+        .article-content ul { padding-left: 1.25rem; margin-bottom: 1.2rem; color: var(--text-gray); font-size: 0.95rem; }
+        .article-content li { margin-bottom: 0.5rem; }
+        .tip-box { background: var(--light-blue); border-left: 4px solid var(--primary-blue); padding: 1.15rem 1.25rem; border-radius: 0 10px 10px 0; margin: 1.5rem 0; font-size: 0.94rem; color: var(--dark-blue); }
+        .cta-box { background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue)); color: #ffffff; border-radius: 12px; padding: 1.5rem; text-align: center; margin-top: 2rem; }
+        .cta-box h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .cta-box p { font-size: 0.9rem; color: #dbeafe; margin-bottom: 1.1rem; }
+        .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: var(--dark-blue); font-weight: 700; padding: 0.65rem 1.3rem; border-radius: 8px; margin: 0.25rem; font-size: 0.9rem; }
+
+        .site-footer { background-color: var(--footer-navy); color: #cbd5e1; padding-top: 2rem; font-size: 0.92rem; border-top: 3px solid var(--primary-blue); }
+        .footer-bottom-bar { background-color: var(--footer-darker); padding: 1.5rem 0; text-align: center; }
+        .footer-nav-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 0.75rem; font-size: 0.85rem; }
+        .footer-disclaimer { font-size: 0.78rem; color: #94a3b8; max-width: 650px; margin: 0 auto 0.75rem; }
+        .floating-zalo { position: fixed; bottom: 20px; right: 20px; background: var(--primary-blue); color: white; padding: 0.7rem 1.1rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; z-index: 999; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="desktop-top-bar">
+            <div class="desktop-top-bar-inner">
+                <span>Hỗ trợ tài chính & Affiliate thực chiến cùng Trung Cần</span>
+                <a href="https://zalo.me/0903101248" target="_blank" style="color:#cbd5e1;"><i class="fa-solid fa-comment-dots"></i> Zalo: 0903.101.248</a>
+            </div>
+        </div>
+        <div class="header-inner">
+            <a href="index.html" class="brand-logo"><img src="logo.png" alt="Logo"> Trung Cần Tài Chính</a>
+            <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            <nav class="dropdown-menu" id="dropdownMenu">
+                <a href="index.html" class="menu-item">Trang chủ</a>
+                <a href="vay-von.html" class="menu-item">Vay tiêu dùng</a>
+                <a href="the-tin-dung.html" class="menu-item">Thẻ tín dụng</a>
+                <a href="kien-thuc-tai-chinh.html" class="menu-item">Kiến thức CIC</a>
+                <a href="kiem-tien-affiliate.html" class="menu-item">Kiếm tiền Affiliate</a>
+                <a href="bao-hiem.html" class="menu-item">Bảo hiểm</a>
+                <a href="gioi-thieu.html" class="menu-item">Về tôi</a>
+            </nav>
+        </div>
+        <div class="laptop-nav-bar">
+            <div class="laptop-nav-inner">
+                <div class="laptop-menu-links">
+                    <a href="index.html">Trang Chủ</a>
+                    <a href="vay-von.html">Vay Tiêu Dùng</a>
+                    <a href="the-tin-dung.html">Thẻ Tín Dụng</a>
+                    <a href="kien-thuc-tai-chinh.html" style="color:var(--primary-blue);">Kiến Thức CIC</a>
+                    <a href="kiem-tien-affiliate.html">Kiếm Tiền Affiliate</a>
+                    <a href="bao-hiem.html">Bảo Hiểm</a>
+                    <a href="gioi-thieu.html">Về Tôi</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <nav class="breadcrumb">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a> <span>/</span>
+            <a href="kien-thuc-tai-chinh.html">Kiến thức tài chính</a> <span>/</span>
+            <span>Phân biệt lãi suất phẳng và dư nợ giảm dần</span>
+        </nav>
+
+        <article class="article-card">
+            <span class="post-cat-tag">Kiến Thức Lãi Suất</span>
+            <h1 class="article-title">Phân Biệt Lãi Suất Phẳng Và Lãi Suất Dư Nợ Giảm Dần Khi Vay Tiêu Dùng Trả Góp</h1>
+            <div class="article-meta">
+                <img src="avarta.jpeg" alt="Trung Cần">
+                <div><strong>Trung Cần</strong> • Cập nhật: 18/10/2026 • 4 phút đọc</div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Phân biệt lãi suất phẳng và dư nợ giảm dần" class="article-hero-img">
+
+            <div class="article-content">
+                <p>Khi đi vay tiêu dùng tín chấp hoặc mua hàng trả góp, rất nhiều người nhầm lẫn giữa hai khái niệm <strong>"Lãi suất phẳng" (tính trên dư nợ gốc ban đầu)</strong> và <strong>"Lãi suất theo dư nợ giảm dần"</strong>. Hiểu rõ sự khác biệt này sẽ giúp bạn biết chính xác số tiền mình phải trả mỗi tháng.</p>
+
+                <h2>1. Lãi suất phẳng (Lãi trên dư nợ gốc ban đầu) là gì?</h2>
+                <p>Là cách tính mà tiền lãi mỗi tháng luôn cố định và được nhân trực tiếp với số tiền gốc bạn vay lúc ban đầu trong suốt kỳ hạn vay, bất kể bạn đã trả bớt gốc qua từng tháng.</p>
+                <ul>
+                    <li><strong>Ví dụ:</strong> Vay $20.000.000\text{ đ}$ trong $12\text{ tháng}$ với lãi phẳng $1,5\%/\text{tháng}$.</li>
+                    <li>Tiền lãi mỗi tháng cố định là: $20.000.000 \times 1,5\% = 300.000\text{ đ/tháng}$.</li>
+                </ul>
+
+                <h2>2. Lãi suất theo dư nợ giảm dần (Chuẩn Ngân Hàng) là gì?</h2>
+                <p>Theo quy định của Ngân hàng Nhà nước, các hợp đồng tín dụng chính thức đều ghi nhận lãi suất theo <strong>dư nợ giảm dần</strong>. Tức là tiền lãi tháng sau chỉ tính trên <strong>số tiền gốc thực tế còn nợ lại</strong> sau khi đã trừ đi phần gốc bạn trả ở các tháng trước.</p>
+                <div class="tip-box">
+                    <strong>💡 Mẹo quy đổi nhanh:</strong> Với cùng một số tiền trả hàng tháng, mức <strong>lãi suất dư nợ giảm dần</strong> khi quy đổi ra trên hợp đồng thường cao gấp khoảng $1,7$ đến $1,8$ lần so với con số lãi phẳng mà nhân viên tư vấn thường nói ngắn gọn (Ví dụ: Lãi phẳng $1,5\%/\text{tháng}$ tương đương khoảng $31\% - 32\%/\text{năm}$ theo dư nợ giảm dần).
+                </div>
+
+                <h2>3. Tự tính khoản trả góp hàng tháng chuẩn xác nhất</h2>
+                <p>Để không phải nhẩm tính phức tạp, mình đã tích hợp sẵn <strong>Bảng dự toán dư nợ giảm dần chuẩn Ngân hàng</strong> ngay trên trang tổng hợp gói vay để bạn kéo thanh trượt và xem ngay số tiền trả mỗi tháng.</p>
+
+                <div class="cta-box">
+                    <h3>Dùng thử Công Cụ Tính Khoản Trả Góp Hàng Tháng</h3>
+                    <p>Xem chi tiết số tiền gốc và lãi phải trả theo từng mức vay từ 10 đến 100 triệu đồng!</p>
+                    <a href="vay-von.html" class="btn-cta"><i class="fa-solid fa-calculator"></i> Mở Bảng Tính Lãi & So Sánh Gói Vay</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-bottom-bar">
+            <div class="container">
+                <div class="footer-nav-links">
+                    <a href="index.html">Trang chủ</a>
+                    <a href="gioi-thieu.html">Giới thiệu</a>
+                    <a href="mien-tru-trach-nhiem.html">Miễn trừ trách nhiệm</a>
+                    <a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a>
+                </div>
+                <p class="footer-disclaimer">Website là nơi chia sẻ trải nghiệm, kiến thức cá nhân, và tổng hợp thông tin các gói vay giúp bạn tham khảo, không phải là tổ chức tín dụng và không trực tiếp hỗ trợ giải ngân khoản vay.</p>
+                <p style="font-size:0.8rem; color:#94a3b8;">&copy; Copyright 2026 - TRUNGCANTAICHINH.COM</p>
+            </div>
+        </div>
+    </footer>
+    <a href="https://zalo.me/0903101248" target="_blank" class="floating-zalo"><i class="fa-solid fa-comment-dots"></i> Chat Zalo Tư Vấn</a>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        if (menuToggle) menuToggle.addEventListener('click', (e) => { e.stopPropagation(); dropdownMenu.classList.toggle('open'); });
+        document.addEventListener('click', () => { if (dropdownMenu) dropdownMenu.classList.remove('open'); });
+    </script>
+</body>
+</html>```
