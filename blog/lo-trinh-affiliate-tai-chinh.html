@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lộ Trình Xây Dựng Nguồn Thu Nhập Thụ Động Từ Affiliate Tài Chính - Trung Cần Tài Chính</title>
+    <meta name="description" content="Hướng dẫn từng bước làm tiếp thị liên kết (Affiliate) ngách tài chính ngân hàng cho người mới bắt đầu từ kinh nghiệm thực chiến của Trung Cần.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary-blue: #1d4ed8; --dark-blue: #1e3a8a; --light-blue: #eff6ff; --text-dark: #111827; --text-gray: #4b5563; --text-muted: #6b7280; --bg-body: #f8fafc; --bg-white: #ffffff; --border-color: #e5e7eb; --footer-navy: #0b1120; --footer-darker: #060a14; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-body); color: var(--text-dark); line-height: 1.7; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.25rem; }
+        header { background: var(--bg-white); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .desktop-top-bar { display: none; background: var(--footer-navy); color: #cbd5e1; font-size: 0.82rem; padding: 0.4rem 1.25rem; }
+        .desktop-top-bar-inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner { max-width: 720px; margin: 0 auto; padding: 0.85rem 1.25rem; display: flex; justify-content: space-between; align-items: center; position: relative; }
+        .brand-logo { font-size: 1.2rem; font-weight: 800; color: var(--dark-blue); display: flex; align-items: center; gap: 8px; }
+        .brand-logo img { width: 32px; height: 32px; object-fit: contain; border-radius: 6px; }
+        .icon-btn { width: 40px; height: 40px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-white); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .laptop-nav-bar { display: none; background: var(--bg-white); border-top: 1px solid var(--border-color); padding: 0.5rem 1.25rem; }
+        .laptop-nav-inner { max-width: 720px; margin: 0 auto; }
+        .laptop-menu-links { display: flex; gap: 1.35rem; font-weight: 600; font-size: 0.92rem; }
+        .laptop-menu-links a:hover { color: var(--primary-blue); }
+        .dropdown-menu { display: none; position: absolute; top: 100%; right: 1.25rem; width: 260px; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.12); padding: 0.5rem 0; z-index: 1001; }
+        .dropdown-menu.open { display: block; }
+        .menu-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.25rem; font-weight: 600; font-size: 0.95rem; }
+        @media (min-width: 768px) { .desktop-top-bar, .laptop-nav-bar { display: block; } #menuToggle, .dropdown-menu { display: none !important; } }
+
+        .breadcrumb { margin: 1.5rem 0 1rem; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .breadcrumb a { color: var(--primary-blue); font-weight: 600; }
+        .article-card { background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 14px; padding: 2rem 1.65rem; margin-bottom: 2.5rem; }
+        .post-cat-tag { display: inline-block; background: #d1fae5; color: #047857; font-size: 0.78rem; font-weight: 700; padding: 4px 12px; border-radius: 50px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        .article-title { font-size: 1.6rem; font-weight: 800; color: var(--dark-blue); line-height: 1.35; margin-bottom: 0.85rem; }
+        .article-meta { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: var(--text-muted); padding-bottom: 1.25rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); }
+        .article-meta img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-blue); }
+        .article-hero-img { width: 100%; border-radius: 10px; margin-bottom: 1.5rem; max-height: 340px; object-fit: cover; }
+        .article-content h2 { font-size: 1.22rem; font-weight: 700; color: var(--dark-blue); margin: 1.75rem 0 0.75rem; }
+        .article-content p { font-size: 0.96rem; color: var(--text-gray); margin-bottom: 1rem; text-align: justify; }
+        .article-content ul { padding-left: 1.25rem; margin-bottom: 1.2rem; color: var(--text-gray); font-size: 0.95rem; }
+        .article-content li { margin-bottom: 0.5rem; }
+        .tip-box { background: var(--light-blue); border-left: 4px solid var(--primary-blue); padding: 1.15rem 1.25rem; border-radius: 0 10px 10px 0; margin: 1.5rem 0; font-size: 0.94rem; color: var(--dark-blue); }
+        .cta-box { background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue)); color: #ffffff; border-radius: 12px; padding: 1.5rem; text-align: center; margin-top: 2rem; }
+        .cta-box h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .cta-box p { font-size: 0.9rem; color: #dbeafe; margin-bottom: 1.1rem; }
+        .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: var(--dark-blue); font-weight: 700; padding: 0.65rem 1.3rem; border-radius: 8px; margin: 0.25rem; font-size: 0.9rem; }
+
+        .site-footer { background-color: var(--footer-navy); color: #cbd5e1; padding-top: 2rem; font-size: 0.92rem; border-top: 3px solid var(--primary-blue); }
+        .footer-bottom-bar { background-color: var(--footer-darker); padding: 1.5rem 0; text-align: center; }
+        .footer-nav-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 0.75rem; font-size: 0.85rem; }
+        .footer-disclaimer { font-size: 0.78rem; color: #94a3b8; max-width: 650px; margin: 0 auto 0.75rem; }
+        .floating-zalo { position: fixed; bottom: 20px; right: 20px; background: var(--primary-blue); color: white; padding: 0.7rem 1.1rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; z-index: 999; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="desktop-top-bar">
+            <div class="desktop-top-bar-inner">
+                <span>Hỗ trợ tài chính & Affiliate thực chiến cùng Trung Cần</span>
+                <a href="https://zalo.me/0903101248" target="_blank" style="color:#cbd5e1;"><i class="fa-solid fa-comment-dots"></i> Zalo: 0903.101.248</a>
+            </div>
+        </div>
+        <div class="header-inner">
+            <a href="index.html" class="brand-logo"><img src="logo.png" alt="Logo"> Trung Cần Tài Chính</a>
+            <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            <nav class="dropdown-menu" id="dropdownMenu">
+                <a href="index.html" class="menu-item">Trang chủ</a>
+                <a href="vay-von.html" class="menu-item">Vay tiêu dùng</a>
+                <a href="the-tin-dung.html" class="menu-item">Thẻ tín dụng</a>
+                <a href="kien-thuc-tai-chinh.html" class="menu-item">Kiến thức CIC</a>
+                <a href="kiem-tien-affiliate.html" class="menu-item">Kiếm tiền Affiliate</a>
+                <a href="bao-hiem.html" class="menu-item">Bảo hiểm</a>
+                <a href="gioi-thieu.html" class="menu-item">Về tôi</a>
+            </nav>
+        </div>
+        <div class="laptop-nav-bar">
+            <div class="laptop-nav-inner">
+                <div class="laptop-menu-links">
+                    <a href="index.html">Trang Chủ</a>
+                    <a href="vay-von.html">Vay Tiêu Dùng</a>
+                    <a href="the-tin-dung.html">Thẻ Tín Dụng</a>
+                    <a href="kien-thuc-tai-chinh.html">Kiến Thức CIC</a>
+                    <a href="kiem-tien-affiliate.html" style="color:var(--primary-blue);">Kiếm Tiền Affiliate</a>
+                    <a href="bao-hiem.html">Bảo Hiểm</a>
+                    <a href="gioi-thieu.html">Về Tôi</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <nav class="breadcrumb">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a> <span>/</span>
+            <a href="kiem-tien-affiliate.html">Kiếm tiền Affiliate</a> <span>/</span>
+            <span>Lộ trình Affiliate tài chính</span>
+        </nav>
+
+        <article class="article-card">
+            <span class="post-cat-tag">Kiếm Tiền Affiliate</span>
+            <h1 class="article-title">Lộ trình xây dựng nguồn thu nhập thụ động từ Affiliate Tài Chính cho người mới bắt đầu</h1>
+            <div class="article-meta">
+                <img src="avarta.jpeg" alt="Trung Cần">
+                <div><strong>Trung Cần</strong> • Cập nhật: 02/10/2026 • 5 phút đọc</div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Lộ trình Affiliate tài chính" class="article-hero-img">
+
+            <div class="article-content">
+                <p>Khác với tiếp thị liên kết sàn thương mại điện tử vốn có hoa hồng chỉ vài nghìn đồng mỗi đơn, <strong>Affiliate Tài Chính (Financial Affiliate)</strong> mang lại mức hoa hồng cực kỳ hấp dẫn từ 70.000đ đến hơn 1.200.000đ cho mỗi hồ sơ mở tài khoản, mở thẻ tín dụng hoặc giải ngân khoản vay hợp pháp thành công.</p>
+
+                <h2>1. 3 Ngách sản phẩm dễ bắt đầu nhất</h2>
+                <ul>
+                    <li><strong>Cài đặt App Ngân hàng số (Mobile Banking eKYC):</strong> Khách hàng mở tài khoản số đẹp miễn phí (MB Bank, VPBank, Cake, TNEX...), bạn nhận từ 50.000đ – 120.000đ/đơn.</li>
+                    <li><strong>Mở thẻ tín dụng online (Credit Card):</strong> Khi khách hàng đủ điều kiện được duyệt thẻ (VPBank, TPBank EVO, VIB...), hoa hồng dao động từ 300.000đ – 800.000đ/thẻ.</li>
+                    <li><strong>Giới thiệu gói vay tiêu dùng chính thống (CPL / CPS):</strong> Hoa hồng tính trên hồ sơ hợp lệ hoặc khoản giải ngân thành công từ 2.5% – 5%.</li>
+                </ul>
+
+                <h2>2. Xây dựng Website / Landing Page tổng hợp uy tín</h2>
+                <p>Thay vì chỉ rải link thô trên mạng xã hội dễ bị bóp tương tác, việc sở hữu một <strong>Website tổng hợp chuyên nghiệp</strong> (như mô hình bạn đang xem) giúp khách hàng tự tính được lãi suất, so sánh điều kiện rõ ràng và tin tưởng đăng ký hơn gấp nhiều lần.</p>
+
+                <div class="tip-box">
+                    <strong>💡 Bí quyết giữ chân khách hàng:</strong> Hãy luôn tư vấn thật tâm, chỉ giới thiệu các Ngân hàng & Công ty tài chính chính thống được Ngân hàng Nhà nước cấp phép, tuyệt đối không làm các app tín dụng đen.
+                </div>
+
+                <div class="cta-box">
+                    <h3>Bạn muốn bắt đầu làm Affiliate Tài Chính ngay hôm nay?</h3>
+                    <p>Nhắn trực tiếp qua Zalo cho Trung Cần để được hướng dẫn đăng ký Network uy tín và cách triển khai thực chiến!</p>
+                    <a href="https://zalo.me/0903101248" target="_blank" class="btn-cta"><i class="fa-solid fa-comment-dots"></i> Kết Nối Zalo Cùng Trung Cần</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-bottom-bar">
+            <div class="container">
+                <div class="footer-nav-links">
+                    <a href="index.html">Trang chủ</a>
+                    <a href="gioi-thieu.html">Giới thiệu</a>
+                    <a href="mien-tru-trach-nhiem.html">Miễn trừ trách nhiệm</a>
+                    <a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a>
+                </div>
+                <p class="footer-disclaimer">Website là nơi chia sẻ trải nghiệm, kiến thức cá nhân, và tổng hợp thông tin các gói vay giúp bạn tham khảo, không phải là tổ chức tín dụng và không trực tiếp hỗ trợ giải ngân khoản vay.</p>
+                <p style="font-size:0.8rem; color:#94a3b8;">&copy; Copyright 2026 - TRUNGCANTAICHINH.COM</p>
+            </div>
+        </div>
+    </footer>
+    <a href="https://zalo.me/0903101248" target="_blank" class="floating-zalo"><i class="fa-solid fa-comment-dots"></i> Chat Zalo Tư Vấn</a>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        if (menuToggle) menuToggle.addEventListener('click', (e) => { e.stopPropagation(); dropdownMenu.classList.toggle('open'); });
+        document.addEventListener('click', () => { if (dropdownMenu) dropdownMenu.classList.remove('open'); });
+    </script>
+</body>
+</html>
