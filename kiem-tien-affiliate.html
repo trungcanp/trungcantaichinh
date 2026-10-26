@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiếm Tiền Affiliate Tài Chính Thực Chiến - Trung Cần Tài Chính</title>
+    <meta name="description" content="Chia sẻ kinh nghiệm, lộ trình làm tiếp thị liên kết (Affiliate) ngách tài chính ngân hàng tạo thu nhập thụ động bền vững cùng Trung Cần.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1d4ed8;
+            --dark-blue: #1e3a8a;
+            --light-blue: #eff6ff;
+            --text-dark: #111827;
+            --text-gray: #4b5563;
+            --text-muted: #6b7280;
+            --bg-body: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --footer-navy: #0b1120;
+            --footer-darker: #060a14;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-body); color: var(--text-dark); line-height: 1.65; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.25rem; }
+
+        /* HEADER */
+        header { background: var(--bg-white); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .desktop-top-bar { display: none; background: var(--footer-navy); color: #cbd5e1; font-size: 0.82rem; padding: 0.4rem 1.25rem; }
+        .desktop-top-bar-inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner { max-width: 720px; margin: 0 auto; padding: 0.85rem 1.25rem; display: flex; justify-content: space-between; align-items: center; position: relative; }
+        .brand-logo { font-size: 1.2rem; font-weight: 800; color: var(--dark-blue); display: flex; align-items: center; gap: 8px; }
+        .brand-logo img { width: 32px; height: 32px; object-fit: contain; border-radius: 6px; }
+        .icon-btn { width: 40px; height: 40px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-white); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .laptop-nav-bar { display: none; background: var(--bg-white); border-top: 1px solid var(--border-color); padding: 0.5rem 1.25rem; }
+        .laptop-nav-inner { max-width: 720px; margin: 0 auto; }
+        .laptop-menu-links { display: flex; gap: 1.35rem; font-weight: 600; font-size: 0.92rem; }
+        .laptop-menu-links a:hover { color: var(--primary-blue); }
+        .dropdown-menu { display: none; position: absolute; top: 100%; right: 1.25rem; width: 260px; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.12); padding: 0.5rem 0; z-index: 1001; }
+        .dropdown-menu.open { display: block; }
+        .menu-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.25rem; font-weight: 600; font-size: 0.95rem; }
+        @media (min-width: 768px) { .desktop-top-bar, .laptop-nav-bar { display: block; } #menuToggle, .dropdown-menu { display: none !important; } }
+
+        /* CONTENT */
+        .breadcrumb { margin: 1.5rem 0 1rem; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
+        .breadcrumb a { color: var(--primary-blue); font-weight: 600; }
+        .category-hero { background: linear-gradient(135deg, var(--light-blue), #ffffff); border: 1px solid var(--border-color); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; margin-bottom: 2rem; }
+        .category-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-blue); color: #ffffff; font-size: 0.78rem; font-weight: 700; padding: 4px 12px; border-radius: 50px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        .category-title { font-size: 1.6rem; font-weight: 800; color: var(--dark-blue); margin-bottom: 0.5rem; }
+        .category-desc { font-size: 0.94rem; color: var(--text-gray); }
+
+        .post-card { background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; margin-bottom: 1.75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+        .post-thumb { width: 100%; height: 210px; overflow: hidden; background: #e2e8f0; }
+        .post-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .post-body { padding: 1.4rem 1.25rem; }
+        .post-title { font-size: 1.25rem; font-weight: 700; color: var(--dark-blue); line-height: 1.35; margin-bottom: 0.75rem; display: block; }
+        .post-title:hover { color: var(--primary-blue); text-decoration: underline; }
+        .post-meta { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.85rem; display: flex; gap: 8px; align-items: center; }
+        .cat-badge { background: #059669; color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
+        .post-excerpt { font-size: 0.94rem; color: var(--text-gray); margin-bottom: 1.15rem; }
+        .btn-readmore { display: inline-block; background: var(--primary-blue); color: #fff; font-size: 0.88rem; font-weight: 600; padding: 0.55rem 1.2rem; border-radius: 8px; }
+
+        .affiliate-cta { background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue)); color: #fff; padding: 1.75rem 1.5rem; border-radius: 14px; text-align: center; margin-bottom: 3rem; }
+        .affiliate-cta h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .affiliate-cta p { font-size: 0.9rem; color: #dbeafe; margin-bottom: 1.2rem; }
+        .btn-white { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--dark-blue); font-weight: 700; padding: 0.65rem 1.3rem; border-radius: 8px; font-size: 0.9rem; }
+
+        .site-footer { background-color: var(--footer-navy); color: #cbd5e1; padding-top: 2rem; font-size: 0.92rem; border-top: 3px solid var(--primary-blue); }
+        .footer-bottom-bar { background-color: var(--footer-darker); padding: 1.5rem 0; text-align: center; }
+        .footer-nav-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 0.75rem; font-size: 0.85rem; }
+        .footer-disclaimer { font-size: 0.78rem; color: #94a3b8; max-width: 650px; margin: 0 auto 0.75rem; }
+        .floating-zalo { position: fixed; bottom: 20px; right: 20px; background: var(--primary-blue); color: white; padding: 0.7rem 1.1rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; z-index: 999; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="desktop-top-bar">
+            <div class="desktop-top-bar-inner">
+                <span>Hỗ trợ tài chính & Affiliate thực chiến cùng Trung Cần</span>
+                <a href="https://zalo.me/0903101248" target="_blank" style="color:#cbd5e1;"><i class="fa-solid fa-comment-dots"></i> Zalo: 0903.101.248</a>
+            </div>
+        </div>
+        <div class="header-inner">
+            <a href="index.html" class="brand-logo"><img src="logo.png" alt="Logo"> Trung Cần Tài Chính</a>
+            <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            <nav class="dropdown-menu" id="dropdownMenu">
+                <a href="index.html" class="menu-item">Trang chủ</a>
+                <a href="vay-von.html" class="menu-item">Vay tiêu dùng</a>
+                <a href="the-tin-dung.html" class="menu-item">Thẻ tín dụng</a>
+                <a href="kien-thuc-tai-chinh.html" class="menu-item">Kiến thức CIC</a>
+                <a href="kiem-tien-affiliate.html" class="menu-item" style="color:var(--primary-blue);">Kiếm tiền Affiliate</a>
+                <a href="bao-hiem.html" class="menu-item">Bảo hiểm</a>
+                <a href="gioi-thieu.html" class="menu-item">Về tôi</a>
+            </nav>
+        </div>
+        <div class="laptop-nav-bar">
+            <div class="laptop-nav-inner">
+                <div class="laptop-menu-links">
+                    <a href="index.html">Trang Chủ</a>
+                    <a href="vay-von.html">Vay Tiêu Dùng</a>
+                    <a href="the-tin-dung.html">Thẻ Tín Dụng</a>
+                    <a href="kien-thuc-tai-chinh.html">Kiến Thức CIC</a>
+                    <a href="kiem-tien-affiliate.html" style="color:var(--primary-blue);">Kiếm Tiền Affiliate</a>
+                    <a href="bao-hiem.html">Bảo Hiểm</a>
+                    <a href="gioi-thieu.html">Về Tôi</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <nav class="breadcrumb">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a> <span>/</span> <span>Kiếm Tiền Affiliate</span>
+        </nav>
+
+        <section class="category-hero">
+            <span class="category-badge"><i class="fa-solid fa-sack-dollar"></i> Chuyên Mục MMO Thực Chiến</span>
+            <h1 class="category-title">Kiếm Tiền Affiliate Tài Chính Ngân Hàng</h1>
+            <p class="category-desc">Hướng dẫn chi tiết cách tạo nguồn thu nhập thụ động bền vững từ tiếp thị liên kết mở tài khoản ngân hàng (Mobile App), thẻ tín dụng và giới thiệu gói vay hợp pháp.</p>
+        </section>
+
+        <article class="post-card">
+            <div class="post-thumb">
+                <a href="lo-trinh-affiliate-tai-chinh.html">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Lộ trình Affiliate tài chính">
+                </a>
+            </div>
+            <div class="post-body">
+                <a href="lo-trinh-affiliate-tai-chinh.html" class="post-title">Lộ trình xây dựng nguồn thu nhập thụ động từ Affiliate Tài Chính cho người mới bắt đầu</a>
+                <div class="post-meta">
+                    <span class="cat-badge">Cẩm Nang Affiliate</span>
+                    <strong>Trung Cần</strong> <span>• 02/10/2026</span>
+                </div>
+                <p class="post-excerpt">Ngách tài chính (cài đặt App ngân hàng nhận thưởng, mở thẻ tín dụng, giới thiệu gói vay) luôn nằm trong nhóm có mức hoa hồng cao nhất từ 70.000đ đến 600.000đ/hồ sơ thành công...</p>
+                <a href="lo-trinh-affiliate-tai-chinh.html" class="btn-readmore">Đọc chi tiết</a>
+            </div>
+        </article>
+
+        <div class="affiliate-cta">
+            <h3>Bạn muốn đồng hành làm Affiliate Tài Chính cùng Trung Cần?</h3>
+            <p>Mình sẵn sàng chia sẻ các Network uy tín, cách chọn chiến dịch hoa hồng cao và hỗ trợ bạn xây dựng trang web tổng hợp giống như trang này.</p>
+            <a href="https://zalo.me/0903101248" target="_blank" class="btn-white"><i class="fa-solid fa-comment-dots"></i> Nhắn Zalo: 0903.101.248</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-bottom-bar">
+            <div class="container">
+                <div class="footer-nav-links">
+                    <a href="index.html">Trang chủ</a>
+                    <a href="gioi-thieu.html">Giới thiệu</a>
+                    <a href="mien-tru-trach-nhiem.html">Miễn trừ trách nhiệm</a>
+                    <a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a>
+                </div>
+                <p class="footer-disclaimer">Website là nơi chia sẻ trải nghiệm, kiến thức cá nhân, và tổng hợp thông tin các gói vay giúp bạn tham khảo, không phải là tổ chức tín dụng và không trực tiếp hỗ trợ giải ngân khoản vay.</p>
+                <p style="font-size:0.8rem; color:#94a3b8;">&copy; Copyright 2026 - TRUNGCANTAICHINH.COM</p>
+            </div>
+        </div>
+    </footer>
+    <a href="https://zalo.me/0903101248" target="_blank" class="floating-zalo"><i class="fa-solid fa-comment-dots"></i> Chat Zalo Tư Vấn</a>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        if (menuToggle) menuToggle.addEventListener('click', (e) => { e.stopPropagation(); dropdownMenu.classList.toggle('open'); });
+        document.addEventListener('click', () => { if (dropdownMenu) dropdownMenu.classList.remove('open'); });
+    </script>
+</body>
+</html>
