@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảo Hiểm Cá Nhân & Kiến Thức Bảo Hiểm Khoản Vay - Trung Cần Tài Chính</title>
+    <meta name="description" content="Giải đáp thắc mắc về bảo hiểm khoản vay tiêu dùng và tổng hợp các gói bảo hiểm sức khỏe, bảo hiểm xe cơ giới trực tuyến uy tín.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary-blue: #1d4ed8; --dark-blue: #1e3a8a; --light-blue: #eff6ff; --text-dark: #111827; --text-gray: #4b5563; --text-muted: #6b7280; --bg-body: #f8fafc; --bg-white: #ffffff; --border-color: #e5e7eb; --footer-navy: #0b1120; --footer-darker: #060a14; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-body); color: var(--text-dark); line-height: 1.65; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.25rem; }
+        header { background: var(--bg-white); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .desktop-top-bar { display: none; background: var(--footer-navy); color: #cbd5e1; font-size: 0.82rem; padding: 0.4rem 1.25rem; }
+        .desktop-top-bar-inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner { max-width: 720px; margin: 0 auto; padding: 0.85rem 1.25rem; display: flex; justify-content: space-between; align-items: center; position: relative; }
+        .brand-logo { font-size: 1.2rem; font-weight: 800; color: var(--dark-blue); display: flex; align-items: center; gap: 8px; }
+        .brand-logo img { width: 32px; height: 32px; object-fit: contain; border-radius: 6px; }
+        .icon-btn { width: 40px; height: 40px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-white); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .laptop-nav-bar { display: none; background: var(--bg-white); border-top: 1px solid var(--border-color); padding: 0.5rem 1.25rem; }
+        .laptop-nav-inner { max-width: 720px; margin: 0 auto; }
+        .laptop-menu-links { display: flex; gap: 1.35rem; font-weight: 600; font-size: 0.92rem; }
+        .laptop-menu-links a:hover { color: var(--primary-blue); }
+        .dropdown-menu { display: none; position: absolute; top: 100%; right: 1.25rem; width: 260px; background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.12); padding: 0.5rem 0; z-index: 1001; }
+        .dropdown-menu.open { display: block; }
+        .menu-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.25rem; font-weight: 600; font-size: 0.95rem; }
+        @media (min-width: 768px) { .desktop-top-bar, .laptop-nav-bar { display: block; } #menuToggle, .dropdown-menu { display: none !important; } }
+
+        .breadcrumb { margin: 1.5rem 0 1rem; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
+        .breadcrumb a { color: var(--primary-blue); font-weight: 600; }
+        .category-hero { background: linear-gradient(135deg, var(--light-blue), #ffffff); border: 1px solid var(--border-color); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; margin-bottom: 1.75rem; }
+        .category-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--primary-blue); color: #ffffff; font-size: 0.78rem; font-weight: 700; padding: 4px 12px; border-radius: 50px; margin-bottom: 0.75rem; text-transform: uppercase; }
+        .category-title { font-size: 1.6rem; font-weight: 800; color: var(--dark-blue); margin-bottom: 0.5rem; }
+        .category-desc { font-size: 0.94rem; color: var(--text-gray); }
+
+        .info-card { background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 14px; padding: 1.75rem 1.5rem; margin-bottom: 1.5rem; }
+        .info-card h2 { font-size: 1.18rem; font-weight: 700; color: var(--dark-blue); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px; }
+        .info-card p { font-size: 0.95rem; color: var(--text-gray); margin-bottom: 0.85rem; text-align: justify; }
+        .info-card ul { padding-left: 1.25rem; color: var(--text-gray); font-size: 0.94rem; margin-bottom: 0.75rem; }
+        .info-card li { margin-bottom: 0.45rem; }
+
+        .site-footer { background-color: var(--footer-navy); color: #cbd5e1; padding-top: 2rem; font-size: 0.92rem; border-top: 3px solid var(--primary-blue); margin-top: 2.5rem; }
+        .footer-bottom-bar { background-color: var(--footer-darker); padding: 1.5rem 0; text-align: center; }
+        .footer-nav-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 0.75rem; font-size: 0.85rem; }
+        .footer-disclaimer { font-size: 0.78rem; color: #94a3b8; max-width: 650px; margin: 0 auto 0.75rem; }
+        .floating-zalo { position: fixed; bottom: 20px; right: 20px; background: var(--primary-blue); color: white; padding: 0.7rem 1.1rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; z-index: 999; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="desktop-top-bar">
+            <div class="desktop-top-bar-inner">
+                <span>Hỗ trợ tài chính & Affiliate thực chiến cùng Trung Cần</span>
+                <a href="https://zalo.me/0903101248" target="_blank" style="color:#cbd5e1;"><i class="fa-solid fa-comment-dots"></i> Zalo: 0903.101.248</a>
+            </div>
+        </div>
+        <div class="header-inner">
+            <a href="index.html" class="brand-logo"><img src="logo.png" alt="Logo"> Trung Cần Tài Chính</a>
+            <button class="icon-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            <nav class="dropdown-menu" id="dropdownMenu">
+                <a href="index.html" class="menu-item">Trang chủ</a>
+                <a href="vay-von.html" class="menu-item">Vay tiêu dùng</a>
+                <a href="the-tin-dung.html" class="menu-item">Thẻ tín dụng</a>
+                <a href="kien-thuc-tai-chinh.html" class="menu-item">Kiến thức CIC</a>
+                <a href="kiem-tien-affiliate.html" class="menu-item">Kiếm tiền Affiliate</a>
+                <a href="bao-hiem.html" class="menu-item" style="color:var(--primary-blue);">Bảo hiểm</a>
+                <a href="gioi-thieu.html" class="menu-item">Về tôi</a>
+            </nav>
+        </div>
+        <div class="laptop-nav-bar">
+            <div class="laptop-nav-inner">
+                <div class="laptop-menu-links">
+                    <a href="index.html">Trang Chủ</a>
+                    <a href="vay-von.html">Vay Tiêu Dùng</a>
+                    <a href="the-tin-dung.html">Thẻ Tín Dụng</a>
+                    <a href="kien-thuc-tai-chinh.html">Kiến Thức CIC</a>
+                    <a href="kiem-tien-affiliate.html">Kiếm Tiền Affiliate</a>
+                    <a href="bao-hiem.html" style="color:var(--primary-blue);">Bảo Hiểm</a>
+                    <a href="gioi-thieu.html">Về Tôi</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <nav class="breadcrumb">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Trang chủ</a> <span>/</span> <span>Bảo Hiểm Cá Nhân</span>
+        </nav>
+
+        <section class="category-hero">
+            <span class="category-badge"><i class="fa-solid fa-shield-heart"></i> Bảo Vệ Tài Chính</span>
+            <h1 class="category-title">Bảo Hiểm Cá Nhân & Lưu Ý Bảo Hiểm Khoản Vay</h1>
+            <p class="category-desc">Hiểu đúng bản chất bảo hiểm dư nợ tín dụng khi đi vay và lựa chọn các sản phẩm bảo hiểm thiết thực phù hợp túi tiền.</p>
+        </section>
+
+        <section class="info-card">
+            <h2><i class="fa-solid fa-file-shield" style="color:var(--primary-blue);"></i> 1. Sự thật về "Bảo hiểm khoản vay" khi vay tiêu dùng</h2>
+            <p>Khi ký hợp đồng vay tín chấp tại các công ty tài chính hoặc ngân hàng, bạn thường thấy mục <strong>Phí bảo hiểm khoản vay</strong> (thường từ 5% – 7.5% giá trị khoản vay). Dưới đây là góc nhìn thực tế từ Trung Cần:</p>
+            <ul>
+                <li><strong>Quy định pháp luật:</strong> Bảo hiểm khoản vay là tự nguyện, dùng để bên bảo hiểm đứng ra trả nợ thay nếu người vay gặp rủi ro bất khả kháng (tử vong, thương tật toàn bộ vĩnh viễn).</li>
+                <li><strong>Lưu ý khi ký hợp đồng điện tử (eSign):</strong> Hãy đọc kỹ điều khoản xem khoản tiền giải ngân thực nhận đã trừ phí bảo hiểm hay cộng vào gốc vay để cân đối chi phí trước khi bấm xác nhận OTP.</li>
+            </ul>
+        </section>
+
+        <section class="info-card">
+            <h2><i class="fa-solid fa-car-burst" style="color:var(--primary-blue);"></i> 2. Sử dụng Hợp đồng Bảo hiểm Nhân thọ (BHNT) để vay lãi suất thấp</h2>
+            <p>Nếu bạn đang sở hữu một hợp đồng Bảo hiểm Nhân thọ có hiệu lực từ <strong>1 năm trở lên</strong> với mức phí đóng từ 2 triệu/năm, bạn thuộc nhóm khách hàng ưu tiên của <strong>Lotte Finance, Shinhan Finance và SHB Finance</strong> với mức lãi suất ưu đãi hơn rất nhiều so với vay theo CCCD thông thường.</p>
+            <p style="margin-top:1rem;">
+                <a href="vay-von.html" style="display:inline-block; background:var(--primary-blue); color:#fff; padding:0.6rem 1.2rem; border-radius:8px; font-weight:600; font-size:0.9rem;">Xem các gói vay theo Hợp đồng Bảo hiểm <i class="fa-solid fa-arrow-right"></i></a>
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-bottom-bar">
+            <div class="container">
+                <div class="footer-nav-links">
+                    <a href="index.html">Trang chủ</a>
+                    <a href="gioi-thieu.html">Giới thiệu</a>
+                    <a href="mien-tru-trach-nhiem.html">Miễn trừ trách nhiệm</a>
+                    <a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a>
+                </div>
+                <p class="footer-disclaimer">Website là nơi chia sẻ trải nghiệm, kiến thức cá nhân, và tổng hợp thông tin các gói vay giúp bạn tham khảo, không phải là tổ chức tín dụng và không trực tiếp hỗ trợ giải ngân khoản vay.</p>
+                <p style="font-size:0.8rem; color:#94a3b8;">&copy; Copyright 2026 - TRUNGCANTAICHINH.COM</p>
+            </div>
+        </div>
+    </footer>
+    <a href="https://zalo.me/0903101248" target="_blank" class="floating-zalo"><i class="fa-solid fa-comment-dots"></i> Chat Zalo Tư Vấn</a>
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        if (menuToggle) menuToggle.addEventListener('click', (e) => { e.stopPropagation(); dropdownMenu.classList.toggle('open'); });
+        document.addEventListener('click', () => { if (dropdownMenu) dropdownMenu.classList.remove('open'); });
+    </script>
+</body>
+</html>
