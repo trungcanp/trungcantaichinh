@@ -914,11 +914,14 @@
               </div>
               <div class="submenu open" id="productSubmenu">
                   <a href="vay-von.html">• Vay tiêu dùng</a>
-                  <a href="vay-von.html">• Thẻ tín dụng</a>
-                  <a href="gioi-thieu.html">• Về tôi</a>
+                  <a href="the-tin-dung.html">• Thẻ tín dụng</a>
+                  <a href="bao-hiem.html">• Bảo hiểm</a>
               </div>
-              <a href="index.html" class="menu-item">
-                  <span><i class="fa-solid fa-newspaper" style="width:22px; color:#1d4ed8;"></i> Blog</span>
+              <a href="kien-thuc-tai-chinh.html" class="menu-item">
+                  <span><i class="fa-solid fa-newspaper" style="width:22px; color:#1d4ed8;"></i> Blog & Kiến thức CIC</span>
+              </a>
+              <a href="kiem-tien-affiliate.html" class="menu-item">
+                  <span><i class="fa-solid fa-sack-dollar" style="width:22px; color:#1d4ed8;"></i> Kiếm tiền (Affiliate)</span>
               </a>
               <a href="gioi-thieu.html" class="menu-item">
                   <span><i class="fa-solid fa-user-check" style="width:22px; color:#1d4ed8;"></i> Về tôi</span>
@@ -931,7 +934,10 @@
               <div class="laptop-menu-links">
                   <a href="index.html">Trang Chủ</a>
                   <a href="vay-von.html" style="color: var(--primary-blue);">Vay Tiêu Dùng</a>
-                  <a href="vay-von.html">Thẻ Tín Dụng</a>
+                  <a href="the-tin-dung.html">Thẻ Tín Dụng</a>
+                  <a href="kien-thuc-tai-chinh.html">Kiến Thức CIC</a>
+                  <a href="kiem-tien-affiliate.html">Kiếm Tiền Affiliate</a>
+                  <a href="bao-hiem.html">Bảo Hiểm</a>
                   <a href="gioi-thieu.html">Về Tôi</a>
               </div>
           </div>
@@ -1075,16 +1081,7 @@
         <h4 class="footer-category-title">CATEGORY</h4>
         <ul class="footer-categories">
             <li>
-                <a href="vay-von.html" class="footer-cat-link">
-                    <span class="cat-left">
-                        <i class="fa-solid fa-bolt"></i> Vay Tiêu Dùng Nhanh
-                        <span class="tag-hot-mini">HOT</span>
-                    </span>
-                    <span class="cat-count-pill">12</span>
-                </a>
-            </li>
-            <li>
-                <a href="vay-von.html" class="footer-cat-link">
+                <a href="the-tin-dung.html" class="footer-cat-link">
                     <span class="cat-left">
                         <i class="fa-solid fa-credit-card"></i> Thẻ Tín Dụng Ưu Đãi
                     </span>
@@ -1092,7 +1089,7 @@
                 </a>
             </li>
             <li>
-                <a href="index.html" class="footer-cat-link">
+                <a href="kien-thuc-tai-chinh.html" class="footer-cat-link">
                     <span class="cat-left">
                         <i class="fa-solid fa-building-columns"></i> Kiến Thức Tài Chính & CIC
                     </span>
@@ -1100,7 +1097,7 @@
                 </a>
             </li>
             <li>
-                <a href="index.html" class="footer-cat-link">
+                <a href="kiem-tien-affiliate.html" class="footer-cat-link">
                     <span class="cat-left">
                         <i class="fa-solid fa-sack-dollar"></i> Kiếm Tiền Affiliate
                     </span>
@@ -1108,7 +1105,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="footer-cat-link">
+                <a href="bao-hiem.html" class="footer-cat-link">
                     <span class="cat-left">
                         <i class="fa-solid fa-shield-heart"></i> Bảo Hiểm Cá Nhân
                     </span>
@@ -1301,15 +1298,16 @@
     const productsData = [
       {
         id: "tinvay-vietcredit",
-        status: "paused", // Tạm ngưng hiển thị
+        status: "active",
         categories: "vaynhanh",
         badges: [
+          { text: "🔥 Sản phẩm đang hot", type: "cty-taichinh" },
           { text: "Vay tiêu dùng", type: "vay-tieudung" },
           { text: "Công Ty tài chính", type: "cty-taichinh" }
         ],
         name: "Tin Vay (VietCredit)",
         logo: "Tinvay.PNG",
-        tags: ["Cấp bởi VietCredit", "Đăng ký online", "Giải ngân trong 3 phút"],
+        tags: ["Sản phẩm đang hot", "Cấp bởi VietCredit", "Đăng ký online", "Giải ngân trong 3 phút"],
         stat1Label: "Hạn mức vay tối đa",
         stat1Value: "100 Triệu",
         stat2Label: "Lãi suất",
