@@ -44,7 +44,7 @@
         }
 
         .container {
-            max-width: 720px;
+            max-width: 1150px;
             margin: 0 auto;
             padding: 0 1.25rem;
         }
@@ -70,7 +70,89 @@
         }
 
         .desktop-top-bar-inner {
-            max-width: 720px;
+            max-width: 1150px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-socials {
+            display: flex;
+            gap: 12px;
+        }
+
+        .top-socials a {
+            color: #cbd5e1;
+            transition: color 0.2s;
+        }
+
+        .top-socials a:hover {
+            color: #60a5fa;
+        }
+
+        .header-inner {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .brand-logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-logo img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-white);
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .icon-btn:hover, .icon-btn.active {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .laptop-nav-bar {
+            display: none;
+            background: var(--bg-white);
+            border-top: 1px solid var(--border-color);
+            padding: 0.5rem 1.25rem;
+        }
+
+        .laptop-nav-inner {
+            max-width: 1150px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -930,13 +1012,13 @@
                 </div>
                 <div class="submenu open" id="productSubmenu">
                     <a href="vay-von.html">• Vay tiêu dùng</a>
-                    <a href="#">• Thẻ tín dụng</a>
-                    <a href="#">• Bảo hiểm</a>
+                    <a href="the-tin-dung.html">• Thẻ tín dụng</a>
+                    <a href="bao-hiem.html">• Bảo hiểm</a>
                 </div>
-                <a href="index.html#doc-nhieu-nhat" class="menu-item">
-                    <span><i class="fa-solid fa-newspaper" style="width:22px; color:#1d4ed8;"></i> Blog</span>
+                <a href="kien-thuc-tai-chinh.html" class="menu-item">
+                    <span><i class="fa-solid fa-newspaper" style="width:22px; color:#1d4ed8;"></i> Blog & Kiến thức CIC</span>
                 </a>
-                <a href="index.html#bai-viet-moi-nhat" class="menu-item">
+                <a href="kiem-tien-affiliate.html" class="menu-item">
                     <span><i class="fa-solid fa-sack-dollar" style="width:22px; color:#1d4ed8;"></i> Kiếm tiền (Affiliate)</span>
                 </a>
                 <a href="gioi-thieu.html" class="menu-item" style="color: var(--primary-blue);">
@@ -950,9 +1032,10 @@
                 <div class="laptop-menu-links">
                     <a href="index.html">Trang Chủ</a>
                     <a href="vay-von.html">Vay Tiêu Dùng</a>
-                    <a href="#">Thẻ Tín Dụng</a>
-                    <a href="index.html#doc-nhieu-nhat">Kiến Thức CIC</a>
-                    <a href="index.html#bai-viet-moi-nhat">Kiếm Tiền Affiliate</a>
+                    <a href="the-tin-dung.html">Thẻ Tín Dụng</a>
+                    <a href="kien-thuc-tai-chinh.html">Kiến Thức CIC</a>
+                    <a href="kiem-tien-affiliate.html">Kiếm Tiền Affiliate</a>
+                    <a href="bao-hiem.html">Bảo Hiểm</a>
                     <a href="gioi-thieu.html" style="color: var(--primary-blue);">Về Tôi</a>
                 </div>
             </div>
